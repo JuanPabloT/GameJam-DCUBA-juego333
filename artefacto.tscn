@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dspp01lf7qmej"]
+
+[ext_resource type="Script" uid="uid://c62xxuqmr75f7" path="res://artifact.gd" id="1_s0dt2"]
+
+[node name="Artifact" type="Node2D" unique_id=1541724156]
+script = ExtResource("1_s0dt2")
+
+[node name="Up" type="Sprite2D" parent="." unique_id=507334297]
+
+[node name="Down" type="Sprite2D" parent="." unique_id=598566188]
+
+[node name="Right" type="Sprite2D" parent="." unique_id=1401676717]
