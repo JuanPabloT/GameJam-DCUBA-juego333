@@ -18,3 +18,7 @@ config/name="Artefacto Olvidado"
 run/main_scene="uid://beaaeby126y6x"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameData="*uid://dv66ur64f0aye"

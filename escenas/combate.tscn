@@ -88,7 +88,7 @@ script = ExtResource("5_vtyci")
 health_status = NodePath("../Camera2D/Game Status/Rival health")
 
 [node name="EnemigoProvisionalSprite" type="Sprite2D" parent="EnemigoProvisional" unique_id=1238460282]
-position = Vector2(257, -53)
+position = Vector2(277, -37)
 texture = ExtResource("3_rgmsd")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
