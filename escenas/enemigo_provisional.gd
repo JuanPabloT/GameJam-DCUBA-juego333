@@ -12,3 +12,6 @@ func on_death():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func on_turn():
+	enemy.deal_ordinary_damage(randi_range(15, 0))

@@ -22,13 +22,11 @@ func _on_ready() -> void:
 func _disable_buttons() -> void:
 	$"Camera2D/Buttons control/Consumir".disabled = true
 	$"Camera2D/Buttons control/Utilizar".disabled = true
-	pass
 
 
 func _enable_buttons() -> void:
 	$"Camera2D/Buttons control/Consumir".disabled = false
 	$"Camera2D/Buttons control/Utilizar".disabled = false
-	pass
 
 
 func _player_lost() -> bool:
@@ -60,7 +58,7 @@ func _rival_turn() -> void:
 	player.on_turn_end()
 	if _rival_lost():
 		return
-	_update_player_health(randi_range(-15, 0))
+	rival.on_turn()
 	rival.on_turn_end()
 	_player_turn()
 
@@ -86,8 +84,4 @@ func _on_utilizar_pressed() -> void:
 	##salir
 
 
-func _update_player_health(value) -> void:
-	player.change_health(value)
-
-func _update_rival_health(value) -> void:
-	player.change_health(value)
+	

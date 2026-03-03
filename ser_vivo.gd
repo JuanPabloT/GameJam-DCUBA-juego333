@@ -3,8 +3,12 @@ extends Node
 
 
 var health
-var turns_on_fire = 0
-@export var health_status : Node
+var shield = 0
+var GD = GameData
+
+@export var health_status : Label
+@export var effect_status : StatusEffectHandler
+@export var enemy : SerVivo
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,26 +17,26 @@ func _ready() -> void:
 func is_dead()->bool:
 	return health <= 0
 
-func set_on_fire_for(n:int):
-	display_status("En Llamas!", "#F50")
-	turns_on_fire = n
+
+func deal_ordinary_damage(n:int):
+	change_health(-n, "#F00")
+
+func heal_by(n:int):
+	change_health(n, "#0F0")
 
 func on_turn_end():
-	if turns_on_fire > 0:
-		turns_on_fire -= 1
-		change_health(-5, "#F50")
+	pass
+	#if turns_on_fire > 0:
+	#		turns_on_fire -= 1
+	#	change_health(-5, "#F50")
 
-	
+
+
 func change_health(amount:int, color=null):
 	health += amount
 	if health_status != null:
 		health_status.text = str(health)
-	if amount > 0:
-		display_status(str(amount), color if color != null else "#5F5")
-	elif amount < 0:
-		display_status(str(amount), color if color != null else "#F55")
-	else:
-		display_status(str(amount), color if color != null else "#FFF")
+	display_status(str(amount), color if color != null else "#FFF")
 		
 	if is_dead():
 		on_death()
@@ -46,7 +50,30 @@ func _process(delta: float) -> void:
 	
 	
 	
+func set_on_fire():
+	display_status("Fuego!", "#F50")
+	effect_status.add_flame_effect()
 	
+func apply_water():
+	display_status("Lluvia", GD.element_colors[GD.water])
+	effect_status.add_water_effect()
+
+func apply_root():
+	display_status("Frondas", GD.element_colors[GD.root])
+	effect_status.add_rooted_effect()
+
+func apply_lightning():
+	display_status("Rayo!", GD.element_colors[GD.lightning])
+	effect_status.add_shock_effect()
+
+func apply_poison(n:int):
+	display_status("Envenenado", GD.element_colors[GD.poison])
+	effect_status.add_poison_effect(n)
+
+func apply_beer():
+	display_status("Emborrachado", GD.element_colors[GD.beer])
+	effect_status.add_beer_effect()
+
 	
 	
 	
