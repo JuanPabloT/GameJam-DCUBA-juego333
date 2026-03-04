@@ -51,6 +51,7 @@ func spawn_artifact()->Node:
 func _rival_lost() -> bool:
 	if rival.is_dead():
 		print("Ganaste :D")
+		GameData.level += 1
 		return true
 	return false
 

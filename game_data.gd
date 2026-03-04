@@ -71,5 +71,6 @@ func assign_effect_to_artifact_parts():
 		real_effect_descriptions[all_artifact_pieces[i]] = possible_effects[i][1]
 
 #Data para el torneo
-var level
-var enemies_remaining
+var level : int
+var enemies_remaining : Array
+var losers : Array
