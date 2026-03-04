@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://beaaeby126y6x"]
+
+[ext_resource type="Script" uid="uid://djn4rdf2cl842" path="res://scripts/mainmenu.gd" id="1_krmqs"]
+
+[node name="Main" type="Node" unique_id=548677728]
+script = ExtResource("1_krmqs")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1432494271]
+
+[node name="Main Menu" type="ColorRect" parent="Camera2D" unique_id=71950992]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.437201, 0.512791, 0.535895, 1)
+
+[node name="Label" type="Label" parent="Camera2D/Main Menu" unique_id=1087853637]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -193.0
+offset_right = 193.0
+offset_bottom = 122.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 70
+text = "Terrenaitor"
+
+[node name="Buttons menu" type="Control" parent="Camera2D/Main Menu" unique_id=383199156]
+anchors_preset = 0
+offset_right = 1153.0
+offset_bottom = 647.0
+
+[node name="Iniciar" type="Button" parent="Camera2D/Main Menu/Buttons menu" unique_id=1907155841]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -167.5
+offset_right = 62.5
+offset_bottom = -67.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Empezar"
+
+[node name="Tutorial" type="Button" parent="Camera2D/Main Menu/Buttons menu" unique_id=1137038183]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -46.5
+offset_right = 152.0
+offset_bottom = 53.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Tutorial"
+
+[node name="Logros" type="Button" parent="Camera2D/Main Menu/Buttons menu" unique_id=1072365390]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -250.0
+offset_right = 50.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Logros"
+
+[node name="Salir" type="Button" parent="Camera2D/Main Menu/Buttons menu" unique_id=779580328]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 194.5
+offset_right = 50.0
+offset_bottom = 294.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Salir"
+
+[connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/Iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/Logros" to="." method="_on_logros_pressed"]
+[connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/Salir" to="." method="_on_salir_pressed"]

@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbixvlkpqhf11"]
+
+[ext_resource type="Script" uid="uid://dxi51xketdx5u" path="res://scripts/combat_script.gd" id="1_tj7jl"]
+[ext_resource type="Texture2D" uid="uid://s5qn7amar80b" path="res://sprites/temp/a1.png" id="3_rgmsd"]
+[ext_resource type="Script" uid="uid://bjxo02uboe17n" path="res://escenas/jugador.gd" id="3_vtyci"]
+[ext_resource type="Texture2D" uid="uid://dk28jhxvoqufn" path="res://sprites/temp/pc.png" id="4_vtyci"]
+[ext_resource type="Script" uid="uid://b3cbey53rg14p" path="res://escenas/enemigo_provisional.gd" id="5_vtyci"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_tj7jl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Buttons control" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Consumir" type="Button" parent="Camera2D/Buttons control"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = -450.0
+offset_top = 117.0
+offset_right = -105.0
+offset_bottom = 217.0
+theme_override_font_sizes/font_size = 30
+text = "CONSUMIR ARTEFACTO"
+
+[node name="Utilizar" type="Button" parent="Camera2D/Buttons control"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 114.0
+offset_top = 115.0
+offset_right = 428.0
+offset_bottom = 215.0
+theme_override_font_sizes/font_size = 30
+text = "UTILIZAR ARTEFACTO"
+
+[node name="Surrender" type="Button" parent="Camera2D/Buttons control"]
+layout_mode = 0
+offset_left = -572.0
+offset_top = 289.0
+offset_right = -487.0
+offset_bottom = 320.0
+text = "IR AL MENU"
+
+[node name="Game Status" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Player health" type="Label" parent="Camera2D/Game Status"]
+layout_mode = 0
+offset_left = -345.0
+offset_top = -290.0
+offset_right = -242.0
+offset_bottom = -207.0
+theme_override_font_sizes/font_size = 60
+text = "100"
+
+[node name="Rival health" type="Label" parent="Camera2D/Game Status"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = -290.0
+offset_right = 337.0
+offset_bottom = -207.0
+theme_override_font_sizes/font_size = 60
+text = "100"
+
+[node name="Jugador" type="VBoxContainer" parent="." node_paths=PackedStringArray("health_status")]
+offset_left = -301.0
+offset_top = -12.0
+offset_right = -261.0
+offset_bottom = 28.0
+script = ExtResource("3_vtyci")
+health_status = NodePath("../Camera2D/Game Status/Player health")
+
+[node name="JugadorSprite" type="Sprite2D" parent="Jugador"]
+scale = Vector2(1.35771, 0.430168)
+texture = ExtResource("4_vtyci")
+
+[node name="EnemigoProvisional" type="VBoxContainer" parent="." node_paths=PackedStringArray("health_status")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_vtyci")
+health_status = NodePath("../Camera2D/Game Status/Rival health")
+
+[node name="EnemigoProvisionalSprite" type="Sprite2D" parent="EnemigoProvisional"]
+position = Vector2(277, -37)
+texture = ExtResource("3_rgmsd")
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="Camera2D/Buttons control/Consumir" to="." method="_on_consumir_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons control/Utilizar" to="." method="_on_utilizar_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons control/Surrender" to="." method="_on_surrender_pressed"]

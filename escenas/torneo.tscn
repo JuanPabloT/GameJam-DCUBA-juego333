@@ -1,0 +1,365 @@
+[gd_scene format=3 uid="uid://copy82a3w1qsy"]
+
+[ext_resource type="Script" uid="uid://dsyhtpjedyjly" path="res://scripts/torneo.gd" id="1_h2il6"]
+[ext_resource type="Texture2D" uid="uid://crtl6mwm1yye5" path="res://sprites/personajes/iconos/pj_small_head.png" id="2_eygol"]
+[ext_resource type="Texture2D" uid="uid://copyfawtnott1" path="res://sprites/personajes/iconos/clemen_tina_head.png" id="3_a8ykt"]
+[ext_resource type="Texture2D" uid="uid://dxctp4r6f0cqk" path="res://sprites/personajes/iconos/liliana_head.png" id="4_ppx6x"]
+[ext_resource type="Texture2D" uid="uid://bn6w1dum6gbpd" path="res://sprites/personajes/iconos/fire_elemental_head.png" id="5_ucc4j"]
+
+[node name="main" type="Node" unique_id=393111388]
+script = ExtResource("1_h2il6")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=907164491]
+
+[node name="Background" type="ColorRect" parent="Camera2D" unique_id=1464912676]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(0.43529412, 0.5137255, 0.5372549, 1)
+
+[node name="Node" type="Node" parent="Camera2D" unique_id=1170913333]
+
+[node name="rect" type="ColorRect" parent="Camera2D/Node" unique_id=149400266]
+anchors_preset = -1
+anchor_left = -0.171875
+anchor_top = 0.19444445
+anchor_right = -0.171875
+anchor_bottom = 0.19444445
+offset_left = 223.0
+offset_top = -48.0
+offset_right = 323.0
+offset_bottom = -38.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect2" type="ColorRect" parent="Camera2D/Node" unique_id=571142659]
+anchors_preset = -1
+anchor_left = -0.171875
+anchor_top = 0.19444445
+anchor_right = -0.171875
+anchor_bottom = 0.19444445
+offset_left = 323.0
+offset_top = -48.0
+offset_right = 423.0
+offset_bottom = -38.0
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect3" type="ColorRect" parent="Camera2D/Node" unique_id=1874084358]
+anchors_preset = -1
+anchor_left = -0.171875
+anchor_top = 0.19444445
+anchor_right = -0.171875
+anchor_bottom = 0.19444445
+offset_left = 233.0
+offset_top = -48.0
+offset_right = 333.0
+offset_bottom = -38.0
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect4" type="ColorRect" parent="Camera2D/Node" unique_id=765816246]
+anchors_preset = -1
+anchor_left = -0.061631944
+anchor_top = 0.19444445
+anchor_right = -0.061631944
+anchor_bottom = 0.19444445
+offset_left = 236.0
+offset_top = -48.0
+offset_right = 336.0
+offset_bottom = -38.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect5" type="ColorRect" parent="Camera2D/Node" unique_id=1718437350]
+anchors_preset = -1
+anchor_left = -0.061631944
+anchor_top = 0.19444445
+anchor_right = -0.061631944
+anchor_bottom = 0.19444445
+offset_left = 336.0
+offset_top = -48.0
+offset_right = 436.0
+offset_bottom = -38.0
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect6" type="ColorRect" parent="Camera2D/Node" unique_id=795325080]
+anchors_preset = -1
+anchor_left = -0.061631944
+anchor_top = 0.19444445
+anchor_right = -0.061631944
+anchor_bottom = 0.19444445
+offset_left = 246.0
+offset_top = -48.0
+offset_right = 346.0
+offset_bottom = -38.0
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect7" type="ColorRect" parent="Camera2D/Node" unique_id=504064432]
+anchors_preset = -1
+anchor_left = -0.11631945
+anchor_top = 0.055555556
+anchor_right = -0.11631945
+anchor_bottom = 0.055555556
+offset_left = 204.0
+offset_top = -48.0
+offset_right = 354.0
+offset_bottom = -38.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect8" type="ColorRect" parent="Camera2D/Node" unique_id=192117947]
+anchors_preset = -1
+anchor_left = -0.11631945
+anchor_top = 0.055555556
+anchor_right = -0.11631945
+anchor_bottom = 0.055555556
+offset_left = 214.0
+offset_top = -48.0
+offset_right = 314.0
+offset_bottom = -38.0
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect9" type="ColorRect" parent="Camera2D/Node" unique_id=1995800177]
+anchors_preset = -1
+anchor_left = -0.11631945
+anchor_top = 0.055555556
+anchor_right = -0.11631945
+anchor_bottom = 0.055555556
+offset_left = 354.0
+offset_top = -48.0
+offset_right = 454.0
+offset_bottom = -38.0
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect10" type="ColorRect" parent="Camera2D/Node" unique_id=1607458717]
+anchors_preset = -1
+anchor_left = -0.11631945
+anchor_top = 0.055555556
+anchor_right = -0.11631945
+anchor_bottom = 0.055555556
+offset_left = 284.0
+offset_top = -138.0
+offset_right = 384.0
+offset_bottom = -128.0
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2" type="Node" parent="Camera2D" unique_id=1479950018]
+
+[node name="rect" type="ColorRect" parent="Camera2D/Node2" unique_id=817720354]
+anchors_preset = -1
+anchor_left = -0.171875
+anchor_top = 0.19444445
+anchor_right = -0.171875
+anchor_bottom = 0.19444445
+offset_left = -67.0
+offset_top = -48.0
+offset_right = 33.0
+offset_bottom = -38.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect2" type="ColorRect" parent="Camera2D/Node2" unique_id=1314293598]
+anchors_preset = -1
+anchor_left = -0.171875
+anchor_top = 0.19444445
+anchor_right = -0.171875
+anchor_bottom = 0.19444445
+offset_left = 33.0
+offset_top = -48.0
+offset_right = 133.0
+offset_bottom = -38.0
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect3" type="ColorRect" parent="Camera2D/Node2" unique_id=802548376]
+anchors_preset = -1
+anchor_left = -0.171875
+anchor_top = 0.19444445
+anchor_right = -0.171875
+anchor_bottom = 0.19444445
+offset_left = -57.0
+offset_top = -48.0
+offset_right = 43.0
+offset_bottom = -38.0
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect4" type="ColorRect" parent="Camera2D/Node2" unique_id=253556987]
+anchors_preset = -1
+anchor_left = -0.061631944
+anchor_top = 0.19444445
+anchor_right = -0.061631944
+anchor_bottom = 0.19444445
+offset_left = -53.999992
+offset_top = -48.0
+offset_right = 46.000008
+offset_bottom = -38.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect5" type="ColorRect" parent="Camera2D/Node2" unique_id=229506745]
+anchors_preset = -1
+anchor_left = -0.061631944
+anchor_top = 0.19444445
+anchor_right = -0.061631944
+anchor_bottom = 0.19444445
+offset_left = 46.000008
+offset_top = -48.0
+offset_right = 146.0
+offset_bottom = -38.0
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect6" type="ColorRect" parent="Camera2D/Node2" unique_id=673560386]
+anchors_preset = -1
+anchor_left = -0.061631944
+anchor_top = 0.19444445
+anchor_right = -0.061631944
+anchor_bottom = 0.19444445
+offset_left = -43.999992
+offset_top = -48.0
+offset_right = 56.000008
+offset_bottom = -38.0
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect7" type="ColorRect" parent="Camera2D/Node2" unique_id=328986309]
+anchors_preset = -1
+anchor_left = -0.11631945
+anchor_top = 0.055555556
+anchor_right = -0.11631945
+anchor_bottom = 0.055555556
+offset_left = -86.0
+offset_top = -48.0
+offset_right = 64.0
+offset_bottom = -38.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect8" type="ColorRect" parent="Camera2D/Node2" unique_id=1963001882]
+anchors_preset = -1
+anchor_left = -0.11631945
+anchor_top = 0.055555556
+anchor_right = -0.11631945
+anchor_bottom = 0.055555556
+offset_left = -76.0
+offset_top = -48.0
+offset_right = 24.0
+offset_bottom = -38.0
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect9" type="ColorRect" parent="Camera2D/Node2" unique_id=731926670]
+anchors_preset = -1
+anchor_left = -0.11631945
+anchor_top = 0.055555556
+anchor_right = -0.11631945
+anchor_bottom = 0.055555556
+offset_left = 64.00001
+offset_top = -48.0
+offset_right = 164.0
+offset_bottom = -38.0
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect10" type="ColorRect" parent="Camera2D/Node2" unique_id=2081997829]
+anchors_preset = -1
+anchor_left = -0.11631945
+anchor_top = 0.055555556
+anchor_right = -0.11631945
+anchor_bottom = 0.055555556
+offset_left = -6.0
+offset_top = -138.0
+offset_right = 93.99999
+offset_bottom = -128.0
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect7" type="ColorRect" parent="Camera2D" unique_id=1141972949]
+anchors_preset = -1
+anchor_left = -0.11631945
+anchor_top = 0.055555556
+anchor_right = -0.11631945
+anchor_bottom = 0.055555556
+offset_left = -150.0
+offset_top = -102.0
+offset_right = 150.0
+offset_bottom = -92.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="rect10" type="ColorRect" parent="Camera2D" unique_id=2058136085]
+anchors_preset = -1
+anchor_left = -0.11631945
+anchor_top = 0.055555556
+anchor_right = -0.11631945
+anchor_bottom = 0.055555556
+offset_left = 5.0
+offset_top = -192.0
+offset_right = 105.0
+offset_bottom = -182.0
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="return" type="Button" parent="." unique_id=30976520]
+custom_minimum_size = Vector2(50, 0)
+offset_left = -559.0
+offset_top = 278.0
+offset_right = -502.0
+offset_bottom = 309.0
+text = "Volver"
+
+[node name="next match" type="Button" parent="." unique_id=773355108]
+custom_minimum_size = Vector2(100, 0)
+offset_left = 420.0
+offset_top = 278.0
+offset_right = 550.0
+offset_bottom = 309.0
+text = "Siguiente ronda"
+
+[node name="jugadores" type="Node" parent="." unique_id=2102352022]
+
+[node name="pj_small" type="Sprite2D" parent="jugadores" unique_id=1968876107]
+position = Vector2(-245, 240.99998)
+scale = Vector2(0.12197393, 0.12197393)
+texture = ExtResource("2_eygol")
+
+[node name="npc_pos1" type="Sprite2D" parent="jugadores" unique_id=1851833232]
+position = Vector2(256, 247)
+scale = Vector2(0.18992247, 0.18992248)
+texture = ExtResource("3_a8ykt")
+
+[node name="npc_pos2" type="Sprite2D" parent="jugadores" unique_id=241314478]
+position = Vector2(-114, 238)
+scale = Vector2(0.12684217, 0.12684219)
+texture = ExtResource("4_ppx6x")
+
+[node name="npc_pos3" type="Sprite2D" parent="jugadores" unique_id=1307435252]
+position = Vector2(-181.99998, 228)
+scale = Vector2(0.268018, 0.26801804)
+texture = ExtResource("5_ucc4j")
+
+[connection signal="pressed" from="return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="next match" to="." method="_on_next_match_pressed"]
