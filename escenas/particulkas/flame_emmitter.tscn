@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dm8ie6k376r2l"]
+
+[sub_resource type="Gradient" id="Gradient_l67bn"]
+offsets = PackedFloat32Array(0, 0.005319149, 0.4893617, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.87, 0.87, 0.3045, 1, 0.88, 0.34232, 0.052800003, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6mkig"]
+gradient = SubResource("Gradient_l67bn")
+
+[sub_resource type="Curve" id="Curve_c0i6l"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_c32rf"]
+curve = SubResource("Curve_c0i6l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pt3hg"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, -300, 0)
+scale_min = 10.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_c32rf")
+color_ramp = SubResource("GradientTexture1D_6mkig")
+turbulence_enabled = true
+turbulence_noise_strength = 3.91
+turbulence_noise_scale = 0.0
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.0
+turbulence_initial_displacement_min = 12.800002
+turbulence_initial_displacement_max = 100.0
+
+[node name="FlameEmmitter" type="GPUParticles2D" unique_id=933052761]
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_pt3hg")

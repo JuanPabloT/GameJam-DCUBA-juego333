@@ -13,27 +13,29 @@ enum PreservedStatusEffect {
 var P = PreservedStatusEffect
 var GD = GameData
 
+var effect_collisions_mutex = Mutex.new()
+
 # otra vez, esto deberia ser un recurso, no undiccionario. creo
 var reaction_data = {
 	GD.fire: {
 		GD.fire:[P.first, func(e1,e2):target.change_health(-10, GD.element_colors[GD.fire])],
-		GD.water:[P.second, func(e1,e2):pass], #TODO SMOKE
+		GD.water:[P.second, func(e1,e2):target.smoke()],
 		GD.root:[P.first, func(e1,e2):pass ], # TODO BURNING
 		GD.lightning:[P.both, func(e1,e2):pass ], 
 		GD.poison:[P.neither, func(e1,e2):pass ], 
 		GD.beer:[P.first, func(e1,e2):pass ], #TODO BURNING 
 	},
 	GD.water: {
-		GD.fire:[P.first, func(e1,e2):pass],
+		GD.fire:[P.first, func(e1,e2):target.smoke()],
 		GD.water:[P.first, func(e1,e2):target.heal_by(10)],
-		GD.root:[P.second, func(e1,e2):pass ], # TODO SHIELD
+		GD.root:[P.second, func(e1,e2):target.add_shield(15) ], 
 		GD.lightning:[P.first, func(e1,e2):target.change_health(-10, GD.element_colors[GD.lightning]) ], 
 		GD.poison:[P.second, func(e1,e2):pass ], #TODO DILUTE
 		GD.beer:[P.both, func(e1,e2):pass ], 
 	},
 	GD.root: {
 		GD.fire:[P.second, func(e1,e2):pass ], # TODO BURNING,
-		GD.water:[P.first, func(e1,e2):pass ], # TODO SHIELD
+		GD.water:[P.first, func(e1,e2):target.add_shield(15) ], 
 		GD.root:[P.first, func(e1,e2):pass ],
 		GD.lightning:[P.both, func(e1,e2):pass ], 
 		GD.poison:[P.both, func(e1,e2):pass ],
@@ -69,6 +71,36 @@ var reaction_data = {
 func _ready() -> void:
 	pass # Replace with function body.
 
+func _get_effect_list()->Array[StatusEffect] :
+	await Engine.get_main_loop().process_frame
+	var efectos: Array[StatusEffect] 
+	efectos.assign(get_children())
+	return efectos
+
+func run_effects():
+	var efectos = await _get_effect_list()
+	for efecto in efectos:
+		match efecto.type:
+			GD.fire, GD.root, GD.lightning, GD.beer:
+				pass
+			GD.poison:
+				target.deal_poison_damage(efecto.potency)
+				await efecto.animate_trigger(0.3)
+			GD.water:
+				target.heal_by(3)
+				await efecto.animate_trigger(0.3)
+	
+
+func has_effects_to_run():
+	var efectos = await _get_effect_list()
+	for efecto in efectos:
+		match efecto.type:
+			GD.fire, GD.root, GD.lightning, GD.beer:
+				pass
+			GD.poison, GD.water:
+				return true
+	return false
+
 func add_effect(sprite, duration = 0, potency = 0):
 	var neweffect = StatusEffect.new()
 	var image  = Image.load_from_file(sprite)
@@ -80,26 +112,22 @@ func add_effect(sprite, duration = 0, potency = 0):
 	neweffect.duration = duration
 	neweffect.potency = potency
 	add_child(neweffect)
-	trigger_effect_collisions()
 	
 
 func trigger_effect_collisions():
-	var efectos: Array[StatusEffect] 
-	efectos.assign(get_children()) 
+	print("  triggering effect collisions for ", target.name)
+	var efectos = await _get_effect_list()
 	var i = 0
-	print("collision trigger called")
 	while i < efectos.size()-1:
-		print(i)
 		var next_reaction_type = reaction_data[efectos[i].type][efectos[i+1].type][0]
 		var next_reaction_effect = reaction_data[efectos[i].type][efectos[i+1].type][1]
 		match next_reaction_type:
 			P.neither, P.first, P.second:
-				efectos[i].animate_merge(0.5)
 				efectos[i+1].animate_merge(0.5)
-				await get_tree().create_timer(0.5).timeout
+				await efectos[i].animate_merge(0.5)
 			P.both:
 				pass
-		next_reaction_effect.call(efectos[i], efectos[i+1])
+		await next_reaction_effect.call(efectos[i], efectos[i+1])
 		match next_reaction_type:
 			P.neither:
 				efectos[i].queue_free()
@@ -134,7 +162,14 @@ func add_poison_effect(n):
 func add_shock_effect():
 	add_effect(GD.lightning)
 func apply_wind():
-	pass
+	var efectos = await _get_effect_list()
+	var i = 0
+	for efecto in efectos:
+		if efecto.type in [GD.water, GD.fire, GD.poison]:
+			self.remove_child(efecto)
+			target.enemy.effect_status.add_child(efecto)
+			print("  (from wind)")
+
 
 
 

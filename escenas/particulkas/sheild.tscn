@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cgrbrwrbgicb8"]
+
+[sub_resource type="Gradient" id="Gradient_rkx4a"]
+colors = PackedColorArray(0.468, 0.71580005, 0.72, 1, 0.86, 0.9976667, 1, 0.31764707)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ldisj"]
+gradient = SubResource("Gradient_rkx4a")
+
+[sub_resource type="Curve" id="Curve_ksle6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.70753646), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gjl1g"]
+curve = SubResource("Curve_ksle6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rkx4a"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 60.32
+emission_ring_inner_radius = 55.0
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -32.370003
+radial_accel_max = -32.370003
+tangential_accel_min = 64.649994
+tangential_accel_max = 75.259995
+scale_min = 15.049999
+scale_max = 15.049999
+scale_curve = SubResource("CurveTexture_gjl1g")
+color_ramp = SubResource("GradientTexture1D_ldisj")
+
+[node name="Node2D" type="GPUParticles2D" unique_id=760426545]
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_rkx4a")

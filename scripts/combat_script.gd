@@ -36,6 +36,7 @@ func _player_lost() -> bool:
 	return false
 
 func _player_turn() -> void:
+	print("turno jugador:")
 	if _player_lost():
 		return
 	#generamos un artefacto
@@ -54,26 +55,31 @@ func _rival_lost() -> bool:
 	return false
 
 func _rival_turn() -> void:
-	await get_tree().create_timer(1).timeout
-	player.on_turn_end()
+	print("terminando turno jugador")
+	await player.on_turn_end()
+	await get_tree().create_timer(0.3).timeout
+	print("turno rival:")
 	if _rival_lost():
 		return
-	rival.on_turn()
-	rival.on_turn_end()
+	await rival.on_turn()
+	print("terminando turno rival")
+	await rival.on_turn_end()
 	_player_turn()
 
 
 func _on_consumir_pressed() -> void:
+	print("consumiendo artefacto")
 	_disable_buttons()
-	artifact.use_on(player)
+	await artifact.use_on(player)
 	if player.is_dead():
 		return
 	_rival_turn()
 
 
 func _on_utilizar_pressed() -> void:
+	print("utilizando artefacto")
 	_disable_buttons()
-	artifact.use_on(rival)
+	await artifact.use_on(rival)
 	if _rival_lost():
 		return
 	_rival_turn()

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bxxet6iqvctw8"]
+
+[sub_resource type="Gradient" id="Gradient_ekmxp"]
+offsets = PackedFloat32Array(0, 0.5533981, 1)
+colors = PackedColorArray(0.39, 0.2171, 0.117, 1, 0.36, 0.23736002, 0.0972, 1, 0.42, 0.31219998, 0.189, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1wddy"]
+gradient = SubResource("Gradient_ekmxp")
+
+[sub_resource type="Curve" id="Curve_sj1ek"]
+_limits = [-2.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 0.01561141), 0.0, 0.0, 0, 0, Vector2(0.47260275, 1.323504), 0.0, 0.0, 0, 0, Vector2(0.49771693, 0.01561141), 0.0, 0.0, 0, 0, Vector2(0.7488585, 0.21856022), 0.0, 0.0, 0, 0, Vector2(0.99771696, 0.8950565), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_8twg7"]
+curve = SubResource("Curve_sj1ek")
+
+[sub_resource type="Curve" id="Curve_5pydp"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_uhlba"]
+_limits = [0.0, 20.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 6.5828266), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_oehy1"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_fi8hn"]
+curve_x = SubResource("Curve_5pydp")
+curve_y = SubResource("Curve_uhlba")
+curve_z = SubResource("Curve_oehy1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dq7vx"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+emission_shape = 3
+emission_box_extents = Vector3(27.12, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 9.391
+initial_velocity_min = 100.13
+initial_velocity_max = 130.73999
+orbit_velocity_curve = SubResource("CurveTexture_8twg7")
+radial_velocity_min = -79.83002
+radial_velocity_max = -79.83002
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 17.549997
+radial_accel_max = 34.28
+scale_min = 4.0
+scale_max = 6.0
+scale_over_velocity_curve = SubResource("CurveXYZTexture_fi8hn")
+color_ramp = SubResource("GradientTexture1D_1wddy")
+turbulence_noise_strength = 1.34
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.014
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+
+[node name="Node2D" type="GPUParticles2D" unique_id=609426053]
+amount = 50
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_dq7vx")

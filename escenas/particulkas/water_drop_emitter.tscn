@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://sk3r5xhqfof0"]
+
+[sub_resource type="Gradient" id="Gradient_ekmxp"]
+colors = PackedColorArray(0.297, 0.45779985, 0.9, 1, 0.31523007, 0.5550678, 0.7162069, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1wddy"]
+gradient = SubResource("Gradient_ekmxp")
+
+[sub_resource type="Curve" id="Curve_5pydp"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_uhlba"]
+_limits = [0.0, 20.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 6.5828266), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_oehy1"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_fi8hn"]
+curve_x = SubResource("Curve_5pydp")
+curve_y = SubResource("Curve_uhlba")
+curve_z = SubResource("Curve_oehy1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dq7vx"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+emission_shape = 3
+emission_box_extents = Vector3(19.88, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 9.391
+initial_velocity_min = 100.13
+initial_velocity_max = 130.73999
+gravity = Vector3(0, 154.215, 0)
+radial_accel_min = 17.549997
+radial_accel_max = 34.28
+scale_min = 2.0
+scale_max = 4.0
+scale_over_velocity_curve = SubResource("CurveXYZTexture_fi8hn")
+color_ramp = SubResource("GradientTexture1D_1wddy")
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+
+[sub_resource type="Gradient" id="Gradient_wyu3o"]
+colors = PackedColorArray(0.24490589, 0.39875814, 0.8627427, 1, 0.29000002, 0.29000002, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1qg0c"]
+gradient = SubResource("Gradient_wyu3o")
+
+[sub_resource type="Curve" id="Curve_ys4lv"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_rk5ej"]
+_limits = [0.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 6.7302685), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_tyge3"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_bt5hy"]
+curve_x = SubResource("Curve_ys4lv")
+curve_y = SubResource("Curve_rk5ej")
+curve_z = SubResource("Curve_tyge3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wxvpa"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 245.79999
+initial_velocity_max = 302.52
+gravity = Vector3(0, 98, 0)
+scale_min = 2.0
+scale_max = 4.0
+scale_over_velocity_curve = SubResource("CurveXYZTexture_bt5hy")
+color_ramp = SubResource("GradientTexture1D_1qg0c")
+
+[node name="Node2D" type="GPUParticles2D" unique_id=609426053]
+emitting = false
+amount = 50
+sub_emitter = NodePath("GPUParticles2D")
+one_shot = true
+explosiveness = 0.81
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_dq7vx")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=392082015]
+emitting = false
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_wxvpa")

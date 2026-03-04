@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://duli6sd2sq8ls"]
+
+[sub_resource type="Gradient" id="Gradient_ekmxp"]
+colors = PackedColorArray(0.9999998, 0.87015456, 0.45872992, 1, 0.9, 0.276, 0.17999998, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1wddy"]
+gradient = SubResource("Gradient_ekmxp")
+
+[sub_resource type="Curve" id="Curve_ekmxp"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 6.443512), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1wddy"]
+curve = SubResource("Curve_ekmxp")
+
+[sub_resource type="Curve" id="Curve_5pydp"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_uhlba"]
+_limits = [0.0, 20.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 6.5828266), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_oehy1"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_fi8hn"]
+curve_x = SubResource("Curve_5pydp")
+curve_y = SubResource("Curve_uhlba")
+curve_z = SubResource("Curve_oehy1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dq7vx"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+spread = 180.0
+initial_velocity_min = 353.47998
+initial_velocity_max = 413.8
+gravity = Vector3(0, 154.215, 0)
+radial_accel_min = 17.549997
+radial_accel_max = 34.28
+damping_max = 0.21000001
+damping_curve = SubResource("CurveTexture_1wddy")
+scale_min = 4.0
+scale_max = 6.0
+scale_over_velocity_curve = SubResource("CurveXYZTexture_fi8hn")
+color_ramp = SubResource("GradientTexture1D_1wddy")
+
+[node name="Node2D" type="GPUParticles2D" unique_id=609426053]
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 0.81
+process_material = SubResource("ParticleProcessMaterial_dq7vx")

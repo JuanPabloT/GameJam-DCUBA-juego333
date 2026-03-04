@@ -13,9 +13,9 @@ func setup():
 
 func use_on(target):
 	#TODO animacion de uso, basandose en posicion de target
-	GameData.real_effects[imageup].call(target)
-	GameData.real_effects[imagedown].call(target)
-	GameData.real_effects[imageright].call(target)
+	await GameData.real_effects[imageup].call(target)
+	await GameData.real_effects[imageright].call(target)
+	await GameData.real_effects[imagedown].call(target)
 	self.queue_free()
 
 # Called when the node enters the scene tree for the first time.
