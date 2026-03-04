@@ -60,6 +60,7 @@ func _rival_turn() -> void:
 	await get_tree().create_timer(0.3).timeout
 	print("turno rival:")
 	if _rival_lost():
+		_round_won()
 		return
 	await rival.on_turn()
 	print("terminando turno rival")
@@ -81,13 +82,19 @@ func _on_utilizar_pressed() -> void:
 	_disable_buttons()
 	await artifact.use_on(rival)
 	if _rival_lost():
+		_round_won()
 		return
 	_rival_turn()
 
+func _round_won() -> void:
+	$"Camera2D/Buttons control/Next round".disabled = false
+	pass
 
-#func _on_surrender_pressed() -> void:	
-	#get_tree().change_scene_to_file("res://mainmenu.tscn")
-	##salir
+
+func _on_surrender_pressed() -> void:
+	get_tree().change_scene_to_file("res://escenas/mainmenu.tscn")
+	#salir
 
 
-	
+func _on_next_round_pressed() -> void:
+	get_tree().change_scene_to_file("res://escenas/torneo.tscn")

@@ -56,6 +56,16 @@ offset_right = -487.0
 offset_bottom = 320.0
 text = "IR AL MENU"
 
+[node name="Next round" type="Button" parent="Camera2D/Buttons control" unique_id=846162031]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 0
+offset_left = 432.0
+offset_top = 289.0
+offset_right = 570.0
+offset_bottom = 320.0
+disabled = true
+text = "Siguiente Ronda!"
+
 [node name="Game Status" type="Control" parent="Camera2D" unique_id=1203945084]
 layout_mode = 3
 anchors_preset = 0
@@ -236,3 +246,4 @@ scale = Vector2(0.505, 0.505)
 [connection signal="pressed" from="Camera2D/Buttons control/Consumir" to="." method="_on_consumir_pressed"]
 [connection signal="pressed" from="Camera2D/Buttons control/Utilizar" to="." method="_on_utilizar_pressed"]
 [connection signal="pressed" from="Camera2D/Buttons control/Surrender" to="." method="_on_surrender_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons control/Next round" to="." method="_on_next_round_pressed"]
