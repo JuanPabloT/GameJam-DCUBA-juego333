@@ -75,4 +75,4 @@ func assign_effect_to_artifact_parts():
 #Data para el torneo
 var level : int
 var enemies_remaining : Array
-var losers : Array
+var stage : Array

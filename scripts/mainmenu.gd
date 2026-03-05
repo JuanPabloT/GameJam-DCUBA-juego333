@@ -2,16 +2,15 @@ extends Node
 
 func _ready() -> void:
 	GameData.level = 1
-	GameData.enemies_remaining = [0,1,2]
+	GameData.enemies_remaining = [0,1,2,3,4,5,6]
 	GameData.enemies_remaining.shuffle()
+	GameData.stage = [0,0,0,0,0,0]
 	pass
 
 func _on_salir_pressed() -> void:
 	#salir
 	get_tree().quit()
 	pass
-	get_tree().quit()
-	#salir
 
 func _on_iniciar_pressed() -> void:
 	print("iniciando")
