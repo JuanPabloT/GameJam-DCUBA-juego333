@@ -1,20 +1,21 @@
 [gd_scene format=3 uid="uid://bxtqmen4c2ok6"]
 
 [ext_resource type="Script" uid="uid://dbs7awrkq6etn" path="res://scripts/tutorial.gd" id="1_jl26d"]
+[ext_resource type="Texture2D" uid="uid://bbu7mlh58nlro" path="res://sprites/cartas/20mBgR.png" id="2_exxca"]
 
-[node name="main" type="Node"]
+[node name="main" type="Node" unique_id=2048265753]
 script = ExtResource("1_jl26d")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1658754267]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2124887894]
 offset_left = -576.0
 offset_top = -324.0
 offset_right = 576.0
 offset_bottom = 324.0
 color = Color(0.435294, 0.513726, 0.537255, 1)
 
-[node name="titulo" type="Label" parent="."]
+[node name="titulo" type="Label" parent="." unique_id=1377406204]
 offset_left = -575.0
 offset_top = -325.0
 offset_right = -311.0
@@ -22,16 +23,48 @@ offset_bottom = -229.0
 theme_override_font_sizes/font_size = 70
 text = "Tutorial"
 
-[node name="parrafo 1" type="Label" parent="."]
+[node name="parrafo 2" type="Label" parent="." unique_id=2092938540]
+offset_left = -571.0
+offset_top = -162.0
+offset_right = -261.0
+offset_bottom = -25.0
+text = "IMAGEN DE BRACKET FINAL ACA"
+autowrap_mode = 3
+
+[node name="parrafo 4" type="Label" parent="." unique_id=728311129]
+offset_left = -570.0
+offset_top = 211.0
+offset_right = -215.0
+offset_bottom = 312.0
+text = "Los efectos que tiene cada parte de artefacto varían en cada torneo, pero son constantes en cada torneo. Estos efectos consisten en aplicación de daño, escudos, etc. "
+autowrap_mode = 3
+
+[node name="parrafo 1" type="Label" parent="." unique_id=98845442]
 offset_left = -576.0
 offset_top = -226.0
 offset_right = -237.0
-offset_bottom = -151.0
-text = "Explicacion de como va la cosa:
-se podrian agregar imagenes o algo, ni idea.
-tutorial que tutela la tutoria por un tutor"
+offset_bottom = -171.0
+text = "Tu objetivo: ganar 3 combates y por ende el torneo de (NOMBRE:)"
+autowrap_mode = 3
 
-[node name="Retorno" type="Button" parent="."]
+[node name="parrafo 3" type="Label" parent="." unique_id=1688940716]
+offset_left = -569.0
+offset_top = -31.0
+offset_right = -230.0
+offset_bottom = 70.0
+text = "Cada turno de combate, tenes la oportunidad de utilizar un artefacto olvidado generado al azar sobre, o 
+bién vos mísmo, o sobre el enemigo"
+autowrap_mode = 3
+
+[node name="parrafo 5" type="Label" parent="." unique_id=1971087388]
+offset_left = -560.0
+offset_top = 96.0
+offset_right = -221.0
+offset_bottom = 151.0
+text = "IMAGEN ESCENA COMBATE FINAL  CON CIRUCLOS ROJOS"
+autowrap_mode = 3
+
+[node name="Retorno" type="Button" parent="." unique_id=53272690]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -42,5 +75,26 @@ offset_bottom = -7.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
 text = "Volver"
+
+[node name="20mBgR" type="Sprite2D" parent="." unique_id=679956844]
+position = Vector2(-187, 34)
+scale = Vector2(0.15636362, 0.15636362)
+texture = ExtResource("2_exxca")
+
+[node name="parrafo 6" type="Label" parent="." unique_id=1137316592]
+offset_left = -82.0
+offset_top = -287.0
+offset_right = 257.0
+offset_bottom = -232.0
+text = "Entre los efectos posibles existe la aplicación de condiciones de estado. Estas pueden reaccionar entre si generando efectos nuevos. Estos no varían cada torneo"
+autowrap_mode = 3
+
+[node name="parrafo 7" type="Label" parent="." unique_id=1641628922]
+offset_left = -71.0
+offset_top = -32.0
+offset_right = 268.0
+offset_bottom = 23.0
+text = "Los efectos de artefactos vistos anteriormente este torneo son visibles con (HOVER)"
+autowrap_mode = 3
 
 [connection signal="pressed" from="Retorno" to="." method="_on_retorno_pressed"]

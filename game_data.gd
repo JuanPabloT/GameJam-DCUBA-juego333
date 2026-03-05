@@ -61,6 +61,7 @@ var possible_effects = [
 # pieza de artefacto un efecto
 var real_effects : Dictionary
 var real_effect_descriptions : Dictionary
+var real_effect_seen : Dictionary
 var real_effect_player_notes : Dictionary
 
 func assign_effect_to_artifact_parts():
@@ -69,6 +70,7 @@ func assign_effect_to_artifact_parts():
 	for i in range(all_artifact_pieces.size()):
 		real_effects[all_artifact_pieces[i]] = possible_effects[i][0]
 		real_effect_descriptions[all_artifact_pieces[i]] = possible_effects[i][1]
+		real_effect_seen[all_artifact_pieces[i]] = false
 
 #Data para el torneo
 var level : int

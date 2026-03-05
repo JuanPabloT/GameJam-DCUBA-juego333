@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cngiunen2juhk"]
+
+[ext_resource type="Texture2D" uid="uid://ct1vin3hq55ip" path="res://sprites/heal_cross.png" id="1_qhe2n"]
+
+[sub_resource type="Curve" id="Curve_xig7m"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.22163588, 1), 0.0, 0.0, 0, 0, Vector2(0.8496042, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_c32rf"]
+curve = SubResource("Curve_xig7m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pt3hg"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(50, 25, 1)
+gravity = Vector3(0, -200, 0)
+scale_min = 0.35
+scale_max = 0.75
+scale_curve = SubResource("CurveTexture_c32rf")
+turbulence_enabled = true
+turbulence_noise_strength = 3.91
+turbulence_noise_scale = 0.0
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.0
+turbulence_initial_displacement_min = 12.800002
+turbulence_initial_displacement_max = 100.0
+
+[node name="HealEmitter" type="GPUParticles2D" unique_id=933052761]
+emitting = false
+amount = 3
+texture = ExtResource("1_qhe2n")
+one_shot = true
+explosiveness = 0.65
+process_material = SubResource("ParticleProcessMaterial_pt3hg")

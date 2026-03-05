@@ -4,6 +4,8 @@ extends TextureRect
 var type : String
 var duration = 0
 var potency = 0
+var label : Label
+
 
 func animate_merge(time):
 	await get_tree().create_timer(0.1).timeout
@@ -40,9 +42,46 @@ func animate_trigger(time):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.pivot_offset_ratio = Vector2(0.5,0.5)
-	pass # Replace with function body.
+	if duration>0:
+		modulate = Color.DARK_ORANGE
+	label = Label.new()
+	add_child(label)
+	label.add_theme_color_override("font_outline_color",Color("black"))
+	label.add_theme_color_override("font_color",Color("white"))
+	label.add_theme_constant_override("outline_size", 12)
+	label.position = Vector2(35,33)
 
+	
+	
+
+func set_duration(n):
+	duration = n
+	if duration>0:
+		modulate = Color.DARK_ORANGE
+	else:
+		modulate = Color.WHITE
+
+func add_duration(n):
+	set_duration(duration+n)
+
+func update_duration():
+	duration -= 1
+	if duration == 0:
+		modulate = Color.WHITE
+		return true
+	return false
+
+func dilute():
+	potency = floor(potency/2)
+	
+func concentrate(n):
+	potency = potency+n
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if duration+potency>0:
+		label.text=str(duration+potency)
+	else:
+		label.text=""
+		

@@ -32,5 +32,7 @@ turbulence_initial_displacement_min = 12.800002
 turbulence_initial_displacement_max = 100.0
 
 [node name="FlameEmmitter" type="GPUParticles2D" unique_id=933052761]
+emitting = false
 amount = 50
+one_shot = true
 process_material = SubResource("ParticleProcessMaterial_pt3hg")

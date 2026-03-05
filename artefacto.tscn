@@ -5,25 +5,80 @@
 [ext_resource type="Texture2D" uid="uid://cujy0nwtethhv" path="res://sprites/artefactos/bottom/lamparaD.png" id="3_u20ug"]
 [ext_resource type="Texture2D" uid="uid://qldrv4wo02ma" path="res://sprites/artefactos/side/lamparaE.png" id="4_istmk"]
 
+[sub_resource type="Theme" id="Theme_iqcja"]
+default_font_size = 50
+
 [node name="Artifact" type="Node2D" unique_id=1541724156]
 script = ExtResource("1_s0dt2")
+metadata/_edit_horizontal_guides_ = [-232.0, -216.0]
 
 [node name="Up" type="Sprite2D" parent="." unique_id=507334297]
 texture = ExtResource("2_iqcja")
 
+[node name="Tooltip" type="PanelContainer" parent="Up" unique_id=2048821075]
+visible = false
+offset_left = -631.0
+offset_top = -380.0
+offset_right = -142.0
+offset_bottom = -169.0
+
+[node name="Label" type="Label" parent="Up/Tooltip" unique_id=1208333199]
+layout_mode = 2
+theme = SubResource("Theme_iqcja")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UPArea2D" type="Area2D" parent="Up" unique_id=353290138]
+position = Vector2(0, 2)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Up/UPArea2D" unique_id=1530011298]
+polygon = PackedVector2Array(-274, -277, 295, -288, 0, 0, -276, 0)
+
 [node name="Down" type="Sprite2D" parent="." unique_id=598566188]
 texture = ExtResource("3_u20ug")
+
+[node name="Tooltip" type="PanelContainer" parent="Down" unique_id=1984273998]
+visible = false
+offset_left = -698.0
+offset_top = 124.0
+offset_right = -209.0
+offset_bottom = 335.0
+
+[node name="Label" type="Label" parent="Down/Tooltip" unique_id=2037981363]
+layout_mode = 2
+theme = SubResource("Theme_iqcja")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DOWNArea2D" type="Area2D" parent="Down" unique_id=857267652]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Down/DOWNArea2D" unique_id=844933682]
+polygon = PackedVector2Array(-272, 285, 295, 288, 0, 0, -276, 0)
 
 [node name="Right" type="Sprite2D" parent="." unique_id=1401676717]
 texture = ExtResource("4_istmk")
 
-[node name="Tooltip" type="PanelContainer" parent="." unique_id=2048821075]
+[node name="Tooltip" type="PanelContainer" parent="Right" unique_id=1939257930]
 visible = false
-offset_left = 366.0
-offset_top = 30.0
-offset_right = 855.0
-offset_bottom = 241.0
+offset_left = 269.0
+offset_top = -27.0
+offset_right = 758.0
+offset_bottom = 184.0
 
-[node name="Label" type="Label" parent="Tooltip" unique_id=1208333199]
+[node name="Label" type="Label" parent="Right/Tooltip" unique_id=747622941]
 layout_mode = 2
-text = "Notas:"
+theme = SubResource("Theme_iqcja")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RIGHTArea2D" type="Area2D" parent="Right" unique_id=1188255986]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Right/RIGHTArea2D" unique_id=1702729805]
+polygon = PackedVector2Array(294, -287, 295, 288, 0, 0)
+
+[connection signal="mouse_entered" from="Up/UPArea2D" to="." method="_on_up_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Up/UPArea2D" to="." method="_on_up_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Down/DOWNArea2D" to="." method="_on_down_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Down/DOWNArea2D" to="." method="_on_down_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Right/RIGHTArea2D" to="." method="_on_right_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Right/RIGHTArea2D" to="." method="_on_right_area_2d_mouse_exited"]

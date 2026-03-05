@@ -18,8 +18,10 @@ var GD = GameData
 @export var root_emitter : GPUParticles2D
 @export var lightning_emitter : GPUParticles2D
 @export var poison_emitter : GPUParticles2D
+@export var small_poison_emitter : GPUParticles2D
 @export var beer_emitter : GPUParticles2D
 @export var wind_emitter : Node2D
+@export var heal_emitter : GPUParticles2D
 
 
 # Called when the node enters the scene tree for the first time.
@@ -29,20 +31,6 @@ func _ready() -> void:
 func is_dead()->bool:
 	return health <= 0
 
-
-func deal_ordinary_damage(n:int):
-	shield -= n
-	if shield <= 0:
-		change_health(shield, "#F00")
-		shield = 0
-	else:
-		display_status("Bloqueado!", "#AAC")
-		print("bloqueado ", self.name, " ", shield, " ", shield+n )
-		
-	update_shield_visibility()
-
-func heal_by(n:int):
-	change_health(n, "#0F0")
 
 func on_turn_end():
 	print("  (from turn end)")
@@ -57,31 +45,25 @@ func on_turn_end():
 	#		turns_on_fire -= 1
 	#	change_health(-5, "#F50")
 
-
-
-func change_health(amount:int, color=null):
-	health += amount
-	if health_status != null:
-		health_status.text = str(health)
-	display_status(str(amount), color if color != null else "#FFF")
-		
-	if is_dead():
-		on_death()
-		
 @abstract func on_death()
+
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 	
 	
+########### EFECTOS ###########
+
+func has_beer():
+	return await effect_status.has_beer()
 	
 	
 func set_on_fire():
 	display_status("Fuego!", "#F50")
 	effect_status.add_flame_effect()
-	explosion_emitter.restart()
-	await get_tree().create_timer(1).timeout
+	await deal_fire_damage(5)
 	
 	
 func apply_water():
@@ -97,10 +79,15 @@ func apply_root():
 	await get_tree().create_timer(1).timeout
 
 func apply_lightning():
+	deal_lightning_damage(5)
 	display_status("Rayo!", GD.element_colors[GD.lightning])
 	effect_status.add_shock_effect()
+	await emit_lightning()
+	
+func emit_lightning():
 	lightning_emitter.emitting=true
 	await get_tree().create_timer(1).timeout
+	
 
 func apply_poison(n:int):
 	display_status("Envenenado", GD.element_colors[GD.poison])
@@ -117,6 +104,7 @@ func apply_beer():
 	
 	
 func smoke():
+	display_status("Extinguir!", "#AAA")
 	smokeemitter.visible = true
 	await get_tree().create_timer(1).timeout
 	smokeemitter.visible = false
@@ -125,22 +113,116 @@ func smoke():
 func add_shield(n:int):
 	shield += n
 	update_shield_visibility()
-	display_status("+"+str(n), "#7BB")
+	display_status("+"+str(n)+" Escudo", "#AAA")
+
+func apply_wind():
+	effect_status.apply_wind()
+	display_status("Viento!", "#7BB")
+	wind_emitter.emit()
+	await get_tree().create_timer(1).timeout
+
+func emit_burning_particles():
+	flameemmitter.emitting=true
+	await get_tree().create_timer(1).timeout
+
+func emit_healing_particles():
+	heal_emitter.emitting=true
+	await get_tree().create_timer(1).timeout
+
+func emit_small_poison():
+	small_poison_emitter.emitting=true
+	await get_tree().create_timer(1).timeout
+	
+func shock():
+	pass #TODO reemplazar sprite con version electrocutada por 1 segundo
+	#var mysprite = get_child(0)
+	#var mytexture = mysprite.texture
+	# mysprite.texture = Image.load etc etc shocked texture
+	#await get_tree().create_timer(0.4).timeout
+	# mysprite.texture = mytexture
+	#await get_tree().create_timer(0.2).timeout
+	# mysprite.texture = Image.load etc etc shocked texture
+	#await get_tree().create_timer(0.4).timeout
+	# mysprite.texture = mytexture
+	
+	
 
 func update_shield_visibility():
 	shieldemitter.amount_ratio = clampf(shield/30.0,0,1)
 	print(shield, " ", shield/30.0, " ", clampf(shield/30.0,0,1))
 	
+########### DAÑO ###########
+enum ShieldStatus {
+	broken,
+	alive,
+	inexistent
+}
+
+
+func change_health(amount:int, color=null, alternative_text=null):
+	health += amount
+	if health_status != null:
+		health_status.text = str(health)
+	display_status(str(amount) if alternative_text == null else alternative_text , color if color != null else "#FFF")
+		
+	if is_dead():
+		on_death()
+		
+func change_health_shielded(n, color, alternative_text="")->ShieldStatus:
+	var oldshield = shield
+	shield += n
+	if shield <= 0:
+		change_health(shield, color, alternative_text)
+		shield = 0
+	
+	if oldshield == 0:
+		return ShieldStatus.inexistent
+	elif shield > 0:
+		return ShieldStatus.alive
+	else: 
+		return ShieldStatus.broken 
 	
 func deal_poison_damage(n:int):
 	change_health(-n, GD.element_colors[GD.poison])
+	var tween = create_tween()
+	tween.tween_property(get_child(0), "modulate", Color.DARK_VIOLET, 0.5)
+	tween.tween_property(get_child(0), "modulate", Color.WHITE, 0.5)
+	await tween.finished
 	
-func apply_wind():
-	effect_status.apply_wind()
-	display_status("Viento!", "#7BB")
-	wind_emitter.visible=true
+func deal_fire_damage(n):
+	explosion_emitter.restart()
+	change_health_shielded(-n, GD.element_colors[GD.fire])
 	await get_tree().create_timer(1).timeout
-	wind_emitter.visible=false
+	
+func deal_lightning_damage(n):
+	shock()
+	change_health_shielded(-n, GD.element_colors[GD.lightning])
+	await get_tree().create_timer(1).timeout
+	
+func deal_burning_damage(n:int):
+	change_health(-n, GD.element_colors[GD.fire])
+	display_status("En llamas!", GD.element_colors[GD.fire])
+	await emit_burning_particles()
+
+
+func deal_ordinary_damage(n:int):
+	match change_health_shielded(-n*(2 if await enemy.has_beer() else 1), "#F00",(str(n)+" x 2" if await enemy.has_beer() else null) ):
+		ShieldStatus.inexistent:
+			pass
+		ShieldStatus.alive:
+			display_status("Bloqueado!", "#AAC")
+		ShieldStatus.broken:
+			display_status("Escudo roto!", "#AAC")
+		
+	update_shield_visibility()
+
+func heal_by(n:int):
+	change_health(n, "#0F0")
+	await emit_healing_particles()
+	
+
+
+########### TEXTO ###########
 	
 	
 var past_y_positions_of_status_displays = [0,0,0]

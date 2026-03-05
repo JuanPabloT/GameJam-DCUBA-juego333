@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://fg1nfhfk3y8x"]
 
+[ext_resource type="Script" uid="uid://dixjn11djyn3x" path="res://escenas/particulkas/wind_emitter.gd" id="1_8bfgs"]
+
 [sub_resource type="Gradient" id="Gradient_pigsg"]
 colors = PackedColorArray(0.7, 0.7, 0.7, 1, 0.57700837, 0.5770084, 0.57700837, 1)
 
@@ -125,13 +127,18 @@ sub_emitter_mode = 2
 sub_emitter_amount_at_end = 1
 
 [node name="Node2D" type="Node2D" unique_id=1844462832]
+script = ExtResource("1_8bfgs")
 
 [node name="b3b3b5" type="GPUParticles2D" parent="." unique_id=1916647053]
+emitting = false
 amount = 50
+one_shot = true
 collision_base_size = 0.0
 process_material = SubResource("ParticleProcessMaterial_6bn7f")
 
 [node name="b3b3b4" type="GPUParticles2D" parent="." unique_id=1741315766]
+emitting = false
 amount = 50
+one_shot = true
 collision_base_size = 0.0
 process_material = SubResource("ParticleProcessMaterial_j7v5p")

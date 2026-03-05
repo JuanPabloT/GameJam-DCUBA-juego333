@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://dfugiises3bfq" path="res://escenas/particulkas/poison_emitter.tscn" id="12_mfw1h"]
 [ext_resource type="PackedScene" uid="uid://wiuw4grlgw4t" path="res://escenas/particulkas/lightning_emitter.tscn" id="13_d5lab"]
 [ext_resource type="PackedScene" uid="uid://4llmjr2dupog" path="res://escenas/particulkas/beer_emitter.tscn" id="13_n3rse"]
+[ext_resource type="PackedScene" uid="uid://bfyf2pux1skp" path="res://escenas/particulkas/small_posion.tscn" id="13_uok4b"]
+[ext_resource type="PackedScene" uid="uid://cngiunen2juhk" path="res://escenas/particulkas/heal_emitter.tscn" id="16_4whe8"]
 [ext_resource type="PackedScene" uid="uid://fg1nfhfk3y8x" path="res://escenas/particulkas/wind_emitter.tscn" id="16_uok4b"]
 
 [node name="main" type="Node" unique_id=1840779075]
@@ -27,26 +29,39 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Consumir" type="Button" parent="Camera2D/Buttons control" unique_id=893554657]
 custom_minimum_size = Vector2(100, 100)
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.525
+anchor_top = 0.3
+anchor_right = -2.525
+anchor_bottom = 0.3
 offset_left = -450.0
 offset_top = 117.0
 offset_right = -105.0
 offset_bottom = 217.0
 theme_override_font_sizes/font_size = 30
 text = "CONSUMIR ARTEFACTO"
+metadata/_edit_use_anchors_ = true
 
 [node name="Utilizar" type="Button" parent="Camera2D/Buttons control" unique_id=2047229775]
 custom_minimum_size = Vector2(100, 100)
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.525
+anchor_top = 0.3
+anchor_right = -2.525
+anchor_bottom = 0.3
 offset_left = 114.0
 offset_top = 115.0
 offset_right = 428.0
 offset_bottom = 215.0
 theme_override_font_sizes/font_size = 30
 text = "UTILIZAR ARTEFACTO"
+metadata/_edit_use_anchors_ = true
 
 [node name="Surrender" type="Button" parent="Camera2D/Buttons control" unique_id=1032306553]
 layout_mode = 0
@@ -66,14 +81,70 @@ offset_bottom = 320.0
 disabled = true
 text = "Siguiente Ronda!"
 
+[node name="DEBUG" type="Control" parent="Camera2D/Buttons control" unique_id=1110440724]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="viento" type="Button" parent="Camera2D/Buttons control/DEBUG" unique_id=100988434]
+layout_mode = 0
+offset_left = 339.0
+offset_top = -22.0
+offset_right = 490.0
+offset_bottom = 17.0
+text = "DEBUG viento
+"
+
+[node name="agua" type="Button" parent="Camera2D/Buttons control/DEBUG" unique_id=264220068]
+layout_mode = 0
+offset_left = 335.0
+offset_top = -73.0
+offset_right = 486.0
+offset_bottom = -34.0
+text = "DEBUG agua
+"
+
+[node name="beer!!!" type="Button" parent="Camera2D/Buttons control/DEBUG" unique_id=1928397137]
+layout_mode = 0
+offset_left = 333.0
+offset_top = -132.0
+offset_right = 484.0
+offset_bottom = -93.0
+text = "DEBUG cerveza"
+
+[node name="lightning" type="Button" parent="Camera2D/Buttons control/DEBUG" unique_id=690214895]
+layout_mode = 0
+offset_left = 324.0
+offset_top = -190.0
+offset_right = 475.0
+offset_bottom = -151.0
+text = "DEBUG rayo"
+
+[node name="fronads" type="Button" parent="Camera2D/Buttons control/DEBUG" unique_id=1421249692]
+layout_mode = 0
+offset_left = 323.0
+offset_top = -300.0
+offset_right = 474.0
+offset_bottom = -261.0
+text = "DEBUG PLANTAS"
+
+[node name="feugo" type="Button" parent="Camera2D/Buttons control/DEBUG" unique_id=246847541]
+layout_mode = 0
+offset_left = 327.0
+offset_top = -247.0
+offset_right = 478.0
+offset_bottom = -208.0
+text = "DEBUG feugo"
+
 [node name="Game Status" type="Control" parent="Camera2D" unique_id=1203945084]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Jugador" type="Node2D" parent="." unique_id=659219716 node_paths=PackedStringArray("health_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "beer_emitter", "wind_emitter")]
-position = Vector2(-284, -1)
+[node name="Jugador" type="Node2D" parent="." unique_id=659219716 node_paths=PackedStringArray("health_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter")]
+position = Vector2(-385, 11)
 script = ExtResource("3_vtyci")
 health_status = NodePath("Player health")
 effect_status = NodePath("player_status")
@@ -86,8 +157,10 @@ water_emitter = NodePath("particlescale/Water")
 root_emitter = NodePath("particlescale/Rooted")
 lightning_emitter = NodePath("particlescale/lightning")
 poison_emitter = NodePath("particlescale/posion")
+small_poison_emitter = NodePath("particlescale/small_poison")
 beer_emitter = NodePath("particlescale/beer")
 wind_emitter = NodePath("particlescale/wind")
+heal_emitter = NodePath("particlescale/HealEmitter")
 
 [node name="JugadorSprite" type="Sprite2D" parent="Jugador" unique_id=1629988179]
 position = Vector2(-6.9999924, -13)
@@ -95,30 +168,38 @@ scale = Vector2(0.583004, 0.556267)
 texture = ExtResource("4_vtyci")
 
 [node name="Player health" type="Label" parent="Jugador" unique_id=2082465971]
-offset_left = -61.0
-offset_top = -289.0
-offset_right = 42.0
-offset_bottom = -206.0
+offset_left = -36.0
+offset_top = -303.0
+offset_right = 67.0
+offset_bottom = -220.0
 theme_override_font_sizes/font_size = 60
 text = "100"
+metadata/_edit_use_anchors_ = true
 
 [node name="player_status" type="HBoxContainer" parent="Jugador" unique_id=56000625 node_paths=PackedStringArray("target")]
-offset_left = -4.0
-offset_top = -143.0
-offset_right = 36.0
-offset_bottom = -103.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -202.0
+offset_right = 39.0
+offset_bottom = -162.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 script = ExtResource("4_8d3xh")
 target = NodePath("..")
+metadata/_edit_use_anchors_ = true
 
 [node name="particlescale" type="Node2D" parent="Jugador" unique_id=53652816]
 position = Vector2(21, -27)
 scale = Vector2(2, 2)
 
 [node name="FlameEmmitter" parent="Jugador/particlescale" unique_id=933052761 instance=ExtResource("5_s6kml")]
-visible = false
 position = Vector2(-7, -13)
 scale = Vector2(0.583004, 0.556267)
 
@@ -128,6 +209,7 @@ position = Vector2(-7, -13)
 scale = Vector2(0.583004, 0.556267)
 
 [node name="SHield" parent="Jugador/particlescale" unique_id=760426545 instance=ExtResource("7_s6kml")]
+amount_ratio = 0.0
 
 [node name="explosion" parent="Jugador/particlescale" unique_id=609426053 instance=ExtResource("8_0ctl2")]
 
@@ -149,17 +231,21 @@ one_shot = true
 [node name="posion" parent="Jugador/particlescale" unique_id=326260191 instance=ExtResource("12_mfw1h")]
 position = Vector2(-6.5, -1)
 
+[node name="small_poison" parent="Jugador/particlescale" unique_id=392082015 instance=ExtResource("13_uok4b")]
+position = Vector2(-4, -22.5)
+
 [node name="beer" parent="Jugador/particlescale" unique_id=78695142 instance=ExtResource("13_n3rse")]
 position = Vector2(12.5, -4)
 
 [node name="wind" parent="Jugador/particlescale" unique_id=1844462832 instance=ExtResource("16_uok4b")]
-visible = false
 position = Vector2(157.5, 5.5)
 rotation = 3.1415927
 scale = Vector2(0.67, 0.67)
 
-[node name="EnemigoProvisional" type="Node2D" parent="." unique_id=655215699 node_paths=PackedStringArray("health_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "beer_emitter", "wind_emitter")]
-position = Vector2(283, -38)
+[node name="HealEmitter" parent="Jugador/particlescale" unique_id=1277962600 instance=ExtResource("16_4whe8")]
+
+[node name="EnemigoProvisional" type="Node2D" parent="." unique_id=655215699 node_paths=PackedStringArray("health_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter")]
+position = Vector2(177, -1)
 script = ExtResource("5_vtyci")
 health_status = NodePath("Rival health")
 effect_status = NodePath("enemy_status")
@@ -172,38 +258,48 @@ water_emitter = NodePath("particlescale/Water")
 root_emitter = NodePath("particlescale/Rootrd")
 lightning_emitter = NodePath("particlescale/lightning")
 poison_emitter = NodePath("particlescale/posion")
+small_poison_emitter = NodePath("particlescale/small_posion")
 beer_emitter = NodePath("particlescale/beer")
 wind_emitter = NodePath("particlescale/wind")
+heal_emitter = NodePath("particlescale/HealEmitter")
 
 [node name="EnemigoProvisionalSprite" type="Sprite2D" parent="EnemigoProvisional" unique_id=1238460282]
 position = Vector2(4.0000153, -1)
 texture = ExtResource("3_rgmsd")
 
 [node name="Rival health" type="Label" parent="EnemigoProvisional" unique_id=948369633]
-offset_left = -49.0
-offset_top = -252.0
-offset_right = 54.0
-offset_bottom = -169.0
+offset_left = -54.0
+offset_top = -291.0
+offset_right = 49.0
+offset_bottom = -208.0
 theme_override_font_sizes/font_size = 60
 text = "100"
+metadata/_edit_use_anchors_ = true
 
 [node name="enemy_status" type="HBoxContainer" parent="EnemigoProvisional" unique_id=1140518327 node_paths=PackedStringArray("target")]
-offset_left = -20.0
-offset_top = -165.0
-offset_right = 31.0
-offset_bottom = -125.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -191.0
+offset_right = 23.0
+offset_bottom = -151.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 script = ExtResource("4_8d3xh")
 target = NodePath("..")
+metadata/_edit_use_anchors_ = true
 
 [node name="particlescale" type="Node2D" parent="EnemigoProvisional" unique_id=164011649]
 position = Vector2(21, -27)
 scale = Vector2(2, 2)
 
 [node name="FlameEmmitter" parent="EnemigoProvisional/particlescale" unique_id=1386423302 instance=ExtResource("5_s6kml")]
-visible = false
 position = Vector2(-7, -13)
 scale = Vector2(0.583004, 0.556267)
 
@@ -214,6 +310,7 @@ scale = Vector2(0.583004, 0.556267)
 
 [node name="SHield2" parent="EnemigoProvisional/particlescale" unique_id=1733288997 instance=ExtResource("7_s6kml")]
 position = Vector2(-11.5, 9.5)
+amount_ratio = 0.0
 
 [node name="explosion" parent="EnemigoProvisional/particlescale" unique_id=583424454 instance=ExtResource("8_0ctl2")]
 
@@ -235,15 +332,26 @@ one_shot = true
 [node name="posion" parent="EnemigoProvisional/particlescale" unique_id=318127548 instance=ExtResource("12_mfw1h")]
 position = Vector2(-20, 6)
 
+[node name="small_posion" parent="EnemigoProvisional/particlescale" unique_id=581139457 instance=ExtResource("13_uok4b")]
+
 [node name="beer" parent="EnemigoProvisional/particlescale" unique_id=49436872 instance=ExtResource("13_n3rse")]
 
 [node name="wind" parent="EnemigoProvisional/particlescale" unique_id=783086858 instance=ExtResource("16_uok4b")]
-visible = false
 position = Vector2(-157, 24)
 scale = Vector2(0.505, 0.505)
+
+[node name="HealEmitter" parent="EnemigoProvisional/particlescale" unique_id=1979451463 instance=ExtResource("16_4whe8")]
+position = Vector2(-16.5, 0.5)
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="Camera2D/Buttons control/Consumir" to="." method="_on_consumir_pressed"]
 [connection signal="pressed" from="Camera2D/Buttons control/Utilizar" to="." method="_on_utilizar_pressed"]
 [connection signal="pressed" from="Camera2D/Buttons control/Surrender" to="." method="_on_surrender_pressed"]
 [connection signal="pressed" from="Camera2D/Buttons control/Next round" to="." method="_on_next_round_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons control/DEBUG/viento" to="Jugador" method="_on_viento_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons control/DEBUG/agua" to="Jugador" method="_on_agua_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons control/DEBUG/beer!!!" to="Jugador" method="_on_beer_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons control/DEBUG/beer!!!" to="EnemigoProvisional" method="_on_beer_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons control/DEBUG/lightning" to="Jugador" method="_on_lightning_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons control/DEBUG/fronads" to="Jugador" method="_on_fronads_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons control/DEBUG/feugo" to="Jugador" method="_on_feugo_pressed"]

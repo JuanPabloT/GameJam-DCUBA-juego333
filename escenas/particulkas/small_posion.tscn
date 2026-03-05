@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bfyf2pux1skp"]
+
+[ext_resource type="Texture2D" uid="uid://ctwdtjldaon8l" path="res://sprites/poison_bubble.png" id="1_14jra"]
+
+[sub_resource type="Curve" id="Curve_2p8ly"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.080419585, 0.9874599), 0.0, 0.0, 0, 0, Vector2(0.7077626, 0.8083261), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_mjq1p"]
+curve = SubResource("Curve_2p8ly")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wxvpa"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 76.04
+inherit_velocity_ratio = 0.261
+direction = Vector3(0, -1, 0)
+spread = 124.435
+initial_velocity_max = 11.559999
+gravity = Vector3(0, 6.145, 0)
+scale_min = 0.29999998
+scale_max = 0.55
+alpha_curve = SubResource("CurveTexture_mjq1p")
+turbulence_enabled = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" unique_id=392082015]
+emitting = false
+texture = ExtResource("1_14jra")
+lifetime = 2.1399999999999997
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_wxvpa")

@@ -1,23 +1,15 @@
-extends SerVivo
+extends Node2D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	health = 100
-	super._ready()
 	pass # Replace with function body.
 
-func on_death():
-	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	super._process(delta)
 	pass
 
-func on_turn():
-	enemy.deal_ordinary_damage(randi_range(15, 0))
-
-
-func _on_beer_pressed() -> void:
-	self.apply_beer()
+func emit():
+	$b3b3b5.emitting = true
+	$b3b3b4.emitting = true
