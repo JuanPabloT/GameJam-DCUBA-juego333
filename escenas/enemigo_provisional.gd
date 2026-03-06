@@ -4,8 +4,8 @@ var characters_skin = [
 	"res://sprites/cuerpos/clemen_tina.png",
 	"res://sprites/cuerpos/fire_elemental.png",
 	"res://sprites/cuerpos/liliana.png",
-	"res://sprites/cuerpos/pj_small.png",
-	"res://sprites/cuerpos/pj_small.png",
+	"res://sprites/cuerpos/gaucho.png",
+	"res://sprites/cuerpos/alien.png",
 	"res://sprites/cuerpos/pj_small.png",
 	"res://sprites/cuerpos/pj_small.png"
 ]
@@ -16,7 +16,17 @@ var id : int
 func _ready() -> void:
 	_identify_me()
 	$EnemigoProvisionalSprite.texture = load(characters_skin[id])
-	$EnemigoProvisionalSprite.scale = Vector2(0.3, 0.3)
+	match id:
+		0:
+			$EnemigoProvisionalSprite.scale = Vector2(0.4, 0.4)
+		1:
+			$EnemigoProvisionalSprite.scale = Vector2(0.4, 0.4)
+		3:
+			$EnemigoProvisionalSprite.scale = Vector2(0.33, 0.33)
+		4:
+			$EnemigoProvisionalSprite.scale = Vector2(0.55, 0.55)
+		_:
+			$EnemigoProvisionalSprite.scale = Vector2(0.3, 0.3)
 	health = 100
 	super._ready()
 	pass # Replace with function body.
