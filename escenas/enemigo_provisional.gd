@@ -1,8 +1,22 @@
 extends SerVivo
 
+var characters_skin = [
+	"res://sprites/cuerpos/clemen_tina.png",
+	"res://sprites/cuerpos/fire_elemental.png",
+	"res://sprites/cuerpos/liliana.png",
+	"res://sprites/cuerpos/pj_small.png",
+	"res://sprites/cuerpos/pj_small.png",
+	"res://sprites/cuerpos/pj_small.png",
+	"res://sprites/cuerpos/pj_small.png"
+]
+
+var id : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_identify_me()
+	$EnemigoProvisionalSprite.texture = load(characters_skin[id])
+	$EnemigoProvisionalSprite.scale = Vector2(0.3, 0.3)
 	health = 100
 	super._ready()
 	pass # Replace with function body.
@@ -21,3 +35,19 @@ func on_turn():
 
 func _on_beer_pressed() -> void:
 	self.apply_beer()
+	
+func _identify_me() -> void:
+	if GameData.level == 1:
+		id = GameData.enemies_remaining[0]
+	elif GameData.level == 2:
+		if GameData.stage[0] == 1:
+			id = GameData.enemies_remaining[1]
+		else:
+			#GameData.stage[1] == 1
+			id = GameData.enemies_remaining[2]
+	else:
+		for i in range(4):
+			if GameData.stage[i+2]:
+				id = GameData.enemies_remaining[i + 3]
+				break
+	return

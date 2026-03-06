@@ -1,8 +1,9 @@
 extends SerVivo
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$JugadorSprite.texture = load("res://sprites/cuerpos/pj_small.png")
+	$JugadorSprite.scale = Vector2(0.27, 0.27)
 	health = 100 #?
 	super._ready()
 
