@@ -13,6 +13,7 @@ func _on_ready() -> void:
 	player = $Jugador
 	rival = $EnemigoProvisional
 	GameData.assign_effect_to_artifact_parts()
+	GameData.artefacto_holder = $ArtefactoHolderBackground/ScrollContainer/ArtefactoHolder
 	#empiezan los botones apagados
 	_disable_buttons()
 	_player_turn()

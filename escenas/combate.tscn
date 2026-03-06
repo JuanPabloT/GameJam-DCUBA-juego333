@@ -343,6 +343,24 @@ scale = Vector2(0.505, 0.505)
 [node name="HealEmitter" parent="EnemigoProvisional/particlescale" unique_id=1979451463 instance=ExtResource("16_4whe8")]
 position = Vector2(-16.5, 0.5)
 
+[node name="ArtefactoHolderBackground" type="PanelContainer" parent="." unique_id=421372997]
+offset_left = 379.0
+offset_top = -229.0
+offset_right = 546.0
+offset_bottom = 115.0
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ArtefactoHolderBackground" unique_id=1003450933]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ArtefactoHolder" type="VBoxContainer" parent="ArtefactoHolderBackground/ScrollContainer" unique_id=1041692745]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="Camera2D/Buttons control/Consumir" to="." method="_on_consumir_pressed"]
 [connection signal="pressed" from="Camera2D/Buttons control/Utilizar" to="." method="_on_utilizar_pressed"]

@@ -17,10 +17,12 @@ texture = ExtResource("2_iqcja")
 
 [node name="Tooltip" type="PanelContainer" parent="Up" unique_id=2048821075]
 visible = false
+z_index = 5
 offset_left = -631.0
 offset_top = -380.0
 offset_right = -142.0
 offset_bottom = -169.0
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="Up/Tooltip" unique_id=1208333199]
 layout_mode = 2
@@ -39,10 +41,12 @@ texture = ExtResource("3_u20ug")
 
 [node name="Tooltip" type="PanelContainer" parent="Down" unique_id=1984273998]
 visible = false
+z_index = 5
 offset_left = -698.0
 offset_top = 124.0
 offset_right = -209.0
 offset_bottom = 335.0
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="Down/Tooltip" unique_id=2037981363]
 layout_mode = 2
@@ -60,10 +64,12 @@ texture = ExtResource("4_istmk")
 
 [node name="Tooltip" type="PanelContainer" parent="Right" unique_id=1939257930]
 visible = false
+z_index = 5
 offset_left = 269.0
 offset_top = -27.0
 offset_right = 758.0
 offset_bottom = 184.0
+mouse_filter = 2
 
 [node name="Label" type="Label" parent="Right/Tooltip" unique_id=747622941]
 layout_mode = 2

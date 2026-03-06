@@ -64,6 +64,8 @@ var real_effect_descriptions : Dictionary
 var real_effect_seen : Dictionary
 var real_effect_player_notes : Dictionary
 
+var artefacto_holder : VBoxContainer
+
 func assign_effect_to_artifact_parts():
 	# solo funciona si hay suficientes efectos. habria que hacer que se repitan solo si no lo hubiera
 	possible_effects.shuffle()

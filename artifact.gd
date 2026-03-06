@@ -28,7 +28,23 @@ func use_on(target):
 	GameData.real_effect_seen[imageup]=true
 	GameData.real_effect_seen[imagedown]=true
 	GameData.real_effect_seen[imageright]=true
-	self.queue_free()
+	
+	get_parent().remove_child(self)
+	visible=true
+	var newparent : Control = CenterContainer.new()
+	newparent.custom_minimum_size.y=120
+	newparent.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	self.scale = Vector2(0.2,0.2)
+	GameData.artefacto_holder.add_child(newparent)
+	GameData.artefacto_holder.move_child(newparent, 0)
+	newparent.add_child(self) 
+	prepare_label_text()
+	self.position = newparent.size / 2
+	self.position.x+=85
+	
+	$Right/Tooltip.position=Vector2(-200,-100)
+	$Down/Tooltip.position=Vector2(-200,-100)
+	$Up/Tooltip.position=Vector2(-200,-100)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void: 
@@ -39,11 +55,14 @@ func _ready() -> void:
 	$Up.texture = ImageTexture.create_from_image(Image.load_from_file(imageup))
 	$Down.texture = ImageTexture.create_from_image(Image.load_from_file(imagedown))
 	$Right.texture = ImageTexture.create_from_image(Image.load_from_file(imageright))
+	prepare_label_text()	
+	
+
+func prepare_label_text():
 	$Up/Tooltip/Label.text = GameData.real_effect_descriptions[imageup] if GameData.real_effect_seen[imageup] else "???"
 	$Down/Tooltip/Label.text = GameData.real_effect_descriptions[imagedown] if GameData.real_effect_seen[imagedown] else "???"
 	$Right/Tooltip/Label.text = GameData.real_effect_descriptions[imageright] if GameData.real_effect_seen[imageright] else "???"
-	
-	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
