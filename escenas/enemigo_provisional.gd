@@ -47,7 +47,7 @@ func _identify_me() -> void:
 			id = GameData.enemies_remaining[2]
 	else:
 		for i in range(4):
-			if GameData.stage[i+2]:
+			if GameData.stage[i+2] == 2:
 				id = GameData.enemies_remaining[i + 3]
 				break
 	return
