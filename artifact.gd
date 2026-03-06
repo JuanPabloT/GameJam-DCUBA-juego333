@@ -26,7 +26,7 @@ func use_on(target):
 	await GameData.real_effects[imageright].call(target)
 	await GameData.real_effects[imagedown].call(target)
 	GameData.real_effect_seen[imageup]=true
-	GameData.real_effect_seen[imageup]=true
+	GameData.real_effect_seen[imagedown]=true
 	GameData.real_effect_seen[imageright]=true
 	self.queue_free()
 

@@ -22,14 +22,14 @@ var reaction_data = {
 		GD.water:[P.second, func(e1,e2):target.smoke(); target.display_status("Extinguido!", "#AAA")],
 		GD.root:[P.first, func(e1,e2):e1.add_duration(3); target.display_status("Combustible!", GD.element_colors[GD.fire]); target.emit_burning_particles() ],
 		GD.lightning:[P.both, func(e1,e2):pass ], 
-		GD.poison:[P.neither, func(e1,e2):target.display_status("Neutralizado!", GD.element_colors[GD.poison]);target.smoke() ], 
+		GD.poison:[P.first, func(e1,e2):target.display_status("Pasteurizar!", GD.element_colors[GD.poison]);target.smoke() ], 
 		GD.beer:[P.first, func(e1,e2):e1.add_duration(3); target.display_status("Moletov!", GD.element_colors[GD.beer]);target.explosion_emitter.restart() ], 
 	},
 	GD.water: {
 		GD.fire:[P.first, func(e1,e2):target.smoke();target.display_status("Extinguido!", "#AAA")],
 		GD.water:[P.first, func(e1,e2):target.heal_by(10); target.display_status("Elixir!", GD.element_colors[GD.water])],
 		GD.root:[P.second, func(e1,e2):target.add_shield(15);  target.display_status("Atrincherar!", GD.element_colors[GD.root])], 
-		GD.lightning:[P.first, func(e1,e2):target.deal_lightning_damage(10); target.display_status("Descarga!", GD.element_colors[GD.lightning]) ], 
+		GD.lightning:[P.first, func(e1,e2):target.deal_lightning_damage(15); target.display_status("Descarga!", GD.element_colors[GD.lightning]) ], 
 		GD.poison:[P.second, func(e1,e2):e2.dilute();target.display_status("Diluir!", GD.element_colors[GD.water]);target.emit_small_poison() ],
 		GD.beer:[P.both, func(e1,e2):pass ], 
 	},
@@ -43,14 +43,14 @@ var reaction_data = {
 	},
 	GD.lightning: {
 		GD.fire:[P.both, func(e1,e2):pass ], 
-		GD.water:[P.second, func(e1,e2):target.deal_lightning_damage(10); target.display_status("Descarga!", GD.element_colors[GD.lightning]);target.shock()  ],
+		GD.water:[P.second, func(e1,e2):target.deal_lightning_damage(15); target.display_status("Descarga!", GD.element_colors[GD.lightning]);target.shock()  ],
 		GD.root:[P.both, func(e1,e2):pass ], 
-		GD.lightning:[P.first, func(e1,e2):target.enemy.deal_lightning_damage(15); target.display_status("Corto-circuito!", GD.element_colors[GD.lightning]); target.emit_lightning(); target.enemy.emit_lightning() ], 
+		GD.lightning:[P.first, func(e1,e2):  target.emit_lightning(); await target.enemy.emit_lightning();target.display_status("Corto-circuito!", GD.element_colors[GD.lightning]);target.enemy.deal_lightning_damage(15) ], 
 		GD.poison:[P.neither, func(e1,e2):target.display_status("Antidoto!", GD.element_colors[GD.poison]);target.emit_small_poison() ], 
 		GD.beer:[P.first, func(e1,e2): target.deal_lightning_damage(10);target.display_status("Icáreo!", GD.element_colors[GD.lightning]) ],
 	},
 	GD.poison: {
-		GD.fire:[P.neither, func(e1,e2):target.display_status("Neutralizado!", GD.element_colors[GD.poison]);target.smoke() ], 
+		GD.fire:[P.second, func(e1,e2):target.display_status("Pasteurizar!", GD.element_colors[GD.poison]);target.smoke() ], 
 		GD.water:[P.first, func(e1,e2):e1.dilute();target.display_status("Diluir!", GD.element_colors[GD.water]);target.emit_small_poison()  ],
 		GD.root:[P.both, func(e1,e2):pass ],
 		GD.lightning:[P.neither, func(e1,e2):target.display_status("Antidoto!", GD.element_colors[GD.poison]);target.emit_small_poison() ], 
@@ -199,7 +199,6 @@ func apply_wind():
 			await tween.finished
 			get_tree().root.get_child(0).remove_child(efecto)
 			target.enemy.effect_status.add_child(efecto)
-			print("  (from wind)")
 
 
 

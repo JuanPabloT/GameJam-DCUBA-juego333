@@ -23,17 +23,22 @@ var GD = GameData
 @export var wind_emitter : Node2D
 @export var heal_emitter : GPUParticles2D
 
+var myrealtexture : CompressedTexture2D
+var myrealscale : Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	update_shield_visibility()
+	var mysprite = get_child(0)
+	myrealtexture = mysprite.texture
+	myrealtexture = mysprite.texture
+	myrealscale = mysprite.scale
 
 func is_dead()->bool:
 	return health <= 0
 
 
 func on_turn_end():
-	print("  (from turn end)")
 	await effect_status.trigger_effect_collisions()
 	await enemy.effect_status.trigger_effect_collisions()
 	if await effect_status.has_effects_to_run():
@@ -79,10 +84,10 @@ func apply_root():
 	await get_tree().create_timer(1).timeout
 
 func apply_lightning():
-	deal_lightning_damage(5)
-	display_status("Rayo!", GD.element_colors[GD.lightning])
-	effect_status.add_shock_effect()
 	await emit_lightning()
+	effect_status.add_shock_effect()
+	display_status("Rayo!", GD.element_colors[GD.lightning])
+	deal_lightning_damage(10)
 	
 func emit_lightning():
 	lightning_emitter.emitting=true
@@ -104,7 +109,6 @@ func apply_beer():
 	
 	
 func smoke():
-	display_status("Extinguir!", "#AAA")
 	smokeemitter.visible = true
 	await get_tree().create_timer(1).timeout
 	smokeemitter.visible = false
@@ -134,22 +138,21 @@ func emit_small_poison():
 	await get_tree().create_timer(1).timeout
 	
 func shock():
-	pass #TODO reemplazar sprite con version electrocutada por 1 segundo
-	#var mysprite = get_child(0)
-	#var mytexture = mysprite.texture
-	# mysprite.texture = Image.load etc etc shocked texture
-	#await get_tree().create_timer(0.4).timeout
-	# mysprite.texture = mytexture
-	#await get_tree().create_timer(0.2).timeout
-	# mysprite.texture = Image.load etc etc shocked texture
-	#await get_tree().create_timer(0.4).timeout
-	# mysprite.texture = mytexture
-	
+	var shocktexture = ImageTexture.create_from_image(Image.load_from_file("res://sprites/temp_shock.png"))
+	for i in range(3):
+		var mysprite = get_child(0)
+		var asacle = float(myrealtexture.get_image().get_used_rect().size.y) / shocktexture.get_image().get_used_rect().size.y
+		print("shock", asacle, " ", myrealtexture.get_image().get_used_rect().size.y, " ", shocktexture.get_image().get_used_rect().size.y, " ", 2*myrealtexture.get_image().get_used_rect().size.y/ shocktexture.get_image().get_used_rect().size.y)
+		mysprite.texture = shocktexture
+		mysprite.scale = myrealscale*1.5*asacle
+		await get_tree().create_timer(0.1).timeout
+		mysprite.texture = myrealtexture
+		mysprite.scale = myrealscale*1
+		await get_tree().create_timer(0.05).timeout
 	
 
 func update_shield_visibility():
 	shieldemitter.amount_ratio = clampf(shield/30.0,0,1)
-	print(shield, " ", shield/30.0, " ", clampf(shield/30.0,0,1))
 	
 ########### DAÑO ###########
 enum ShieldStatus {

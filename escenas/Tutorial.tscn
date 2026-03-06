@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dbs7awrkq6etn" path="res://scripts/tutorial.gd" id="1_jl26d"]
 [ext_resource type="Texture2D" uid="uid://bbu7mlh58nlro" path="res://sprites/cartas/20mBgR.png" id="2_exxca"]
+[ext_resource type="Texture2D" uid="uid://cesiue51yt2yv" path="res://sprites/efectos/agua.png" id="3_g61xo"]
 
 [node name="main" type="Node" unique_id=2048265753]
 script = ExtResource("1_jl26d")
@@ -96,5 +97,10 @@ offset_right = 268.0
 offset_bottom = 23.0
 text = "Los efectos de artefactos vistos anteriormente este torneo son visibles con (HOVER)"
 autowrap_mode = 3
+
+[node name="Agua" type="Sprite2D" parent="." unique_id=1529135205]
+position = Vector2(-585, 58)
+scale = Vector2(1.42, 0.18)
+texture = ExtResource("3_g61xo")
 
 [connection signal="pressed" from="Retorno" to="." method="_on_retorno_pressed"]

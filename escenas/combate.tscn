@@ -88,52 +88,52 @@ offset_bottom = 40.0
 
 [node name="viento" type="Button" parent="Camera2D/Buttons control/DEBUG" unique_id=100988434]
 layout_mode = 0
-offset_left = 339.0
-offset_top = -22.0
-offset_right = 490.0
-offset_bottom = 17.0
+offset_left = -577.0
+offset_top = -168.0
+offset_right = -461.0
+offset_bottom = -137.0
 text = "DEBUG viento
 "
 
 [node name="agua" type="Button" parent="Camera2D/Buttons control/DEBUG" unique_id=264220068]
 layout_mode = 0
-offset_left = 335.0
-offset_top = -73.0
-offset_right = 486.0
-offset_bottom = -34.0
+offset_left = -577.0
+offset_top = -195.0
+offset_right = -472.0
+offset_bottom = -164.0
 text = "DEBUG agua
 "
 
 [node name="beer!!!" type="Button" parent="Camera2D/Buttons control/DEBUG" unique_id=1928397137]
 layout_mode = 0
-offset_left = 333.0
-offset_top = -132.0
-offset_right = 484.0
-offset_bottom = -93.0
+offset_left = -574.0
+offset_top = -226.0
+offset_right = -448.0
+offset_bottom = -195.0
 text = "DEBUG cerveza"
 
 [node name="lightning" type="Button" parent="Camera2D/Buttons control/DEBUG" unique_id=690214895]
 layout_mode = 0
-offset_left = 324.0
-offset_top = -190.0
-offset_right = 475.0
-offset_bottom = -151.0
+offset_left = -575.0
+offset_top = -256.0
+offset_right = -473.0
+offset_bottom = -225.0
 text = "DEBUG rayo"
 
 [node name="fronads" type="Button" parent="Camera2D/Buttons control/DEBUG" unique_id=1421249692]
 layout_mode = 0
-offset_left = 323.0
-offset_top = -300.0
-offset_right = 474.0
-offset_bottom = -261.0
+offset_left = -577.0
+offset_top = -320.0
+offset_right = -440.0
+offset_bottom = -289.0
 text = "DEBUG PLANTAS"
 
 [node name="feugo" type="Button" parent="Camera2D/Buttons control/DEBUG" unique_id=246847541]
 layout_mode = 0
-offset_left = 327.0
-offset_top = -247.0
-offset_right = 478.0
-offset_bottom = -208.0
+offset_left = -580.0
+offset_top = -288.0
+offset_right = -469.0
+offset_bottom = -257.0
 text = "DEBUG feugo"
 
 [node name="Game Status" type="Control" parent="Camera2D" unique_id=1203945084]
