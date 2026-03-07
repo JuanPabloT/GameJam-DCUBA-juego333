@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cbixvlkpqhf11"]
 
 [ext_resource type="Script" uid="uid://dxi51xketdx5u" path="res://scripts/combat_script.gd" id="1_tj7jl"]
+[ext_resource type="PackedScene" uid="uid://dxtkbbjjkob5v" path="res://escenas/boton.tscn" id="2_4whe8"]
 [ext_resource type="Texture2D" uid="uid://s5qn7amar80b" path="res://sprites/temp/a1.png" id="3_rgmsd"]
 [ext_resource type="Script" uid="uid://bjxo02uboe17n" path="res://escenas/jugador.gd" id="3_vtyci"]
 [ext_resource type="Script" uid="uid://d28npmttrir4k" path="res://escenas/status_effect_handler.gd" id="4_8d3xh"]
@@ -31,60 +32,20 @@ offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Consumir" type="Button" parent="Camera2D/Buttons control" unique_id=893554657]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -2.525
-anchor_top = 0.3
-anchor_right = -2.525
-anchor_bottom = 0.3
-offset_left = -450.0
-offset_top = 117.0
-offset_right = -105.0
-offset_bottom = 217.0
-theme_override_font_sizes/font_size = 30
-text = "CONSUMIR ARTEFACTO"
-metadata/_edit_use_anchors_ = true
-
-[node name="Utilizar" type="Button" parent="Camera2D/Buttons control" unique_id=2047229775]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -2.525
-anchor_top = 0.3
-anchor_right = -2.525
-anchor_bottom = 0.3
-offset_left = 114.0
-offset_top = 115.0
-offset_right = 428.0
-offset_bottom = 215.0
-theme_override_font_sizes/font_size = 30
-text = "UTILIZAR ARTEFACTO"
-metadata/_edit_use_anchors_ = true
-
-[node name="Surrender" type="Button" parent="Camera2D/Buttons control" unique_id=1032306553]
-layout_mode = 0
-offset_left = -572.0
-offset_top = 289.0
-offset_right = -487.0
-offset_bottom = 320.0
-text = "IR AL MENU"
-
-[node name="Next round" type="Button" parent="Camera2D/Buttons control" unique_id=846162031]
-custom_minimum_size = Vector2(40, 20)
-layout_mode = 0
-offset_left = 432.0
-offset_top = 289.0
-offset_right = 570.0
-offset_bottom = 320.0
-disabled = true
-text = "Siguiente Ronda!"
-
 [node name="DEBUG" type="Control" parent="Camera2D/Buttons control" unique_id=1110440724]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="veneno" type="Button" parent="Camera2D/Buttons control/DEBUG" unique_id=1544977134]
+layout_mode = 0
+offset_left = -577.0
+offset_top = -135.0
+offset_right = -453.0
+offset_bottom = -104.0
+text = "DEBUG veneno
+"
 
 [node name="viento" type="Button" parent="Camera2D/Buttons control/DEBUG" unique_id=100988434]
 layout_mode = 0
@@ -136,6 +97,42 @@ offset_right = -469.0
 offset_bottom = -257.0
 text = "DEBUG feugo"
 
+[node name="Consumir" parent="Camera2D/Buttons control" unique_id=515566042 instance=ExtResource("2_4whe8")]
+layout_mode = 1
+offset_left = -548.0
+offset_top = 80.0
+offset_right = -259.0
+offset_bottom = 198.0
+scale = Vector2(1.1, 1.1)
+label_text = "Consumir Artefacto"
+
+[node name="Utilizar" parent="Camera2D/Buttons control" unique_id=2123190864 instance=ExtResource("2_4whe8")]
+layout_mode = 1
+offset_left = -4.0
+offset_top = 94.0
+offset_right = 285.0
+offset_bottom = 212.0
+scale = Vector2(1.1, 1.1)
+label_text = "Utilizar Artefacto"
+
+[node name="Next round" parent="Camera2D/Buttons control" unique_id=538339735 instance=ExtResource("2_4whe8")]
+layout_mode = 1
+offset_left = 320.0
+offset_top = 208.0
+offset_right = 609.0
+offset_bottom = 326.0
+scale = Vector2(0.8, 0.8)
+label_text = "Siguiente Ronda"
+
+[node name="Surrender" parent="Camera2D/Buttons control" unique_id=65440621 instance=ExtResource("2_4whe8")]
+layout_mode = 1
+offset_left = -597.0
+offset_top = 229.0
+offset_right = -308.0
+offset_bottom = 347.0
+scale = Vector2(0.6, 0.6)
+label_text = "Abandonar"
+
 [node name="Game Status" type="Control" parent="Camera2D" unique_id=1203945084]
 layout_mode = 3
 anchors_preset = 0
@@ -144,7 +141,7 @@ offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Jugador" type="Node2D" parent="." unique_id=659219716 node_paths=PackedStringArray("health_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter")]
-position = Vector2(-385, 11)
+position = Vector2(-374, -16)
 script = ExtResource("3_vtyci")
 health_status = NodePath("Player health")
 effect_status = NodePath("player_status")
@@ -245,7 +242,7 @@ scale = Vector2(0.67, 0.67)
 [node name="HealEmitter" parent="Jugador/particlescale" unique_id=1277962600 instance=ExtResource("16_4whe8")]
 
 [node name="EnemigoProvisional" type="Node2D" parent="." unique_id=655215699 node_paths=PackedStringArray("health_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter")]
-position = Vector2(177, -1)
+position = Vector2(179, -26)
 script = ExtResource("5_vtyci")
 health_status = NodePath("Rival health")
 effect_status = NodePath("enemy_status")
@@ -362,10 +359,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 
 [connection signal="ready" from="." to="." method="_on_ready"]
-[connection signal="pressed" from="Camera2D/Buttons control/Consumir" to="." method="_on_consumir_pressed"]
-[connection signal="pressed" from="Camera2D/Buttons control/Utilizar" to="." method="_on_utilizar_pressed"]
-[connection signal="pressed" from="Camera2D/Buttons control/Surrender" to="." method="_on_surrender_pressed"]
-[connection signal="pressed" from="Camera2D/Buttons control/Next round" to="." method="_on_next_round_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons control/DEBUG/veneno" to="Jugador" method="_on_veneno_pressed"]
 [connection signal="pressed" from="Camera2D/Buttons control/DEBUG/viento" to="Jugador" method="_on_viento_pressed"]
 [connection signal="pressed" from="Camera2D/Buttons control/DEBUG/agua" to="Jugador" method="_on_agua_pressed"]
 [connection signal="pressed" from="Camera2D/Buttons control/DEBUG/beer!!!" to="Jugador" method="_on_beer_pressed"]
@@ -373,3 +367,7 @@ mouse_filter = 2
 [connection signal="pressed" from="Camera2D/Buttons control/DEBUG/lightning" to="Jugador" method="_on_lightning_pressed"]
 [connection signal="pressed" from="Camera2D/Buttons control/DEBUG/fronads" to="Jugador" method="_on_fronads_pressed"]
 [connection signal="pressed" from="Camera2D/Buttons control/DEBUG/feugo" to="Jugador" method="_on_feugo_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons control/Consumir" to="." method="_on_consumir_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons control/Utilizar" to="." method="_on_utilizar_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons control/Next round" to="." method="_on_next_round_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons control/Surrender" to="." method="_on_surrender_pressed"]

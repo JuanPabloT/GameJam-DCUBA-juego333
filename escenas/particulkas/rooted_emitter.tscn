@@ -61,7 +61,7 @@ turbulence_influence_max = 0.014
 sub_emitter_mode = 2
 sub_emitter_amount_at_end = 1
 
-[node name="Node2D" type="GPUParticles2D" unique_id=609426053]
+[node name="RootedEmitter" type="GPUParticles2D" unique_id=609426053]
 amount = 50
 collision_base_size = 0.0
 process_material = SubResource("ParticleProcessMaterial_dq7vx")

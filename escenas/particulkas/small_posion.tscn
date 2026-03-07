@@ -23,7 +23,7 @@ scale_max = 0.55
 alpha_curve = SubResource("CurveTexture_mjq1p")
 turbulence_enabled = true
 
-[node name="GPUParticles2D" type="GPUParticles2D" unique_id=392082015]
+[node name="SmallPoisonEmitter" type="GPUParticles2D" unique_id=392082015]
 emitting = false
 texture = ExtResource("1_14jra")
 lifetime = 2.1399999999999997

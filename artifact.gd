@@ -1,3 +1,4 @@
+class_name Artefacto
 extends Node2D
 var imageup
 var imagedown
@@ -52,9 +53,9 @@ func _ready() -> void:
 	position.y = 150
 	position.x = -120
 	setup()
-	$Up.texture = ImageTexture.create_from_image(Image.load_from_file(imageup))
-	$Down.texture = ImageTexture.create_from_image(Image.load_from_file(imagedown))
-	$Right.texture = ImageTexture.create_from_image(Image.load_from_file(imageright))
+	$Up.texture = load(imageup)
+	$Down.texture = load(imagedown)
+	$Right.texture = load(imageright)
 	prepare_label_text()	
 	
 

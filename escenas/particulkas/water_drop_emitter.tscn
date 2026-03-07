@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://sk3r5xhqfof0"]
 
+[ext_resource type="Script" uid="uid://c573fmmjgwxka" path="res://escenas/particulkas/water_drop_emitter.gd" id="1_1qg0c"]
+
 [sub_resource type="Gradient" id="Gradient_ekmxp"]
 colors = PackedColorArray(0.297, 0.45779985, 0.9, 1, 0.31523007, 0.5550678, 0.7162069, 1)
 
@@ -75,6 +77,9 @@ curve_z = SubResource("Curve_tyge3")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wxvpa"]
 particle_flag_align_y = true
 particle_flag_disable_z = true
+emission_shape_scale = Vector3(30, 15, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
 direction = Vector3(0, -1, 0)
 spread = 90.0
 initial_velocity_min = 245.79999
@@ -85,16 +90,21 @@ scale_max = 4.0
 scale_over_velocity_curve = SubResource("CurveXYZTexture_bt5hy")
 color_ramp = SubResource("GradientTexture1D_1qg0c")
 
-[node name="Node2D" type="GPUParticles2D" unique_id=609426053]
+[node name="WaterEmitter" type="GPUParticles2D" unique_id=609426053]
 emitting = false
 amount = 50
 sub_emitter = NodePath("GPUParticles2D")
+lifetime = 0.84
 one_shot = true
 explosiveness = 0.81
 collision_base_size = 0.0
 process_material = SubResource("ParticleProcessMaterial_dq7vx")
+script = ExtResource("1_1qg0c")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=392082015]
+position = Vector2(-1, 130)
 emitting = false
 amount = 150
+lifetime = 0.3
+one_shot = true
 process_material = SubResource("ParticleProcessMaterial_wxvpa")

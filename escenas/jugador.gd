@@ -1,3 +1,4 @@
+class_name Jugador
 extends SerVivo
 
 # Called when the node enters the scene tree for the first time.
@@ -38,3 +39,7 @@ func _on_agua_pressed() -> void:
 
 func _on_viento_pressed() -> void:
 	self.apply_wind()
+
+
+func _on_veneno_pressed() -> void:
+	self.apply_poison(3)

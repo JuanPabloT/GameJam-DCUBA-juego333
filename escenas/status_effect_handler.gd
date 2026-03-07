@@ -124,10 +124,7 @@ func add_effect(sprite, duration = 0, potency = 0):
 	add_child(neweffect)
 
 func change_effect(e1, sprite):
-	var image  = Image.load_from_file(sprite)
-	if not image or image.is_empty():
-		print("imagen noc argo", sprite)
-	e1.texture = ImageTexture.create_from_image(image)
+	e1.texture = load(sprite)
 	e1.name = sprite.split("/")[-1].split(".")[0]
 	e1.type = sprite
 	e1.duration = 0

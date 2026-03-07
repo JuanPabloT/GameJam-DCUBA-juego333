@@ -1,9 +1,9 @@
 extends Node
 
 
-var player
-var rival
-var artifact
+var player : Jugador
+var rival : Enemigo
+var artifact : Artefacto
 
 var artifact_scene: PackedScene = preload("res://artefacto.tscn")
 
@@ -57,6 +57,8 @@ func _rival_lost() -> bool:
 	return false
 
 func _rival_turn() -> void:
+	await get_tree().create_timer(1).timeout
+
 	print("terminando turno jugador")
 	await player.on_turn_end()
 	await get_tree().create_timer(0.3).timeout

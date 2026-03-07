@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://4llmjr2dupog"]
 
+[ext_resource type="Script" uid="uid://bhqjl4yanfxeh" path="res://escenas/particulkas/beer_emitter.gd" id="1_wftsi"]
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dq7vx"]
 particle_flag_align_y = true
 particle_flag_disable_z = true
@@ -23,8 +25,12 @@ sub_emitter_amount_at_end = 5
 particle_flag_align_y = true
 particle_flag_disable_z = true
 particle_flag_damping_as_friction = true
-emission_shape = 3
-emission_box_extents = Vector3(19.88, 1, 1)
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 40.0
+emission_ring_inner_radius = 20.0
+emission_ring_cone_angle = 90.0
 inherit_velocity_ratio = 0.519
 direction = Vector3(0, 1, 0)
 spread = 180.0
@@ -48,8 +54,12 @@ curve = SubResource("Curve_2p8ly")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wxvpa"]
 particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 34.51
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 45.0
+emission_ring_inner_radius = 25.0
+emission_ring_cone_angle = 90.0
 inherit_velocity_ratio = 0.261
 direction = Vector3(0, -1, 0)
 spread = 124.435
@@ -60,23 +70,29 @@ scale_max = 2.0
 alpha_curve = SubResource("CurveTexture_mjq1p")
 turbulence_enabled = true
 
-[node name="Node2D" type="GPUParticles2D" unique_id=609426053]
+[node name="BeerEmitter" type="GPUParticles2D" unique_id=609426053]
 emitting = false
 amount = 20
 sub_emitter = NodePath("Node2D2")
+lifetime = 0.4
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_dq7vx")
+script = ExtResource("1_wftsi")
 
 [node name="Node2D2" type="GPUParticles2D" parent="." unique_id=359170347]
 emitting = false
-amount = 500
+amount = 50
 sub_emitter = NodePath("GPUParticles2D")
+lifetime = 0.2
+one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_qqhc5")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Node2D2" unique_id=392082015]
 emitting = false
-amount = 1000
-lifetime = 2.1399999999999997
+amount = 500
+lifetime = 1.51
+one_shot = true
+explosiveness = 0.84
 process_material = SubResource("ParticleProcessMaterial_wxvpa")

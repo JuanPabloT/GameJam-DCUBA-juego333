@@ -5,7 +5,8 @@ func _ready() -> void:
 	GameData.enemies_remaining = [0,1,2,3,4,5,6]
 	GameData.enemies_remaining.shuffle()
 	GameData.stage = [0,0,0,0,0,0]
-	pass
+
+		
 
 func _on_salir_pressed() -> void:
 	#salir
@@ -14,7 +15,7 @@ func _on_salir_pressed() -> void:
 
 func _on_iniciar_pressed() -> void:
 	print("iniciando")
-	get_tree().change_scene_to_file("res://escenas/torneo.tscn")
+	get_tree().change_scene_to_file("res://escenas/render.tscn")
 	pass # Replace with function body.
 
 

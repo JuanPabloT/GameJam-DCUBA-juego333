@@ -22,3 +22,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameData="*uid://dv66ur64f0aye"
+
+[debug]
+
+gdscript/warnings/unused_variable=0
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"

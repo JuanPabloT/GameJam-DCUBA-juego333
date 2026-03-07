@@ -74,7 +74,7 @@ func set_on_fire():
 func apply_water():
 	display_status("Lluvia", GD.element_colors[GD.water])
 	effect_status.add_water_effect()
-	water_emitter.emitting=true
+	water_emitter.emit()
 	await get_tree().create_timer(1).timeout
 
 func apply_root():
@@ -97,13 +97,13 @@ func emit_lightning():
 func apply_poison(n:int):
 	display_status("Envenenado", GD.element_colors[GD.poison])
 	effect_status.add_poison_effect(n)
-	poison_emitter.emitting=true
+	poison_emitter.emit()
 	await get_tree().create_timer(1).timeout
 
 func apply_beer():
 	display_status("Emborrachado", GD.element_colors[GD.beer])
 	effect_status.add_beer_effect()
-	beer_emitter.emitting=true
+	beer_emitter.emit()
 	await get_tree().create_timer(1).timeout
 	
 	
@@ -118,6 +118,8 @@ func add_shield(n:int):
 	shield += n
 	update_shield_visibility()
 	display_status("+"+str(n)+" Escudo", "#AAA")
+	await get_tree().create_timer(1).timeout
+	
 
 func apply_wind():
 	effect_status.apply_wind()
@@ -130,7 +132,7 @@ func emit_burning_particles():
 	await get_tree().create_timer(1).timeout
 
 func emit_healing_particles():
-	heal_emitter.emitting=true
+	heal_emitter.restart()
 	await get_tree().create_timer(1).timeout
 
 func emit_small_poison():
@@ -138,7 +140,7 @@ func emit_small_poison():
 	await get_tree().create_timer(1).timeout
 	
 func shock():
-	var shocktexture = ImageTexture.create_from_image(Image.load_from_file("res://sprites/temp_shock.png"))
+	var shocktexture = load("res://sprites/temp_shock.png")
 	for i in range(3):
 		var mysprite = get_child(0)
 		var asacle = float(myrealtexture.get_image().get_used_rect().size.y) / shocktexture.get_image().get_used_rect().size.y
@@ -209,15 +211,18 @@ func deal_burning_damage(n:int):
 
 
 func deal_ordinary_damage(n:int):
+	var prev_shield = shield
 	match change_health_shielded(-n*(2 if await enemy.has_beer() else 1), "#F00",(str(n)+" x 2" if await enemy.has_beer() else null) ):
 		ShieldStatus.inexistent:
 			pass
 		ShieldStatus.alive:
-			display_status("Bloqueado!", "#AAC")
+			display_status(str(-prev_shield+shield)+" Bloqueado!", "#AAC")
 		ShieldStatus.broken:
 			display_status("Escudo roto!", "#AAC")
 		
 	update_shield_visibility()
+	await get_tree().create_timer(1).timeout
+	
 
 func heal_by(n:int):
 	change_health(n, "#0F0")

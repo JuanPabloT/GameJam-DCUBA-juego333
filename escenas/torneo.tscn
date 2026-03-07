@@ -1,19 +1,21 @@
-[gd_scene format=3 uid="uid://copy82a3w1qsy"]
+[gd_scene format=3 uid="uid://dcbeerq4porjp"]
 
 [ext_resource type="Texture2D" uid="uid://cbex0x2tdvwh3" path="res://sprites/cabezas/pj_small_head.png" id="1_h2il6"]
 [ext_resource type="Script" uid="uid://dsyhtpjedyjly" path="res://scripts/torneo.gd" id="1_jkj0j"]
+[ext_resource type="Texture2D" uid="uid://vucj7yse7ek7" path="res://sprites/normal_ui_set_free/UI board Large  stone.png" id="2_8mlm4"]
+[ext_resource type="PackedScene" uid="uid://dxtkbbjjkob5v" path="res://escenas/boton.tscn" id="4_eygol"]
 
 [node name="root" type="Node" unique_id=567825413]
 script = ExtResource("1_jkj0j")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1572180094]
 
-[node name="background" type="ColorRect" parent="Camera2D" unique_id=1674092173]
+[node name="background" type="TextureRect" parent="Camera2D" unique_id=1417537436]
 offset_left = -576.0
 offset_top = -324.0
 offset_right = 576.0
 offset_bottom = 324.0
-color = Color(0.43529412, 0.5137255, 0.5372549, 1)
+texture = ExtResource("2_8mlm4")
 
 [node name="rect1" type="ColorRect" parent="Camera2D/background" unique_id=1613913093]
 layout_mode = 0
@@ -231,19 +233,20 @@ position = Vector2(515, 40.999985)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_h2il6")
 
-[node name="return to menu" type="Button" parent="." unique_id=1653158260]
-offset_left = -563.0
-offset_top = -311.0
-offset_right = -439.0
-offset_bottom = -280.0
-text = "Volver al menu"
+[node name="return to menu" parent="." unique_id=515566042 instance=ExtResource("4_eygol")]
+offset_left = -1116.0
+offset_top = -617.0
+offset_right = -827.0
+offset_bottom = -499.0
+scale = Vector2(0.7, 0.7)
+label_text = "Volver al menu"
 
-[node name="continue tournament" type="Button" parent="." unique_id=1187210351]
-offset_left = 404.0
-offset_top = -311.0
-offset_right = 563.0
-offset_bottom = -280.0
-text = "Comenzar combate"
+[node name="continue tournament" parent="." unique_id=1989144822 instance=ExtResource("4_eygol")]
+offset_left = -325.0
+offset_top = -628.0
+offset_right = -36.0
+offset_bottom = -510.0
+label_text = "Comenzar combate"
 
 [connection signal="pressed" from="return to menu" to="." method="_on_return_to_menu_pressed"]
 [connection signal="pressed" from="continue tournament" to="." method="_on_continue_tournament_pressed"]

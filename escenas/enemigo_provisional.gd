@@ -1,3 +1,4 @@
+class_name Enemigo
 extends SerVivo
 
 var characters_skin = [
@@ -42,6 +43,8 @@ func _process(delta: float) -> void:
 	pass
 
 func on_turn():
+	enemy.deal_ordinary_damage(randi_range(15, 0))
+
 	match id:
 		0:
 			_clemen_tina_attack()

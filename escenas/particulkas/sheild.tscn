@@ -31,6 +31,6 @@ scale_max = 15.049999
 scale_curve = SubResource("CurveTexture_gjl1g")
 color_ramp = SubResource("GradientTexture1D_ldisj")
 
-[node name="Node2D" type="GPUParticles2D" unique_id=760426545]
+[node name="ShieldEmitter" type="GPUParticles2D" unique_id=760426545]
 amount = 150
 process_material = SubResource("ParticleProcessMaterial_rkx4a")

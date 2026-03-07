@@ -51,7 +51,7 @@ scale_max = 6.0
 scale_over_velocity_curve = SubResource("CurveXYZTexture_fi8hn")
 color_ramp = SubResource("GradientTexture1D_1wddy")
 
-[node name="Node2D" type="GPUParticles2D" unique_id=609426053]
+[node name="ExploionEmitter" type="GPUParticles2D" unique_id=609426053]
 emitting = false
 amount = 50
 one_shot = true

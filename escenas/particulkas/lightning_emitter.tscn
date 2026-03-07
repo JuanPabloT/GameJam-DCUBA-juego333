@@ -433,7 +433,7 @@ shader_parameter/gravity = Vector3(0, -1e-06, 0)
 shader_parameter/curve = SubResource("CurveTexture_oq2mr")
 shader_parameter/yScale = 100.0
 
-[node name="Node2D" type="GPUParticles2D" unique_id=609426053]
+[node name="LightningEmitter" type="GPUParticles2D" unique_id=609426053]
 amount = 500
 collision_base_size = 0.0
 process_material = SubResource("ShaderMaterial_n43x4")

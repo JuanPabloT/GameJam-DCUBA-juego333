@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://hat6jyb1m47k"]
+
+[ext_resource type="Script" uid="uid://c4o1014gbo5bx" path="res://node_2d.gd" id="1_qrluv"]
+[ext_resource type="Texture2D" uid="uid://vucj7yse7ek7" path="res://sprites/normal_ui_set_free/UI board Large  stone.png" id="2_t1qps"]
+[ext_resource type="Texture2D" uid="uid://bsjxvsml013a3" path="res://sprites/normal_ui_set_free/UI board Small  parchment.png" id="3_t8vhe"]
+[ext_resource type="PackedScene" uid="uid://dm8ie6k376r2l" path="res://escenas/particulkas/flame_emmitter.tscn" id="4_6w65r"]
+[ext_resource type="PackedScene" uid="uid://4llmjr2dupog" path="res://escenas/particulkas/beer_emitter.tscn" id="5_gpjp1"]
+[ext_resource type="PackedScene" uid="uid://duli6sd2sq8ls" path="res://escenas/particulkas/explosion_emitter.tscn" id="6_ten2n"]
+[ext_resource type="PackedScene" uid="uid://cngiunen2juhk" path="res://escenas/particulkas/heal_emitter.tscn" id="7_74doy"]
+[ext_resource type="PackedScene" uid="uid://wiuw4grlgw4t" path="res://escenas/particulkas/lightning_emitter.tscn" id="8_pv2es"]
+[ext_resource type="PackedScene" uid="uid://dfugiises3bfq" path="res://escenas/particulkas/poison_emitter.tscn" id="9_02f1n"]
+[ext_resource type="PackedScene" uid="uid://bxxet6iqvctw8" path="res://escenas/particulkas/rooted_emitter.tscn" id="10_pu4v8"]
+[ext_resource type="PackedScene" uid="uid://cgrbrwrbgicb8" path="res://escenas/particulkas/sheild.tscn" id="11_sx61a"]
+[ext_resource type="PackedScene" uid="uid://bfyf2pux1skp" path="res://escenas/particulkas/small_posion.tscn" id="12_7ko6h"]
+[ext_resource type="PackedScene" uid="uid://bsw8142p4trgq" path="res://escenas/particulkas/smoke_emmiter.tscn" id="13_j27nr"]
+[ext_resource type="PackedScene" uid="uid://sk3r5xhqfof0" path="res://escenas/particulkas/water_drop_emitter.tscn" id="14_t6ult"]
+[ext_resource type="PackedScene" uid="uid://fg1nfhfk3y8x" path="res://escenas/particulkas/wind_emitter.tscn" id="15_pxio8"]
+
+[node name="Node2D" type="Node2D" unique_id=1582029989]
+script = ExtResource("1_qrluv")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2052095006]
+
+[node name="Main Menu" type="TextureRect" parent="Camera2D" unique_id=1907408408]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+texture = ExtResource("2_t1qps")
+metadata/_edit_use_anchors_ = true
+
+[node name="UiBoardSmallParchment" type="Sprite2D" parent="Camera2D/Main Menu" unique_id=1804715834]
+position = Vector2(475.00003, 355)
+scale = Vector2(0.9970588, 0.9921875)
+texture = ExtResource("3_t8vhe")
+
+[node name="Label" type="Label" parent="Camera2D/Main Menu/UiBoardSmallParchment" unique_id=1376252152]
+offset_left = -283.83484
+offset_top = -80.62992
+offset_right = 262.16516
+offset_bottom = 90.37008
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Preparando Efectos Visuales
+(compilando shaders)
+Por favor Esperar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EffectInitiation4CompatRenderer" type="Node2D" parent="Camera2D/Main Menu" unique_id=1121985256]
+position = Vector2(576, 324)
+
+[node name="FlameEmmitter" parent="Camera2D/Main Menu/EffectInitiation4CompatRenderer" unique_id=933052761 instance=ExtResource("4_6w65r")]
+position = Vector2(369, 50)
+
+[node name="BeerEmitter" parent="Camera2D/Main Menu/EffectInitiation4CompatRenderer" unique_id=609426053 instance=ExtResource("5_gpjp1")]
+position = Vector2(-257, 179)
+
+[node name="ExploionEmitter" parent="Camera2D/Main Menu/EffectInitiation4CompatRenderer" unique_id=638270858 instance=ExtResource("6_ten2n")]
+position = Vector2(163, 177)
+
+[node name="HealEmitter" parent="Camera2D/Main Menu/EffectInitiation4CompatRenderer" unique_id=540769770 instance=ExtResource("7_74doy")]
+position = Vector2(150, -124)
+
+[node name="LightningEmitter" parent="Camera2D/Main Menu/EffectInitiation4CompatRenderer" unique_id=77315709 instance=ExtResource("8_pv2es")]
+position = Vector2(295, -234)
+emitting = false
+
+[node name="PosionEMitter" parent="Camera2D/Main Menu/EffectInitiation4CompatRenderer" unique_id=1175866160 instance=ExtResource("9_02f1n")]
+position = Vector2(301, 153)
+
+[node name="RootedEmitter" parent="Camera2D/Main Menu/EffectInitiation4CompatRenderer" unique_id=1111625812 instance=ExtResource("10_pu4v8")]
+position = Vector2(398, -171)
+emitting = false
+
+[node name="ShieldEmitter" parent="Camera2D/Main Menu/EffectInitiation4CompatRenderer" unique_id=760426545 instance=ExtResource("11_sx61a")]
+position = Vector2(-432, 178)
+emitting = false
+
+[node name="SmallPoisonEmitter" parent="Camera2D/Main Menu/EffectInitiation4CompatRenderer" unique_id=392082015 instance=ExtResource("12_7ko6h")]
+position = Vector2(234, -213)
+
+[node name="SmokeEmmiter" parent="Camera2D/Main Menu/EffectInitiation4CompatRenderer" unique_id=12631017 instance=ExtResource("13_j27nr")]
+position = Vector2(-442, -137)
+emitting = false
+
+[node name="WaterEmitter" parent="Camera2D/Main Menu/EffectInitiation4CompatRenderer" unique_id=1051909088 instance=ExtResource("14_t6ult")]
+position = Vector2(-201, -114)
+
+[node name="WindEmitter" parent="Camera2D/Main Menu/EffectInitiation4CompatRenderer" unique_id=1844462832 instance=ExtResource("15_pxio8")]
+position = Vector2(251, -4)

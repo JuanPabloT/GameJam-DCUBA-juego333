@@ -42,17 +42,17 @@ var all_artifact_pieces = bottom_artifact_pieces+top_artifact_pieces+side_artifa
 
 # asi se escriben lambdas/funciones anonimas/block closures en gdscript
 var possible_effects = [
-	[func(target:SerVivo): target.heal_by(5), "Curar por 5"],
-	[func(target:SerVivo): target.heal_by(15), "Curar por 15"],
-	[func(target:SerVivo): target.deal_ordinary_damage(10), "Dañar por 10"],
-	[func(target:SerVivo): target.deal_ordinary_damage(20),"Dañar por 20"],
+	[func(target:SerVivo): await target.heal_by(5), "Curar por 5"],
+	[func(target:SerVivo): await target.heal_by(15), "Curar por 15"],
+	[func(target:SerVivo): await target.deal_ordinary_damage(10), "Dañar por 10"],
+	[func(target:SerVivo): await target.deal_ordinary_damage(20),"Dañar por 20"],
 	[func(target:SerVivo): await target.set_on_fire(),  "encender en fuego"],
 	[func(target:SerVivo): await target.apply_water(),  "mojar"],
 	[func(target:SerVivo): await target.apply_root(),"aplicar planta??"],
 	[func(target:SerVivo): await target.apply_lightning(),"Replampago"],
 	[func(target:SerVivo): await target.apply_poison(4),"Envenenar"],
 	[func(target:SerVivo): await target.apply_beer(),"Tirar cerveza"],
-	[func(target:SerVivo): target.add_shield(30),"Aplicar escudo"],
+	[func(target:SerVivo): await target.add_shield(30),"Aplicar escudo"],
 	[func(target:SerVivo): await target.apply_wind(),"Soplar viento"],
 ]
 

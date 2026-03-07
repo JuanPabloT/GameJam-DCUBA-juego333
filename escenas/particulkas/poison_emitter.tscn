@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dfugiises3bfq"]
 
+[ext_resource type="Script" uid="uid://jjqkyf0lf4c" path="res://escenas/particulkas/poison_emitter.gd" id="1_2p8ly"]
 [ext_resource type="Texture2D" uid="uid://ctwdtjldaon8l" path="res://sprites/poison_bubble.png" id="1_fehsm"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dq7vx"]
@@ -30,8 +31,12 @@ curve = SubResource("Curve_2p8ly")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wxvpa"]
 particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 34.51
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 38.98
+emission_ring_inner_radius = 30.23
+emission_ring_cone_angle = 90.0
 inherit_velocity_ratio = 0.261
 direction = Vector3(0, -1, 0)
 spread = 124.435
@@ -43,17 +48,20 @@ scale_max = 0.55
 alpha_curve = SubResource("CurveTexture_mjq1p")
 turbulence_enabled = true
 
-[node name="Node2D" type="GPUParticles2D" unique_id=609426053]
+[node name="PosionEMitter" type="GPUParticles2D" unique_id=609426053]
 emitting = false
 sub_emitter = NodePath("GPUParticles2D")
 lifetime = 0.18000000000000002
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_dq7vx")
+script = ExtResource("1_2p8ly")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=392082015]
 emitting = false
-amount = 1000
+amount = 20
 texture = ExtResource("1_fehsm")
 lifetime = 2.1399999999999997
+one_shot = true
+explosiveness = 0.9
 process_material = SubResource("ParticleProcessMaterial_wxvpa")
