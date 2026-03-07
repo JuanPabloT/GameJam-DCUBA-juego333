@@ -6,8 +6,8 @@ var characters_skin_head = [
 	"res://sprites/cabezas/ventilador_head.png",
 	"res://sprites/cabezas/gaucho_head.png",
 	"res://sprites/cabezas/alien_head.png",
-	"res://sprites/cabezas/pj_small_head.png",
-	"res://sprites/cabezas/pj_small_head.png"
+	"res://sprites/cabezas/bruja_head.png",
+	"res://sprites/cabezas/apple_head.png"
 	
 ]
 

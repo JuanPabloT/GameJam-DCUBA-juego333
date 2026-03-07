@@ -6,8 +6,8 @@ var characters_skin = [
 	"res://sprites/cuerpos/liliana.png",
 	"res://sprites/cuerpos/gaucho.png",
 	"res://sprites/cuerpos/alien.png",
-	"res://sprites/cuerpos/pj_small.png",
-	"res://sprites/cuerpos/pj_small.png"
+	"res://sprites/cuerpos/bruja.png",
+	"res://sprites/cuerpos/apple.png"
 ]
 
 var id : int
@@ -25,6 +25,8 @@ func _ready() -> void:
 			$EnemigoProvisionalSprite.scale = Vector2(0.33, 0.33)
 		4:
 			$EnemigoProvisionalSprite.scale = Vector2(0.55, 0.55)
+		5:
+			$EnemigoProvisionalSprite.scale = Vector2(0.35, 0.35)
 		_:
 			$EnemigoProvisionalSprite.scale = Vector2(0.3, 0.3)
 	health = 100
