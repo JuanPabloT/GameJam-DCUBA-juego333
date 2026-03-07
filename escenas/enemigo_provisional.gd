@@ -42,7 +42,56 @@ func _process(delta: float) -> void:
 	pass
 
 func on_turn():
-	enemy.deal_ordinary_damage(randi_range(15, 0))
+	match id:
+		0:
+			_clemen_tina_attack()
+		1:
+			_elemental_attack()
+		2:
+			_liliana_attack()
+		3:
+			_gaucho_attack()
+		4:
+			_alien_attack()
+		5:
+			_bruja_attack()
+		6:
+			_apple_attack()
+		_:
+			enemy.deal_ordinary_damage(randi_range(15, 0))
+
+func _clemen_tina_attack() -> void:
+	
+	pass
+
+
+func _elemental_attack() -> void:
+	#ataques que aplican fuego
+	pass
+
+
+func _liliana_attack() -> void:
+	#ataques que aplican viento
+	pass
+
+
+func _gaucho_attack() -> void:
+	pass
+
+
+func _alien_attack() -> void:
+	#no va aca pero se podria poner escudos
+	pass
+
+
+func _bruja_attack() -> void:
+	#ataques que aplican agua
+	pass
+
+
+func _apple_attack() -> void:
+	#ataques que aplican root
+	pass
 
 
 func _on_beer_pressed() -> void:
