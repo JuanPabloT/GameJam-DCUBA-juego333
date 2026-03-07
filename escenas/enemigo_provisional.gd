@@ -44,52 +44,64 @@ func _process(delta: float) -> void:
 func on_turn():
 	match id:
 		0:
-			_clemen_tina_attack()
+			_clemen_tina_turn()
 		1:
-			_elemental_attack()
+			_elemental_turn()
 		2:
-			_liliana_attack()
+			_liliana_turn()
 		3:
-			_gaucho_attack()
+			_gaucho_turn()
 		4:
-			_alien_attack()
+			_alien_turn()
 		5:
-			_bruja_attack()
+			_bruja_turn()
 		6:
-			_apple_attack()
+			_apple_turn()
 		_:
 			enemy.deal_ordinary_damage(randi_range(15, 0))
 
-func _clemen_tina_attack() -> void:
+func _clemen_tina_turn() -> void:
 	
 	pass
 
 
-func _elemental_attack() -> void:
+func _elemental_turn() -> void:
 	#ataques que aplican fuego
 	pass
 
 
-func _liliana_attack() -> void:
+func _liliana_turn() -> void:
 	#ataques que aplican viento
 	pass
 
 
-func _gaucho_attack() -> void:
+func _gaucho_turn() -> void:
 	pass
 
 
-func _alien_attack() -> void:
-	#no va aca pero se podria poner escudos
-	pass
+func _alien_turn() -> void:
+	match randi_range(0,3):
+		0:
+			self.add_shield(10)
+		1,2:
+			self.add_shield(5)
+			enemy.deal_ordinary_damage(randi_range(5, 10))
+		3:
+			enemy.deal_ordinary_damage(randi_range(5, 15))
 
 
-func _bruja_attack() -> void:
+func _bruja_turn() -> void:
 	#ataques que aplican agua
-	pass
+	match randi_range(0,2):
+		0:
+			pass
+		1:
+			pass
+		2:
+			enemy.deal_ordinary_damage(randi_range(5, 15))
 
 
-func _apple_attack() -> void:
+func _apple_turn() -> void:
 	#ataques que aplican root
 	pass
 
