@@ -50,11 +50,11 @@ offset_bottom = 647.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Iniciar" parent="Camera2D/Main Menu/Buttons menu" unique_id=515566042 instance=ExtResource("2_ebd4j")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0069384216
 anchor_top = 0.0
-anchor_right = 0.0
+anchor_right = -0.0069384216
 anchor_bottom = 0.0
 offset_left = 440.0
 offset_top = 14.0
@@ -66,11 +66,11 @@ label_text = "Empezar"
 metadata/_edit_use_anchors_ = true
 
 [node name="Logros2" parent="Camera2D/Main Menu/Buttons menu" unique_id=1839739466 instance=ExtResource("2_ebd4j")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00954033
 anchor_top = 0.0
-anchor_right = 0.0
+anchor_right = 0.00954033
 anchor_bottom = 0.0
 offset_left = 421.0
 offset_top = 160.0
@@ -82,12 +82,12 @@ label_text = "Logros"
 metadata/_edit_use_anchors_ = true
 
 [node name="salir" parent="Camera2D/Main Menu/Buttons menu" unique_id=1472938865 instance=ExtResource("2_ebd4j")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0060711186
+anchor_top = -0.025236594
+anchor_right = -0.0060711186
+anchor_bottom = -0.025236594
 offset_left = 759.0
 offset_top = 168.0
 offset_right = 1048.0
@@ -99,9 +99,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Tutorial" parent="Camera2D/Main Menu/Buttons menu" unique_id=1901478283 instance=ExtResource("2_ebd4j")]
 layout_mode = 1
-offset_left = -510.5
+offset_left = -468.5
 offset_top = 1.5
-offset_right = -221.5
+offset_right = -179.5
 offset_bottom = 119.5
 label_text = "Tutorial"
 

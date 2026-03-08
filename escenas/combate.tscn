@@ -109,9 +109,9 @@ label_text = "Consumir Artefacto"
 [node name="Utilizar" parent="Camera2D/Buttons control" unique_id=2123190864 instance=ExtResource("2_4whe8")]
 layout_mode = 1
 offset_left = -4.0
-offset_top = 94.0
+offset_top = 80.0
 offset_right = 285.0
-offset_bottom = 212.0
+offset_bottom = 198.0
 scale = Vector2(1.1, 1.1)
 label_text = "Utilizar Artefacto"
 
