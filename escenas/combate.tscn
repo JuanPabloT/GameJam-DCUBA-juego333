@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://bfyf2pux1skp" path="res://escenas/particulkas/small_posion.tscn" id="13_uok4b"]
 [ext_resource type="PackedScene" uid="uid://cngiunen2juhk" path="res://escenas/particulkas/heal_emitter.tscn" id="16_4whe8"]
 [ext_resource type="PackedScene" uid="uid://fg1nfhfk3y8x" path="res://escenas/particulkas/wind_emitter.tscn" id="16_uok4b"]
+[ext_resource type="PackedScene" uid="uid://y65wnq8jwxte" path="res://escenas/particulkas/slashe_e_mitter_2.tscn" id="17_581gk"]
+[ext_resource type="PackedScene" uid="uid://bqeor3alxalug" path="res://escenas/particulkas/slash.tscn" id="20_j73ri"]
 
 [node name="main" type="Node" unique_id=1840779075]
 script = ExtResource("1_tj7jl")
@@ -140,7 +142,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Jugador" type="Node2D" parent="." unique_id=659219716 node_paths=PackedStringArray("health_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter")]
+[node name="Jugador" type="Node2D" parent="." unique_id=659219716 node_paths=PackedStringArray("health_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter", "slash_emitter")]
 position = Vector2(-374, -16)
 script = ExtResource("3_vtyci")
 health_status = NodePath("Player health")
@@ -158,6 +160,7 @@ small_poison_emitter = NodePath("particlescale/small_poison")
 beer_emitter = NodePath("particlescale/beer")
 wind_emitter = NodePath("particlescale/wind")
 heal_emitter = NodePath("particlescale/HealEmitter")
+slash_emitter = NodePath("particlescale/SlasheEMitter")
 
 [node name="JugadorSprite" type="Sprite2D" parent="Jugador" unique_id=1629988179]
 position = Vector2(-6.9999924, -13)
@@ -239,9 +242,13 @@ position = Vector2(157.5, 5.5)
 rotation = 3.1415927
 scale = Vector2(0.67, 0.67)
 
+[node name="SlasheEMitter" parent="Jugador/particlescale" unique_id=2123179514 instance=ExtResource("17_581gk")]
+position = Vector2(115.5, -54.5)
+scale = Vector2(0.5, 0.5)
+
 [node name="HealEmitter" parent="Jugador/particlescale" unique_id=1277962600 instance=ExtResource("16_4whe8")]
 
-[node name="EnemigoProvisional" type="Node2D" parent="." unique_id=655215699 node_paths=PackedStringArray("health_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter")]
+[node name="EnemigoProvisional" type="Node2D" parent="." unique_id=655215699 node_paths=PackedStringArray("health_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter", "slash_emitter")]
 position = Vector2(179, -26)
 script = ExtResource("5_vtyci")
 health_status = NodePath("Rival health")
@@ -259,6 +266,7 @@ small_poison_emitter = NodePath("particlescale/small_posion")
 beer_emitter = NodePath("particlescale/beer")
 wind_emitter = NodePath("particlescale/wind")
 heal_emitter = NodePath("particlescale/HealEmitter")
+slash_emitter = NodePath("particlescale/SlashEMitter")
 
 [node name="EnemigoProvisionalSprite" type="Sprite2D" parent="EnemigoProvisional" unique_id=1238460282]
 position = Vector2(4.0000153, -1)
@@ -336,6 +344,10 @@ position = Vector2(-20, 6)
 [node name="wind" parent="EnemigoProvisional/particlescale" unique_id=783086858 instance=ExtResource("16_uok4b")]
 position = Vector2(-157, 24)
 scale = Vector2(0.505, 0.505)
+
+[node name="SlashEMitter" parent="EnemigoProvisional/particlescale" unique_id=695774742 instance=ExtResource("20_j73ri")]
+position = Vector2(-152, 61)
+scale = Vector2(0.5, 0.5)
 
 [node name="HealEmitter" parent="EnemigoProvisional/particlescale" unique_id=1979451463 instance=ExtResource("16_4whe8")]
 position = Vector2(-16.5, 0.5)

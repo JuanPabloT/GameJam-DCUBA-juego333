@@ -22,6 +22,7 @@ var GD = GameData
 @export var beer_emitter : GPUParticles2D
 @export var wind_emitter : Node2D
 @export var heal_emitter : GPUParticles2D
+@export var slash_emitter : GPUParticles2D
 
 var myrealtexture : CompressedTexture2D
 var myrealscale : Vector2
@@ -130,6 +131,10 @@ func apply_wind():
 func emit_burning_particles():
 	flameemmitter.emitting=true
 	await get_tree().create_timer(1).timeout
+	
+func emit_slash():
+	slash_emitter.restart()
+	await get_tree().create_timer(1).timeout
 
 func emit_healing_particles():
 	heal_emitter.restart()
@@ -221,7 +226,7 @@ func deal_ordinary_damage(n:int):
 			display_status("Escudo roto!", "#AAC")
 		
 	update_shield_visibility()
-	await get_tree().create_timer(1).timeout
+	await emit_slash()
 	
 
 func heal_by(n:int):
