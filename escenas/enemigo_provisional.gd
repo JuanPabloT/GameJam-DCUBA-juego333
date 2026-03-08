@@ -81,6 +81,7 @@ func _clemen_tina_turn() -> void:
 
 
 func _elemental_turn() -> void:
+	$particlescale/FlameEmmitterBLue.visible=true
 	match randi_range(0,2):
 		0:
 			await enemy.set_on_fire()
@@ -92,6 +93,7 @@ func _elemental_turn() -> void:
 			await self.set_on_fire()
 			await self.heal_by(10)
 			await enemy.deal_ordinary_damage(randi_range(0, 5))
+	$particlescale/FlameEmmitterBLue.visible=false
 
 
 func _liliana_turn() -> void:

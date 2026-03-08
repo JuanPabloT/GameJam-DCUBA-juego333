@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://fg1nfhfk3y8x" path="res://escenas/particulkas/wind_emitter.tscn" id="16_uok4b"]
 [ext_resource type="PackedScene" uid="uid://y65wnq8jwxte" path="res://escenas/particulkas/slashe_e_mitter_2.tscn" id="17_581gk"]
 [ext_resource type="PackedScene" uid="uid://bqeor3alxalug" path="res://escenas/particulkas/slash.tscn" id="20_j73ri"]
+[ext_resource type="PackedScene" uid="uid://c1ygtxxfqfagx" path="res://escenas/particulkas/flame_emmitter_blue.tscn" id="22_xqcbg"]
 
 [node name="main" type="Node" unique_id=1840779075]
 script = ExtResource("1_tj7jl")
@@ -347,6 +348,11 @@ scale = Vector2(0.505, 0.505)
 
 [node name="SlashEMitter" parent="EnemigoProvisional/particlescale" unique_id=695774742 instance=ExtResource("20_j73ri")]
 position = Vector2(-152, 61)
+scale = Vector2(0.5, 0.5)
+
+[node name="FlameEmmitterBLue" parent="EnemigoProvisional/particlescale" unique_id=138234622 instance=ExtResource("22_xqcbg")]
+visible = false
+position = Vector2(-13, 13.5)
 scale = Vector2(0.5, 0.5)
 
 [node name="HealEmitter" parent="EnemigoProvisional/particlescale" unique_id=1979451463 instance=ExtResource("16_4whe8")]
