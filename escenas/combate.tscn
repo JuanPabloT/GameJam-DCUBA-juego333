@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://y65wnq8jwxte" path="res://escenas/particulkas/slashe_e_mitter_2.tscn" id="17_581gk"]
 [ext_resource type="PackedScene" uid="uid://bqeor3alxalug" path="res://escenas/particulkas/slash.tscn" id="20_j73ri"]
 [ext_resource type="PackedScene" uid="uid://c1ygtxxfqfagx" path="res://escenas/particulkas/flame_emmitter_blue.tscn" id="22_xqcbg"]
+[ext_resource type="FontFile" uid="uid://cmejv2it2tskq" path="res://GraffitiPaintBrush.ttf" id="23_s8rds"]
+[ext_resource type="Script" uid="uid://dglvblui8p2h4" path="res://escenas/moving_text.gd" id="24_6tf1q"]
 
 [node name="main" type="Node" unique_id=1840779075]
 script = ExtResource("1_tj7jl")
@@ -375,6 +377,34 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
+
+[node name="Enemy_Turn" type="Label" parent="." unique_id=1429224832]
+visible = false
+z_index = 190
+offset_left = -258.0
+offset_top = 263.0
+offset_right = 269.0
+offset_bottom = 329.0
+theme_override_colors/font_outline_color = Color(0.5767854, 0.074204735, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("23_s8rds")
+theme_override_font_sizes/font_size = 70
+text = "Turno Enemigo"
+script = ExtResource("24_6tf1q")
+
+[node name="Player_Turn" type="Label" parent="." unique_id=27427584]
+visible = false
+z_index = 190
+offset_left = -279.0
+offset_top = 257.0
+offset_right = 248.0
+offset_bottom = 323.0
+theme_override_colors/font_outline_color = Color(0.5767854, 0.074204735, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("23_s8rds")
+theme_override_font_sizes/font_size = 70
+text = "Turno del Jugador"
+script = ExtResource("24_6tf1q")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="Camera2D/Buttons control/DEBUG/veneno" to="Jugador" method="_on_veneno_pressed"]

@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://bsw8142p4trgq" path="res://escenas/particulkas/smoke_emmiter.tscn" id="13_j27nr"]
 [ext_resource type="PackedScene" uid="uid://sk3r5xhqfof0" path="res://escenas/particulkas/water_drop_emitter.tscn" id="14_t6ult"]
 [ext_resource type="PackedScene" uid="uid://fg1nfhfk3y8x" path="res://escenas/particulkas/wind_emitter.tscn" id="15_pxio8"]
+[ext_resource type="PackedScene" uid="uid://c1ygtxxfqfagx" path="res://escenas/particulkas/flame_emmitter_blue.tscn" id="16_6w65r"]
+[ext_resource type="PackedScene" uid="uid://bqeor3alxalug" path="res://escenas/particulkas/slash.tscn" id="17_gpjp1"]
+[ext_resource type="PackedScene" uid="uid://y65wnq8jwxte" path="res://escenas/particulkas/slashe_e_mitter_2.tscn" id="18_ten2n"]
 
 [node name="Node2D" type="Node2D" unique_id=1582029989]
 script = ExtResource("1_qrluv")
@@ -89,3 +92,12 @@ position = Vector2(-201, -114)
 
 [node name="WindEmitter" parent="Camera2D/Main Menu/EffectInitiation4CompatRenderer" unique_id=1844462832 instance=ExtResource("15_pxio8")]
 position = Vector2(251, -4)
+
+[node name="FlameEmmitter" parent="." unique_id=566661165 instance=ExtResource("16_6w65r")]
+position = Vector2(439, 133)
+
+[node name="SlasheEMitter" parent="." unique_id=2123179514 instance=ExtResource("17_gpjp1")]
+position = Vector2(174, -164)
+
+[node name="SlasheEMitter2" parent="." unique_id=694778739 instance=ExtResource("18_ten2n")]
+position = Vector2(-345, -156)

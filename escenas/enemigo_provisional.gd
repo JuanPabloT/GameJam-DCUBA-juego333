@@ -11,6 +11,16 @@ var characters_skin = [
 	"res://sprites/cuerpos/apple.png"
 ]
 
+var alien_combat_texture = load("res://sprites/cuerpos/alien_cast.png")
+var apple_combat_texture = load("res://sprites/cuerpos/apple_cast.png")
+var bruja_combat_texture = load("res://sprites/cuerpos/bruja_cast.png")
+var clemen_combat_texture = load("res://sprites/cuerpos/clemen_tina_clemen_cast.png")
+var tina_combat_texture = load("res://sprites/cuerpos/clemen_tina_tina_cast.png")
+var clemen_tina_combat_texture = load("res://sprites/cuerpos/clemen_tina_clemen_tina_cast.png")
+var gaucho_combat_texture = load("res://sprites/cuerpos/gaucho_cast.png")
+var liliana_combat_texture = load("res://sprites/cuerpos/liliana_cast.png")
+
+
 var id : int
 
 # Called when the node enters the scene tree for the first time.
@@ -43,37 +53,42 @@ func _process(delta: float) -> void:
 	pass
 
 func on_turn():
-	enemy.deal_ordinary_damage(randi_range(15, 0))
+	var current_texture = $EnemigoProvisionalSprite.texture
 
 	match id:
 		0:
-			_clemen_tina_turn()
+			await _clemen_tina_turn()
 		1:
-			_elemental_turn()
+			await _elemental_turn()
 		2:
-			_liliana_turn()
+			await _liliana_turn()
 		3:
-			_gaucho_turn()
+			await _gaucho_turn()
 		4:
-			_alien_turn()
+			await _alien_turn()
 		5:
-			_bruja_turn()
+			await _bruja_turn()
 		6:
-			_apple_turn()
+			await _apple_turn()
 		_:
-			enemy.deal_ordinary_damage(randi_range(15, 0))
+			await enemy.deal_ordinary_damage(randi_range(15, 0))
+			
+	$EnemigoProvisionalSprite.texture = current_texture
 
 func _clemen_tina_turn() -> void:
 	match randi_range(0,2):
 		0:
+			$EnemigoProvisionalSprite.texture = tina_combat_texture
 			await self.add_shield(5)
 			await enemy.apply_water()
-			await enemy.deal_ordinary_damage(randi_range(3, 6))
+			#await enemy.deal_ordinary_damage(randi_range(3, 6))
 		1:
+			$EnemigoProvisionalSprite.texture = clemen_combat_texture
 			await self.heal_by(7)
 			await enemy.apply_lightning()
-			await enemy.deal_ordinary_damage(randi_range(3, 6))
+			#await enemy.deal_ordinary_damage(randi_range(3, 6))
 		2:
+			$EnemigoProvisionalSprite.texture = clemen_tina_combat_texture
 			await enemy.set_on_fire()
 			await enemy.apply_poison(2)
 			await enemy.deal_ordinary_damage(randi_range(4, 10))
@@ -97,6 +112,7 @@ func _elemental_turn() -> void:
 
 
 func _liliana_turn() -> void:
+	$EnemigoProvisionalSprite.texture = liliana_combat_texture
 	match randi_range(0,6):
 		0,1,2:
 			await enemy.apply_wind()
@@ -111,6 +127,7 @@ func _liliana_turn() -> void:
 			
 
 func _gaucho_turn() -> void:
+	$EnemigoProvisionalSprite.texture = gaucho_combat_texture
 	match randi_range(0,5):
 		0,1,2:
 			await self.apply_beer()
@@ -126,6 +143,7 @@ func _gaucho_turn() -> void:
 
 
 func _alien_turn() -> void:
+	$EnemigoProvisionalSprite.texture = gaucho_combat_texture
 	match randi_range(0,3):
 		0:
 			await enemy.apply_lightning()
@@ -139,6 +157,7 @@ func _alien_turn() -> void:
 
 
 func _bruja_turn() -> void:
+	$EnemigoProvisionalSprite.texture = bruja_combat_texture
 	match randi_range(0,2):
 		0:
 			await enemy.apply_poison(2)
@@ -153,6 +172,7 @@ func _bruja_turn() -> void:
 
 
 func _apple_turn() -> void:
+	$EnemigoProvisionalSprite.texture = apple_combat_texture
 	match randi_range(0,4):
 		0,1:
 			await enemy.apply_root()

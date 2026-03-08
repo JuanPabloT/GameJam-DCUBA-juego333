@@ -38,6 +38,7 @@ func _player_lost() -> bool:
 
 func _player_turn() -> void:
 	print("turno jugador:")
+	$Player_Turn.animate()
 	if _player_lost():
 		return
 	#generamos un artefacto
@@ -62,6 +63,7 @@ func _rival_turn() -> void:
 	print("terminando turno jugador")
 	await player.on_turn_end()
 	await get_tree().create_timer(0.3).timeout
+	$Enemy_Turn.animate()
 	print("turno rival:")
 	if _rival_lost():
 		_round_won()
