@@ -16,6 +16,14 @@ func _on_ready() -> void:
 	GameData.artefacto_holder = $ArtefactoHolderBackground/ScrollContainer/ArtefactoHolder
 	#empiezan los botones apagados
 	_disable_buttons()
+	$Enemy_Intro.text = rival.characters_skin_names[rival.characters_skin[rival.id]]
+	$Enemy_Intro_Subtitle.text = rival.characters_skin_descriptions[rival.characters_skin[rival.id]]
+	$Enemy_Intro.animate_side(300)
+	await get_tree().create_timer(0.2).timeout
+	await $Enemy_Intro_Subtitle.animate_side(250)
+	await get_tree().create_timer(1).timeout
+	$Enemy_Intro_Subtitle.dissappear()
+	$Enemy_Intro.dissappear()
 	_player_turn()
 
 	

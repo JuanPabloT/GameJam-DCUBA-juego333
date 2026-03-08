@@ -11,6 +11,27 @@ var characters_skin = [
 	"res://sprites/cuerpos/apple.png"
 ]
 
+var characters_skin_names = {
+	"res://sprites/cuerpos/clemen_tina.png": "Clemen-Tina",
+	"res://sprites/cuerpos/fire_elemental.png": "Pedro",
+	"res://sprites/cuerpos/liliana.png": "Liliana",
+	"res://sprites/cuerpos/gaucho.png": "Estebán Fierro",
+	"res://sprites/cuerpos/alien.png": "Glorp Zorp d'Lorp",
+	"res://sprites/cuerpos/bruja.png": "Piruja",
+	"res://sprites/cuerpos/apple.png": "Manzana"
+}
+
+var characters_skin_descriptions = {
+	"res://sprites/cuerpos/clemen_tina.png": "Recién salidos del dpto Biodiversidad y Biología Experimental de exactas",
+	"res://sprites/cuerpos/fire_elemental.png": "Elemental de fuego deshonrado",
+	"res://sprites/cuerpos/liliana.png": "En su segundo de nueve meses de vacaciones de invierno",
+	"res://sprites/cuerpos/gaucho.png": "Alcohólico en \"recuperación\"",
+	"res://sprites/cuerpos/alien.png": "Estrenando la nave",
+	"res://sprites/cuerpos/bruja.png": "Buscando los buhos perdidos",
+	"res://sprites/cuerpos/apple.png": "Heraldo Apoliónico"
+}
+
+
 var alien_combat_texture = load("res://sprites/cuerpos/alien_cast.png")
 var apple_combat_texture = load("res://sprites/cuerpos/apple_cast.png")
 var bruja_combat_texture = load("res://sprites/cuerpos/bruja_cast.png")

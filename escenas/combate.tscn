@@ -127,6 +127,7 @@ offset_top = 208.0
 offset_right = 609.0
 offset_bottom = 326.0
 scale = Vector2(0.8, 0.8)
+disabled = true
 label_text = "Siguiente Ronda"
 
 [node name="Surrender" parent="Camera2D/Buttons control" unique_id=65440621 instance=ExtResource("2_4whe8")]
@@ -381,15 +382,42 @@ mouse_filter = 2
 [node name="Enemy_Turn" type="Label" parent="." unique_id=1429224832]
 visible = false
 z_index = 190
-offset_left = -258.0
-offset_top = 263.0
-offset_right = 269.0
-offset_bottom = 329.0
+offset_left = -208.0
+offset_top = -271.0
+offset_right = 319.0
+offset_bottom = -205.0
 theme_override_colors/font_outline_color = Color(0.5767854, 0.074204735, 0, 1)
 theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("23_s8rds")
 theme_override_font_sizes/font_size = 70
-text = "Turno Enemigo"
+text = "Turno del Enemigo"
+script = ExtResource("24_6tf1q")
+
+[node name="Enemy_Intro" type="Label" parent="." unique_id=1753019347]
+z_index = 190
+offset_left = -393.0
+offset_top = -223.0
+offset_right = -15.0
+offset_bottom = -104.0
+theme_override_colors/font_outline_color = Color(0.5767854, 0.074204735, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("23_s8rds")
+theme_override_font_sizes/font_size = 70
+text = "Clemen-Tina"
+script = ExtResource("24_6tf1q")
+
+[node name="Enemy_Intro_Subtitle" type="Label" parent="." unique_id=386064486]
+z_index = 190
+offset_left = -337.0
+offset_top = -160.0
+offset_right = -64.0
+offset_bottom = -52.0
+theme_override_colors/font_outline_color = Color(0.5767854, 0.074204735, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("23_s8rds")
+theme_override_font_sizes/font_size = 30
+text = "No Se que Ponerle"
+autowrap_mode = 2
 script = ExtResource("24_6tf1q")
 
 [node name="Player_Turn" type="Label" parent="." unique_id=27427584]
