@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://vucj7yse7ek7" path="res://sprites/normal_ui_set_free/UI board Large  stone.png" id="2_1d2jo"]
 [ext_resource type="Texture2D" uid="uid://bsjxvsml013a3" path="res://sprites/normal_ui_set_free/UI board Small  parchment.png" id="2_73ae3"]
 [ext_resource type="PackedScene" uid="uid://dxtkbbjjkob5v" path="res://escenas/boton.tscn" id="2_ebd4j"]
+[ext_resource type="FontFile" uid="uid://cmejv2it2tskq" path="res://GraffitiPaintBrush.ttf" id="4_tqlsh"]
 
 [node name="Main" type="Node" unique_id=548677728]
 script = ExtResource("1_krmqs")
@@ -33,13 +34,15 @@ texture = ExtResource("2_73ae3")
 anchors_preset = -1
 anchor_left = 0.42700002
 anchor_right = 0.42700002
-offset_left = -484.36002
-offset_top = -60.0
-offset_right = -98.360016
-offset_bottom = 62.0
+offset_left = -470.36002
+offset_top = -70.0
+offset_right = -84.360016
+offset_bottom = 125.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_tqlsh")
 theme_override_font_sizes/font_size = 70
-text = "Terrenaitor"
+text = "Torneo del
+ Artificiero"
 metadata/_edit_use_anchors_ = true
 
 [node name="Buttons menu" type="Control" parent="Camera2D/Main Menu" unique_id=383199156]

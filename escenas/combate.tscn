@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxi51xketdx5u" path="res://scripts/combat_script.gd" id="1_tj7jl"]
 [ext_resource type="PackedScene" uid="uid://dxtkbbjjkob5v" path="res://escenas/boton.tscn" id="2_4whe8"]
+[ext_resource type="Texture2D" uid="uid://bt1vjx6kwhlb1" path="res://sprites/tmp_fondo.jpg" id="2_6tf1q"]
 [ext_resource type="Texture2D" uid="uid://s5qn7amar80b" path="res://sprites/temp/a1.png" id="3_rgmsd"]
 [ext_resource type="Script" uid="uid://bjxo02uboe17n" path="res://escenas/jugador.gd" id="3_vtyci"]
 [ext_resource type="Script" uid="uid://d28npmttrir4k" path="res://escenas/status_effect_handler.gd" id="4_8d3xh"]
@@ -29,6 +30,15 @@
 script = ExtResource("1_tj7jl")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=735758191]
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D" unique_id=129507968]
+offset_left = -680.0
+offset_top = -605.0
+offset_right = 964.28564
+offset_bottom = 696.0
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+texture = ExtResource("2_6tf1q")
 
 [node name="Buttons control" type="Control" parent="Camera2D" unique_id=764777476]
 layout_mode = 3
