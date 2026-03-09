@@ -21,9 +21,9 @@ func _on_ready() -> void:
 	$Enemy_Intro.animate_side(300)
 	await get_tree().create_timer(0.2).timeout
 	await $Enemy_Intro_Subtitle.animate_side(250)
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1.5).timeout
 	$Enemy_Intro_Subtitle.dissappear()
-	$Enemy_Intro.dissappear()
+	await $Enemy_Intro.dissappear()
 	player.change_health(0)
 	_player_turn()
 
