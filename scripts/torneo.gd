@@ -151,7 +151,7 @@ func _set_stage_3() -> void:
 			$Camera2D/pos5.position = Vector2(110, 45)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 

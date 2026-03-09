@@ -66,7 +66,7 @@ func prepare_label_text():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if initialanimation:
 		position = lerp(position, Vector2(position.x, 0), 0.3)
 		if Vector2(position.x, 0).distance_to(position) < 0.1:

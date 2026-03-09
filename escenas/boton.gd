@@ -28,7 +28,7 @@ func _on_label_resized() -> void:
 			$Label.add_theme_font_size_override("font_size", current_size)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	modulate = Color(1,1,1,1)
 	if Engine.is_editor_hint():
 		$Label.text = label_text
