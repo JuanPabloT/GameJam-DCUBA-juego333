@@ -114,6 +114,7 @@ func _round_won() -> void:
 	GameData.player_health = $Jugador.health
 	$"VictoriaScreen/Next round".disabled = false
 	$VictoriaScreen.animate_down()
+	$Audio/festejo.play()
 
 
 func _on_surrender_pressed() -> void:

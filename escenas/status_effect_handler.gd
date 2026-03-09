@@ -160,6 +160,19 @@ func trigger_effect_collisions():
 		var next_reaction_effect = reaction_data[efectos[i].type][efectos[i+1].type][1]
 		match next_reaction_type:
 			P.neither, P.first, P.second:
+				match randi_range(1,6):
+					1:
+						$"../../Audio/combinacion/vibracion1".play()
+					2:
+						$"../../Audio/combinacion/vibracion2".play()
+					3:
+						$"../../Audio/combinacion/vibracion3".play()
+					4:
+						$"../../Audio/combinacion/vibracion4".play()
+					5:
+						$"../../Audio/combinacion/vibracion5".play()
+					6:
+						$"../../Audio/combinacion/vibracion6".play()
 				efectos[i+1].animate_merge(0.5)
 				await efectos[i].animate_merge(0.5)
 			P.both:
