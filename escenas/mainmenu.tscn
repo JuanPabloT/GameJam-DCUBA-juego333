@@ -144,5 +144,5 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/Iniciar" to="." method="_on_iniciar_pressed"]
 [connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/Logros2" to="." method="_on_logros_pressed"]
 [connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/salir" to="." method="_on_salir_pressed"]
-[connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/cartas_usadas" to="." method="_on_testdeleteme_pressed"]
 [connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/cartas_usadas" to="." method="_on_cartas_usadas_pressed"]
+[connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/cartas_usadas" to="." method="_on_testdeleteme_pressed"]

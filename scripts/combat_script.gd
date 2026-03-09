@@ -127,7 +127,10 @@ func _round_won() -> void:
 	if player.health >= 100 and not GameData.logro_max_hp:
 		GameData.notificar_logro("Desbloqueaste el logro de HP")
 		GameData.logro_max_hp=true
-	GameData.player_health = $Jugador.health
+	if $Jugador.health + 25 < 100:
+		GameData.player_health = $Jugador.health + 25
+	else:
+		GameData.player_health = 100
 	$"VictoriaScreen/Next round".disabled = false
 	#if GameData.level == 3:
 	#	$VictoriaScreen/Label.text = "Siguiente"
