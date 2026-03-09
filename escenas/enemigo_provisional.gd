@@ -44,6 +44,9 @@ var liliana_combat_texture = load("res://sprites/cuerpos/liliana_cast.png")
 var clemen_tina_turn:int = 0
 var id : int
 
+func is_my_turn():
+	return not GameData.is_players_turn
+
 func notificar(quecosa):
 	var newparent : Control = Label.new()
 	#newparent.custom_minimum_size.y=120

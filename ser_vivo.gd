@@ -186,7 +186,7 @@ func change_health(amount:int, color=null, alternative_text=null):
 		health_status.text = str(health)
 		on_death()
 		
-func change_health_shielded(n, color, alternative_text="")->ShieldStatus:
+func change_health_shielded(n, color, alternative_text=null)->ShieldStatus:
 	var oldshield = shield
 	shield += n
 	if shield <= 0:
@@ -229,10 +229,11 @@ func deal_burning_damage(n:int):
 	display_status("En llamas!", GD.element_colors[GD.fire])
 	await emit_burning_particles()
 
+@abstract func is_my_turn()
 
 func deal_ordinary_damage(n:int):
 	var prev_shield = shield
-	match change_health_shielded(-n*(2 if await enemy.has_beer() else 1), "#F00",(str(n)+" x 2" if await enemy.has_beer() else null) ):
+	match change_health_shielded(-n*(2 if (await enemy.has_beer()) else 1), "#F00",(str(n)+" x 2" if await enemy.has_beer() else null) ):
 		ShieldStatus.inexistent:
 			pass
 		ShieldStatus.alive:

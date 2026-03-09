@@ -160,4 +160,6 @@ func _on_continue_tournament_pressed() -> void:
 
 
 func _on_return_to_menu_pressed() -> void:
-	get_tree().change_scene_to_file("res://escenas/mainmenu.tscn")
+	var res = GameData.warning_scene.instantiate()
+	add_child(res)
+	res.animate_down()

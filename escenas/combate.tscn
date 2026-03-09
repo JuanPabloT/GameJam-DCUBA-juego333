@@ -22,10 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://bfyf2pux1skp" path="res://escenas/particulkas/small_posion.tscn" id="13_uok4b"]
 [ext_resource type="PackedScene" uid="uid://cngiunen2juhk" path="res://escenas/particulkas/heal_emitter.tscn" id="16_4whe8"]
 [ext_resource type="PackedScene" uid="uid://fg1nfhfk3y8x" path="res://escenas/particulkas/wind_emitter.tscn" id="16_uok4b"]
-[ext_resource type="PackedScene" uid="uid://y65wnq8jwxte" path="res://escenas/particulkas/slashe_e_mitter_2.tscn" id="17_581gk"]
-[ext_resource type="PackedScene" uid="uid://bqeor3alxalug" path="res://escenas/particulkas/slash.tscn" id="20_j73ri"]
+[ext_resource type="PackedScene" path="res://escenas/particulkas/slashe_e_mitter_2.tscn" id="17_581gk"]
+[ext_resource type="PackedScene" path="res://escenas/particulkas/slash.tscn" id="20_j73ri"]
 [ext_resource type="Shader" uid="uid://b4wp5pmprnwdu" path="res://escenas/combate.tres" id="21_6sf7d"]
-[ext_resource type="PackedScene" uid="uid://c1ygtxxfqfagx" path="res://escenas/particulkas/flame_emmitter_blue.tscn" id="22_xqcbg"]
+[ext_resource type="PackedScene" uid="uid://q4c74gpo8n4b" path="res://escenas/particulkas/flame_emmitter_blue.tscn" id="22_xqcbg"]
 [ext_resource type="FontFile" uid="uid://cmejv2it2tskq" path="res://GraffitiPaintBrush.ttf" id="23_s8rds"]
 [ext_resource type="Script" uid="uid://dglvblui8p2h4" path="res://escenas/moving_text.gd" id="24_6tf1q"]
 [ext_resource type="Texture2D" uid="uid://0i35qdvurcfw" path="res://sprites/normal_ui_set_free/UI board Medium  parchment.png" id="27_f3hhc"]
@@ -62,6 +62,17 @@
 [ext_resource type="AudioStream" uid="uid://dn6tdwk1utia8" path="res://sounds/efectos/vibracion4.wav" id="60_j46uq"]
 [ext_resource type="AudioStream" uid="uid://cpal7jcv6qu1u" path="res://sounds/efectos/vibracion5.wav" id="61_kd4lr"]
 [ext_resource type="AudioStream" uid="uid://dlafvxyx72cuf" path="res://sounds/efectos/vibracion6.wav" id="62_jmkuv"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8htfg"]
+frequency = 0.0325
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y7i30"]
+noise = SubResource("FastNoiseLite_8htfg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8htfg"]
+shader = ExtResource("21_6sf7d")
+shader_parameter/Noise = SubResource("NoiseTexture2D_y7i30")
+shader_parameter/DissolveValue = 1.0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6sf7d"]
 frequency = 0.0325
@@ -163,19 +174,19 @@ text = "DEBUG feugo"
 
 [node name="Consumir" parent="Camera2D/Buttons control" unique_id=515566042 instance=ExtResource("2_4whe8")]
 layout_mode = 1
-offset_left = -405.0
-offset_top = 163.0
-offset_right = -116.0
-offset_bottom = 281.0
+offset_left = -510.0
+offset_top = 158.99998
+offset_right = -221.0
+offset_bottom = 277.0
 scale = Vector2(1.1, 1.1)
 label_text = "Consumir Artefacto"
 
 [node name="Utilizar" parent="Camera2D/Buttons control" unique_id=2123190864 instance=ExtResource("2_4whe8")]
 layout_mode = 1
-offset_left = -10.0
-offset_top = 168.0
-offset_right = 279.0
-offset_bottom = 286.0
+offset_left = -17.000002
+offset_top = 159.0
+offset_right = 272.0
+offset_bottom = 277.0
 scale = Vector2(1.1, 1.1)
 label_text = "Utilizar Artefacto"
 
@@ -187,15 +198,15 @@ offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Surrender" parent="Camera2D" unique_id=587110106 instance=ExtResource("2_4whe8")]
-offset_left = -577.0
-offset_top = 234.0
-offset_right = -288.0
-offset_bottom = 352.0
+offset_left = 372.0
+offset_top = 218.00002
+offset_right = 661.0
+offset_bottom = 336.0
 scale = Vector2(0.6, 0.6)
 label_text = "Abandonar"
 
 [node name="Jugador" type="Node2D" parent="." unique_id=659219716 node_paths=PackedStringArray("health_status", "shield_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter", "slash_emitter")]
-position = Vector2(-323, 70)
+position = Vector2(-323, 67)
 script = ExtResource("3_vtyci")
 health_status = NodePath("Player health")
 shield_status = NodePath("Player health/Player shield")
@@ -216,6 +227,7 @@ heal_emitter = NodePath("particlescale/HealEmitter")
 slash_emitter = NodePath("particlescale/SlasheEMitter")
 
 [node name="JugadorSprite" type="Sprite2D" parent="Jugador" unique_id=1629988179]
+material = SubResource("ShaderMaterial_8htfg")
 position = Vector2(-6.9999924, -13)
 scale = Vector2(0.583004, 0.556267)
 texture = ExtResource("4_vtyci")

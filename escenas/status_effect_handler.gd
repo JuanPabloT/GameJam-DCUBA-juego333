@@ -28,14 +28,14 @@ var reaction_data = {
 	GD.water: {
 		GD.fire:[P.neither, func(_e1,_e2):target.smoke();target.display_status("Extinguido!", "#AAA")],
 		GD.water:[P.first, func(_e1,_e2):target.heal_by(10); target.display_status("Elixir!", GD.element_colors[GD.water])],
-		GD.root:[P.second, func(_e1,_e2):target.add_shield(15);  target.display_status("Atrincherar!", GD.element_colors[GD.root])], 
+		GD.root:[P.second, func(_e1,_e2):target.add_shield(10);  target.display_status("Atrincherar!", GD.element_colors[GD.root])], 
 		GD.lightning:[P.first, func(_e1,_e2):target.deal_lightning_damage(15); target.display_status("Descarga!", GD.element_colors[GD.lightning]) ], 
 		GD.poison:[P.second, func(_e1,e2):e2.dilute();target.display_status("Diluir!", GD.element_colors[GD.water]);target.emit_small_poison() ],
 		GD.beer:[P.both, func(_e1,_e2):pass ], 
 	},
 	GD.root: {
 		GD.fire:[P.second, func(_e1,e2):e2.add_duration(3); target.display_status("Combustible!", GD.element_colors[GD.fire]); target.emit_burning_particles() ],
-		GD.water:[P.first, func(_e1,_e2):target.add_shield(15); target.display_status("Atrincherar!", GD.element_colors[GD.root]) ], 
+		GD.water:[P.first, func(_e1,_e2):target.add_shield(10); target.display_status("Atrincherar!", GD.element_colors[GD.root]) ], 
 		GD.root:[P.first, func(e1,_e2):change_effect(e1, GD.beer); target.display_status("Fermentación!", GD.element_colors[GD.beer]); target.emit_small_poison() ],
 		GD.lightning:[P.both, func(_e1,_e2):pass ], 
 		GD.poison:[P.both, func(_e1,_e2):pass ],

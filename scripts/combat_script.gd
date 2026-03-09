@@ -47,6 +47,7 @@ func _player_lost() -> bool:
 
 func _player_turn() -> void:
 	print("turno jugador:")
+	GameData.is_players_turn = true
 	$Player_Turn.animate()
 	if _player_lost():
 		return
@@ -80,6 +81,7 @@ func _rival_turn() -> void:
 	await get_tree().create_timer(0.3).timeout
 	$Enemy_Turn.animate()
 	print("turno rival:")
+	GameData.is_players_turn = false
 	
 	await rival.on_turn()
 	print("terminando turno rival")
@@ -118,7 +120,10 @@ func _round_won() -> void:
 
 
 func _on_surrender_pressed() -> void:
-	get_tree().change_scene_to_file("res://escenas/mainmenu.tscn")
+	var res = GameData.warning_scene.instantiate()
+	add_child(res)
+	res.animate_down()
+
 
 
 func _on_next_round_pressed() -> void:
