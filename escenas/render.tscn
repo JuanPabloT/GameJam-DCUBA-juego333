@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bsw8142p4trgq" path="res://escenas/particulkas/smoke_emmiter.tscn" id="13_j27nr"]
 [ext_resource type="PackedScene" uid="uid://sk3r5xhqfof0" path="res://escenas/particulkas/water_drop_emitter.tscn" id="14_t6ult"]
 [ext_resource type="PackedScene" uid="uid://fg1nfhfk3y8x" path="res://escenas/particulkas/wind_emitter.tscn" id="15_pxio8"]
-[ext_resource type="PackedScene" path="res://escenas/particulkas/flame_emmitter_blue.tscn" id="16_6w65r"]
+[ext_resource type="PackedScene" uid="uid://q4c74gpo8n4b" path="res://escenas/particulkas/flame_emmitter_blue.tscn" id="16_6w65r"]
 [ext_resource type="PackedScene" path="res://escenas/particulkas/slash.tscn" id="17_gpjp1"]
 [ext_resource type="PackedScene" path="res://escenas/particulkas/slashe_e_mitter_2.tscn" id="18_ten2n"]
 
