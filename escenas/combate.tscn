@@ -71,6 +71,10 @@
 [ext_resource type="AudioStream" uid="uid://6rger2mo67i2" path="res://sounds/efectos/beer1.wav" id="69_5wegs"]
 [ext_resource type="AudioStream" uid="uid://dj4f1bfff561f" path="res://sounds/efectos/barrier1.wav" id="70_5cpki"]
 [ext_resource type="AudioStream" uid="uid://bw0ho4iry1yno" path="res://sounds/efectos/barrier2.wav" id="71_i8bn5"]
+[ext_resource type="AudioStream" uid="uid://cm7glucachc0w" path="res://sounds/efectos/wind1.wav" id="72_2yy2l"]
+[ext_resource type="AudioStream" uid="uid://73k0nbemx5uy" path="res://sounds/efectos/wind2.wav" id="73_adq4h"]
+[ext_resource type="AudioStream" uid="uid://tlubrbrk8pmi" path="res://sounds/efectos/smoke1.wav" id="74_3mqow"]
+[ext_resource type="AudioStream" uid="uid://cwk5lj5o4tgc7" path="res://sounds/efectos/smoke2.wav" id="75_h8q0g"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8htfg"]
 frequency = 0.0325
@@ -755,6 +759,18 @@ stream = ExtResource("70_5cpki")
 
 [node name="barrier2" type="AudioStreamPlayer" parent="Audio/efectos" unique_id=620432162]
 stream = ExtResource("71_i8bn5")
+
+[node name="wind1" type="AudioStreamPlayer" parent="Audio/efectos" unique_id=1944832589]
+stream = ExtResource("72_2yy2l")
+
+[node name="wind2" type="AudioStreamPlayer" parent="Audio/efectos" unique_id=115090058]
+stream = ExtResource("73_adq4h")
+
+[node name="smoke1" type="AudioStreamPlayer" parent="Audio/efectos" unique_id=1181095715]
+stream = ExtResource("74_3mqow")
+
+[node name="smoke2" type="AudioStreamPlayer" parent="Audio/efectos" unique_id=83017830]
+stream = ExtResource("75_h8q0g")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="Camera2D/Buttons control/DEBUG/veneno" to="Jugador" method="_on_veneno_pressed"]

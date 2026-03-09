@@ -130,6 +130,11 @@ func apply_beer():
 func smoke():
 	smokeemitter.visible = true
 	await get_tree().create_timer(1).timeout
+	match randi_range(1,2):
+		1:
+			$Audio/efectos/smoke1.play()
+		2:
+			$Audio/efectos/smoke2.play()
 	smokeemitter.visible = false
 	
 	
@@ -149,6 +154,11 @@ func apply_wind():
 	effect_status.apply_wind()
 	display_status("Viento!", "#7BB")
 	wind_emitter.emit()
+	match randi_range(1,2):
+		1:
+			$Audio/efectos/wind1.play()
+		2:
+			$Audio/efectos/wind2.play()
 	await get_tree().create_timer(1).timeout
 
 func emit_burning_particles():
