@@ -9,10 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bn84gg7kx5554" path="res://sprites/img1.jpeg" id="5_q4til"]
 [ext_resource type="Texture2D" uid="uid://bu2df5u2yhagx" path="res://sprites/img2.jpeg" id="6_vvskx"]
 [ext_resource type="Texture2D" uid="uid://c8s3oxxqtl44t" path="res://sprites/efectos/rayo.png" id="8_vvskx"]
-[ext_resource type="Texture2D" uid="uid://rforhfsdufm" path="res://sprites/normal_ui_set_free/TextBTN_Medium_Hover.png" id="9_wsa1s"]
-[ext_resource type="Script" uid="uid://dguhv36obb1q5" path="res://escenas/boton.gd" id="10_g4jtx"]
-[ext_resource type="Texture2D" uid="uid://danbetryoedgi" path="res://sprites/normal_ui_set_free/TextBTN_Big_Pressed.png" id="11_6dlgo"]
-[ext_resource type="Texture2D" uid="uid://b8g4jybauohg8" path="res://sprites/normal_ui_set_free/TextBTN_Medium.png" id="12_b0aed"]
+[ext_resource type="PackedScene" uid="uid://dxtkbbjjkob5v" path="res://escenas/boton.tscn" id="10_v2ggy"]
 
 [node name="main" type="Node" unique_id=2048265753]
 script = ExtResource("1_jl26d")
@@ -32,6 +29,7 @@ texture = ExtResource("3_8f3lp")
 [node name="Label" type="Label" parent="background/UiBoardSmallParchment" unique_id=2076725781]
 anchors_preset = -1
 anchor_left = -0.3318235
+anchor_top = -0.31054032
 anchor_right = -0.018588167
 anchor_bottom = -0.31054032
 offset_left = -72.5957
@@ -54,6 +52,7 @@ texture = ExtResource("3_8f3lp")
 [node name="Label" type="Label" parent="background/UiBoardSmallParchment2" unique_id=712073254]
 anchors_preset = -1
 anchor_left = -0.3318235
+anchor_top = -0.4851611
 anchor_right = -0.018588167
 anchor_bottom = -0.4851611
 offset_left = -70.51688
@@ -74,8 +73,8 @@ texture = ExtResource("3_8f3lp")
 
 [node name="Label" type="Label" parent="background/UiBoardSmallParchment3" unique_id=1625330334]
 anchors_preset = -1
-anchor_left = -0.3318235
-anchor_top = -0.4851611
+anchor_left = -2.4739215
+anchor_top = -0.6179736
 anchor_right = -2.4739215
 anchor_bottom = -0.6179736
 offset_left = -67.742645
@@ -98,7 +97,7 @@ texture = ExtResource("3_8f3lp")
 
 [node name="Label" type="Label" parent="background/UiBoardSmallParchment4" unique_id=637906518]
 anchors_preset = -1
-anchor_left = -0.3318235
+anchor_left = -2.4553528
 anchor_top = -0.4851611
 anchor_right = -2.4553528
 anchor_bottom = -0.4851611
@@ -123,8 +122,8 @@ texture = ExtResource("3_8f3lp")
 
 [node name="Label" type="Label" parent="background/UiBoardSmallParchment5" unique_id=315779716]
 anchors_preset = -1
-anchor_left = -0.3318235
-anchor_top = -0.31054032
+anchor_left = -0.88634425
+anchor_top = -0.58741057
 anchor_right = -0.88634425
 anchor_bottom = -0.58741057
 offset_left = -69.14789
@@ -172,22 +171,12 @@ position = Vector2(58.27814, -0.71684957)
 scale = Vector2(1.0066305, 1.001395)
 texture = ExtResource("8_vvskx")
 
-[node name="Retorno" type="Button" parent="." unique_id=53272690]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 249.0
-offset_top = -146.0
-offset_right = 538.0
-offset_bottom = -28.0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-icon = ExtResource("9_wsa1s")
-flat = true
-script = ExtResource("10_g4jtx")
-down_texture = ExtResource("11_6dlgo")
-hover_texture = ExtResource("12_b0aed")
-size_down = 19
+[node name="Iniciar" parent="." unique_id=515566042 instance=ExtResource("10_v2ggy")]
+offset_left = -285.0
+offset_top = -125.0
+offset_right = 4.0
+offset_bottom = -7.0
+scale = Vector2(0.8, 0.8)
 label_text = "Volver"
 
-[connection signal="pressed" from="Retorno" to="." method="_on_retorno_pressed"]
+[connection signal="pressed" from="Iniciar" to="." method="_on_retorno_pressed"]

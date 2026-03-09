@@ -12,6 +12,8 @@ var real_texture = self.icon
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if not $Label:
+		print("????????")
 	$Label.text = label_text
 	$Label.resized.connect(_on_label_resized)
 	_on_label_resized()

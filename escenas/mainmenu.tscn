@@ -52,7 +52,15 @@ offset_right = 1153.0
 offset_bottom = 647.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Iniciar" parent="Camera2D/Main Menu/Buttons menu" unique_id=515566042 instance=ExtResource("2_ebd4j")]
+[node name="Tutorial" parent="Camera2D/Main Menu/Buttons menu" unique_id=515566042 instance=ExtResource("2_ebd4j")]
+layout_mode = 1
+offset_left = -488.5
+offset_top = 5.5
+offset_right = -199.5
+offset_bottom = 123.5
+label_text = "Tutorial"
+
+[node name="Iniciar" parent="Camera2D/Main Menu/Buttons menu" unique_id=585510229 instance=ExtResource("2_ebd4j")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0069384216
@@ -100,15 +108,7 @@ grow_vertical = 1
 label_text = "Salir"
 metadata/_edit_use_anchors_ = true
 
-[node name="Tutorial" parent="Camera2D/Main Menu/Buttons menu" unique_id=1901478283 instance=ExtResource("2_ebd4j")]
-layout_mode = 1
-offset_left = -468.5
-offset_top = 1.5
-offset_right = -179.5
-offset_bottom = 119.5
-label_text = "Tutorial"
-
+[connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/Iniciar" to="." method="_on_iniciar_pressed"]
 [connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/Logros2" to="." method="_on_logros_pressed"]
 [connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/salir" to="." method="_on_salir_pressed"]
-[connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/Tutorial" to="." method="_on_tutorial_pressed"]
