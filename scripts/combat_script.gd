@@ -129,3 +129,4 @@ func _on_next_round_pressed() -> void:
 func _round_lost():
 	await get_tree().create_timer(3).timeout
 	$DerrotaScreen.animate_down()
+	$Audio/abucheo.play()
