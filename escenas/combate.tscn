@@ -218,7 +218,7 @@ offset_bottom = 336.0
 scale = Vector2(0.6, 0.6)
 label_text = "Abandonar"
 
-[node name="Jugador" type="Node2D" parent="." unique_id=659219716 node_paths=PackedStringArray("health_status", "shield_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter", "slash_emitter")]
+[node name="Jugador" type="Node2D" parent="." unique_id=659219716 node_paths=PackedStringArray("health_status", "shield_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter", "slash_emitter", "audio")]
 position = Vector2(-323, 67)
 script = ExtResource("3_vtyci")
 health_status = NodePath("Player health")
@@ -238,6 +238,7 @@ beer_emitter = NodePath("particlescale/beer")
 wind_emitter = NodePath("particlescale/wind")
 heal_emitter = NodePath("particlescale/HealEmitter")
 slash_emitter = NodePath("particlescale/SlasheEMitter")
+audio = NodePath("../Audio/efectos")
 
 [node name="JugadorSprite" type="Sprite2D" parent="Jugador" unique_id=1629988179]
 material = SubResource("ShaderMaterial_8htfg")
@@ -356,7 +357,7 @@ scale = Vector2(0.5, 0.5)
 
 [node name="HealEmitter" parent="Jugador/particlescale" unique_id=1277962600 instance=ExtResource("16_4whe8")]
 
-[node name="EnemigoProvisional" type="Node2D" parent="." unique_id=655215699 node_paths=PackedStringArray("health_status", "shield_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter", "slash_emitter")]
+[node name="EnemigoProvisional" type="Node2D" parent="." unique_id=655215699 node_paths=PackedStringArray("health_status", "shield_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter", "slash_emitter", "audio")]
 position = Vector2(141, 34)
 script = ExtResource("5_vtyci")
 health_status = NodePath("Rival health")
@@ -376,6 +377,7 @@ beer_emitter = NodePath("particlescale/beer")
 wind_emitter = NodePath("particlescale/wind")
 heal_emitter = NodePath("particlescale/HealEmitter")
 slash_emitter = NodePath("particlescale/SlashEMitter")
+audio = NodePath("../Audio/efectos")
 
 [node name="EnemigoProvisionalSprite" type="Sprite2D" parent="EnemigoProvisional" unique_id=1238460282]
 material = SubResource("ShaderMaterial_f3hhc")
