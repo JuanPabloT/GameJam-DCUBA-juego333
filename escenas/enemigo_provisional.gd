@@ -41,7 +41,7 @@ var clemen_tina_combat_texture = load("res://sprites/cuerpos/clemen_tina_clemen_
 var gaucho_combat_texture = load("res://sprites/cuerpos/gaucho_cast.png")
 var liliana_combat_texture = load("res://sprites/cuerpos/liliana_cast.png")
 
-
+var clemen_tina_turn:int = 0
 var id : int
 
 # Called when the node enters the scene tree for the first time.
@@ -100,7 +100,8 @@ func on_turn():
 	$EnemigoProvisionalSprite.texture = current_texture
 
 func _clemen_tina_turn() -> void:
-	match randi_range(0,2):
+	
+	match clemen_tina_turn % 3:
 		0:
 			$EnemigoProvisionalSprite.texture = tina_combat_texture
 			await self.add_shield(5)
@@ -116,8 +117,7 @@ func _clemen_tina_turn() -> void:
 			await enemy.set_on_fire()
 			await enemy.apply_poison(2)
 			await enemy.deal_ordinary_damage(randi_range(4, 10))
-	pass
-
+	clemen_tina_turn+=1
 
 func _elemental_turn() -> void:
 	$particlescale/FlameEmmitterBLue.visible=true
