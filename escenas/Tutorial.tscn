@@ -2,105 +2,192 @@
 
 [ext_resource type="Script" uid="uid://dbs7awrkq6etn" path="res://scripts/tutorial.gd" id="1_jl26d"]
 [ext_resource type="Texture2D" uid="uid://bbu7mlh58nlro" path="res://sprites/cartas/20mBgR.png" id="2_exxca"]
+[ext_resource type="Texture2D" uid="uid://vucj7yse7ek7" path="res://sprites/normal_ui_set_free/UI board Large  stone.png" id="2_oa6hx"]
+[ext_resource type="Texture2D" uid="uid://bsjxvsml013a3" path="res://sprites/normal_ui_set_free/UI board Small  parchment.png" id="3_8f3lp"]
 [ext_resource type="Texture2D" uid="uid://cesiue51yt2yv" path="res://sprites/efectos/agua.png" id="3_g61xo"]
+[ext_resource type="FontFile" uid="uid://cmejv2it2tskq" path="res://GraffitiPaintBrush.ttf" id="4_t45w3"]
+[ext_resource type="Texture2D" uid="uid://bn84gg7kx5554" path="res://sprites/img1.jpeg" id="5_q4til"]
+[ext_resource type="Texture2D" uid="uid://bu2df5u2yhagx" path="res://sprites/img2.jpeg" id="6_vvskx"]
+[ext_resource type="Texture2D" uid="uid://c8s3oxxqtl44t" path="res://sprites/efectos/rayo.png" id="8_vvskx"]
+[ext_resource type="Texture2D" uid="uid://rforhfsdufm" path="res://sprites/normal_ui_set_free/TextBTN_Medium_Hover.png" id="9_wsa1s"]
+[ext_resource type="Script" uid="uid://dguhv36obb1q5" path="res://escenas/boton.gd" id="10_g4jtx"]
+[ext_resource type="Texture2D" uid="uid://danbetryoedgi" path="res://sprites/normal_ui_set_free/TextBTN_Big_Pressed.png" id="11_6dlgo"]
+[ext_resource type="Texture2D" uid="uid://b8g4jybauohg8" path="res://sprites/normal_ui_set_free/TextBTN_Medium.png" id="12_b0aed"]
 
 [node name="main" type="Node" unique_id=2048265753]
 script = ExtResource("1_jl26d")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1658754267]
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2124887894]
+[node name="background" type="TextureRect" parent="." unique_id=1799324770]
 offset_left = -576.0
 offset_top = -324.0
 offset_right = 576.0
 offset_bottom = 324.0
-color = Color(0.435294, 0.513726, 0.537255, 1)
+texture = ExtResource("2_oa6hx")
 
-[node name="titulo" type="Label" parent="." unique_id=1377406204]
-offset_left = -575.0
-offset_top = -325.0
-offset_right = -311.0
-offset_bottom = -229.0
-theme_override_font_sizes/font_size = 70
-text = "Tutorial"
+[node name="UiBoardSmallParchment" type="Sprite2D" parent="background" unique_id=1983928509]
+position = Vector2(228, 209)
+scale = Vector2(0.5800781, 0.5800781)
+texture = ExtResource("3_8f3lp")
 
-[node name="parrafo 2" type="Label" parent="." unique_id=2092938540]
-offset_left = -571.0
-offset_top = -162.0
-offset_right = -261.0
-offset_bottom = -25.0
-text = "IMAGEN DE BRACKET FINAL ACA"
-autowrap_mode = 3
+[node name="Label" type="Label" parent="background/UiBoardSmallParchment" unique_id=2076725781]
+anchors_preset = -1
+anchor_left = -0.3318235
+anchor_right = -0.018588167
+anchor_bottom = -0.31054032
+offset_left = -72.5957
+offset_top = -93.09091
+offset_right = 313.40427
+offset_bottom = 101.90909
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_t45w3")
+theme_override_font_sizes/font_size = 30
+text = "Cada turno de combate, tenes la oportunidad
+de utilizar un artefacto olvidado generado
+al azar sobre vos mísmo o sobre el enemigo"
+metadata/_edit_use_anchors_ = true
 
-[node name="parrafo 4" type="Label" parent="." unique_id=728311129]
-offset_left = -570.0
-offset_top = 211.0
-offset_right = -215.0
-offset_bottom = 312.0
-text = "Los efectos que tiene cada parte de artefacto varían en cada torneo, pero son constantes en cada torneo. Estos efectos consisten en aplicación de daño, escudos, etc. "
-autowrap_mode = 3
+[node name="UiBoardSmallParchment2" type="Sprite2D" parent="background" unique_id=1764113296]
+position = Vector2(214, 79)
+scale = Vector2(0.5283203, 0.5283203)
+texture = ExtResource("3_8f3lp")
 
-[node name="parrafo 1" type="Label" parent="." unique_id=98845442]
-offset_left = -576.0
-offset_top = -226.0
-offset_right = -237.0
-offset_bottom = -171.0
-text = "Tu objetivo: ganar 3 combates y por ende el torneo de (NOMBRE:)"
-autowrap_mode = 3
+[node name="Label" type="Label" parent="background/UiBoardSmallParchment2" unique_id=712073254]
+anchors_preset = -1
+anchor_left = -0.3318235
+anchor_right = -0.018588167
+anchor_bottom = -0.4851611
+offset_left = -70.51688
+offset_top = -75.29412
+offset_right = 315.4831
+offset_bottom = 119.70588
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_t45w3")
+theme_override_font_sizes/font_size = 30
+text = "Tu objetivo: ganar 3 combates seguidos
+del torneo de artificieros!"
+metadata/_edit_use_anchors_ = true
 
-[node name="parrafo 3" type="Label" parent="." unique_id=1688940716]
-offset_left = -569.0
-offset_top = -31.0
-offset_right = -230.0
-offset_bottom = 70.0
-text = "Cada turno de combate, tenes la oportunidad de utilizar un artefacto olvidado generado al azar sobre, o 
-bién vos mísmo, o sobre el enemigo"
-autowrap_mode = 3
+[node name="UiBoardSmallParchment3" type="Sprite2D" parent="background" unique_id=1681561946]
+position = Vector2(225, 569)
+scale = Vector2(0.5283203, 0.5283203)
+texture = ExtResource("3_8f3lp")
 
-[node name="parrafo 5" type="Label" parent="." unique_id=1971087388]
-offset_left = -560.0
-offset_top = 96.0
-offset_right = -221.0
-offset_bottom = 151.0
-text = "IMAGEN ESCENA COMBATE FINAL  CON CIRUCLOS ROJOS"
-autowrap_mode = 3
+[node name="Label" type="Label" parent="background/UiBoardSmallParchment3" unique_id=1625330334]
+anchors_preset = -1
+anchor_left = -0.3318235
+anchor_top = -0.4851611
+anchor_right = -2.4739215
+anchor_bottom = -0.6179736
+offset_left = -67.742645
+offset_top = 42.81124
+offset_right = 1947.2573
+offset_bottom = 237.81125
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_t45w3")
+theme_override_font_sizes/font_size = 30
+text = "Los efectos que tiene cada parte del 
+artefacto varían en cada enfrentamiento.
+Estos efectos consisten en aplicación
+ de daño, escudos, etc. "
+metadata/_edit_use_anchors_ = true
+
+[node name="UiBoardSmallParchment4" type="Sprite2D" parent="background" unique_id=108963978]
+position = Vector2(609, 78)
+scale = Vector2(0.5283203, 0.5283203)
+texture = ExtResource("3_8f3lp")
+
+[node name="Label" type="Label" parent="background/UiBoardSmallParchment4" unique_id=637906518]
+anchors_preset = -1
+anchor_left = -0.3318235
+anchor_top = -0.4851611
+anchor_right = -2.4553528
+anchor_bottom = -0.4851611
+offset_left = -63.95706
+offset_top = 37.13286
+offset_right = 1874.043
+offset_bottom = 232.13286
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_t45w3")
+theme_override_font_sizes/font_size = 30
+text = "Entre los efectos posibles existe la
+aplicación de condiciones de estado.
+Estas pueden reaccionar entre si
+generando efectos nuevos.
+Estos no varían cada torneo"
+metadata/_edit_use_anchors_ = true
+
+[node name="UiBoardSmallParchment5" type="Sprite2D" parent="background" unique_id=1836205221]
+position = Vector2(624, 208)
+scale = Vector2(0.5800781, 0.5800781)
+texture = ExtResource("3_8f3lp")
+
+[node name="Label" type="Label" parent="background/UiBoardSmallParchment5" unique_id=315779716]
+anchors_preset = -1
+anchor_left = -0.3318235
+anchor_top = -0.31054032
+anchor_right = -0.88634425
+anchor_bottom = -0.58741057
+offset_left = -69.14789
+offset_top = 1.9225616
+offset_right = 857.8521
+offset_bottom = 196.92256
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_t45w3")
+theme_override_font_sizes/font_size = 30
+text = "Los efectos de artefactos vistos
+anteriormente este torneo son visibles
+al pasar el cursor por encima"
+metadata/_edit_use_anchors_ = true
+
+[node name="img1" type="TextureRect" parent="." unique_id=1591395631]
+offset_left = -526.0
+offset_top = -42.0
+offset_right = -176.23938
+offset_bottom = 179.0
+texture = ExtResource("5_q4til")
+expand_mode = 1
+
+[node name="img2" type="TextureRect" parent="." unique_id=973829294]
+offset_left = -69.0
+offset_top = -33.0
+offset_right = 158.0
+offset_bottom = 175.0
+texture = ExtResource("6_vvskx")
+expand_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1658754267]
+
+[node name="20mBgR" type="Sprite2D" parent="." unique_id=679956844]
+position = Vector2(353.00006, -91.000015)
+scale = Vector2(0.15636362, 0.15636362)
+texture = ExtResource("2_exxca")
+
+[node name="Agua" type="Sprite2D" parent="." unique_id=1529135205]
+position = Vector2(263.00003, -237)
+scale = Vector2(1.5100002, 1.3949999)
+texture = ExtResource("3_g61xo")
+
+[node name="Agua" type="Sprite2D" parent="Agua" unique_id=2037616642]
+position = Vector2(58.27814, -0.71684957)
+scale = Vector2(1.0066305, 1.001395)
+texture = ExtResource("8_vvskx")
 
 [node name="Retorno" type="Button" parent="." unique_id=53272690]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -57.0
-offset_right = 50.0
-offset_bottom = -7.0
+offset_left = 249.0
+offset_top = -146.0
+offset_right = 538.0
+offset_bottom = -28.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "Volver"
-
-[node name="20mBgR" type="Sprite2D" parent="." unique_id=679956844]
-position = Vector2(-187, 34)
-scale = Vector2(0.15636362, 0.15636362)
-texture = ExtResource("2_exxca")
-
-[node name="parrafo 6" type="Label" parent="." unique_id=1137316592]
-offset_left = -82.0
-offset_top = -287.0
-offset_right = 257.0
-offset_bottom = -232.0
-text = "Entre los efectos posibles existe la aplicación de condiciones de estado. Estas pueden reaccionar entre si generando efectos nuevos. Estos no varían cada torneo"
-autowrap_mode = 3
-
-[node name="parrafo 7" type="Label" parent="." unique_id=1641628922]
-offset_left = -71.0
-offset_top = -32.0
-offset_right = 268.0
-offset_bottom = 23.0
-text = "Los efectos de artefactos vistos anteriormente este torneo son visibles con (HOVER)"
-autowrap_mode = 3
-
-[node name="Agua" type="Sprite2D" parent="." unique_id=1529135205]
-position = Vector2(-585, 58)
-scale = Vector2(1.42, 0.18)
-texture = ExtResource("3_g61xo")
+icon = ExtResource("9_wsa1s")
+flat = true
+script = ExtResource("10_g4jtx")
+down_texture = ExtResource("11_6dlgo")
+hover_texture = ExtResource("12_b0aed")
+size_down = 19
+label_text = "Volver"
 
 [connection signal="pressed" from="Retorno" to="." method="_on_retorno_pressed"]

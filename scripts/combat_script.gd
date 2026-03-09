@@ -116,7 +116,6 @@ func _round_won() -> void:
 
 func _on_surrender_pressed() -> void:
 	get_tree().change_scene_to_file("res://escenas/mainmenu.tscn")
-	#salir
 
 
 func _on_next_round_pressed() -> void:
