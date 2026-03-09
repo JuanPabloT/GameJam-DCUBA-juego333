@@ -7,6 +7,7 @@ var matar_bruja_veneno  =false
 var matar_elemental_quemandolo  =false
 var danio_60_de_una  =false
 var reaccionar_5_turno  =false
+var victorialogro  =false
 
 func notificar_logro(texto):
 	var tooltip = PanelContainer.new()

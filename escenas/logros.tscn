@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bu5fnn83w2mkc"]
 
-[ext_resource type="Script" path="res://escenas/logros.gd" id="1_wq72o"]
+[ext_resource type="Script" uid="uid://cbgkhcmcr0db2" path="res://escenas/logros.gd" id="1_wq72o"]
 [ext_resource type="Texture2D" uid="uid://vucj7yse7ek7" path="res://sprites/normal_ui_set_free/UI board Large  stone.png" id="2_c3tvy"]
 [ext_resource type="Texture2D" uid="uid://bsjxvsml013a3" path="res://sprites/normal_ui_set_free/UI board Small  parchment.png" id="3_gk01t"]
 [ext_resource type="FontFile" uid="uid://cmejv2it2tskq" path="res://GraffitiPaintBrush.ttf" id="4_naag5"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cesiue51yt2yv" path="res://sprites/efectos/agua.png" id="8_dpqyg"]
 [ext_resource type="Texture2D" uid="uid://c8s3oxxqtl44t" path="res://sprites/efectos/rayo.png" id="9_bsg17"]
 [ext_resource type="Texture2D" uid="uid://cetdvsiy58rf2" path="res://sprites/efectos/fuego.png" id="9_gk01t"]
+[ext_resource type="Texture2D" uid="uid://rtrlp8k1q10p" path="res://sprites/smoke_texture.png" id="10_c3tvy"]
 [ext_resource type="PackedScene" uid="uid://dxtkbbjjkob5v" path="res://escenas/boton.tscn" id="10_k8o7d"]
 
 [node name="main" type="Node" unique_id=2048265753]
@@ -24,7 +25,7 @@ offset_bottom = 324.0
 texture = ExtResource("2_c3tvy")
 
 [node name="LogroBruja" type="Sprite2D" parent="Camera2D/background" unique_id=1764113296]
-position = Vector2(276, 255)
+position = Vector2(208, 212.528)
 scale = Vector2(0.5, 0.426)
 texture = ExtResource("3_gk01t")
 
@@ -53,39 +54,8 @@ position = Vector2(-226, 4.6948395)
 scale = Vector2(3.1600018, 3.7089221)
 texture = ExtResource("5_00s0d")
 
-[node name="LogroArtef" type="Sprite2D" parent="Camera2D/background" unique_id=1518754656]
-position = Vector2(876, 495)
-scale = Vector2(0.5, 0.426)
-texture = ExtResource("3_gk01t")
-
-[node name="Label" type="Label" parent="Camera2D/background/LogroArtef" unique_id=1605737922]
-anchors_preset = -1
-anchor_left = 0.5000001
-anchor_top = 0.5
-anchor_right = 0.505
-anchor_bottom = 0.5
-offset_left = -562.0001
-offset_top = -198.42253
-offset_right = 47.600006
-offset_bottom = -48.42253
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_naag5")
-theme_override_font_sizes/font_size = 45
-text = "Descubrir todos las
-partes de artefactos
-en un combate"
-horizontal_alignment = 1
-autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
-
-[node name="Node2D" type="Sprite2D" parent="Camera2D/background/LogroArtef" unique_id=413762339]
-position = Vector2(-226, 4.6948395)
-scale = Vector2(3.1600018, 3.7089221)
-texture = ExtResource("9_bsg17")
-
 [node name="LogroReac" type="Sprite2D" parent="Camera2D/background" unique_id=1765938857]
-position = Vector2(274, 376)
+position = Vector2(206, 333.528)
 scale = Vector2(0.5, 0.426)
 texture = ExtResource("3_gk01t")
 
@@ -115,38 +85,8 @@ position = Vector2(-226, 4.6948395)
 scale = Vector2(3.1600018, 3.7089221)
 texture = ExtResource("9_bsg17")
 
-[node name="Logro60" type="Sprite2D" parent="Camera2D/background" unique_id=1300790064]
-position = Vector2(878, 379)
-scale = Vector2(0.5, 0.426)
-texture = ExtResource("3_gk01t")
-
-[node name="Label" type="Label" parent="Camera2D/background/Logro60" unique_id=417774079]
-anchors_preset = -1
-anchor_left = 0.5000001
-anchor_top = 0.5
-anchor_right = 0.5000001
-anchor_bottom = 0.5
-offset_left = -582.0001
-offset_top = -210.15962
-offset_right = 30.999908
-offset_bottom = -69.15962
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_naag5")
-theme_override_font_sizes/font_size = 60
-text = "Hacer 60 daño
-en un turno"
-horizontal_alignment = 1
-autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
-
-[node name="Node2D" type="Sprite2D" parent="Camera2D/background/Logro60" unique_id=361192607]
-position = Vector2(-226, 4.6948395)
-scale = Vector2(3.1600018, 3.7089221)
-texture = ExtResource("7_c3tvy")
-
 [node name="LogroHP" type="Sprite2D" parent="Camera2D/background" unique_id=433228216]
-position = Vector2(267, 493.99997)
+position = Vector2(199, 451.52795)
 scale = Vector2(0.5, 0.426)
 texture = ExtResource("3_gk01t")
 
@@ -177,7 +117,7 @@ scale = Vector2(3.1600018, 3.7089221)
 texture = ExtResource("8_dpqyg")
 
 [node name="LogroElemental" type="Sprite2D" parent="Camera2D/background" unique_id=801111918]
-position = Vector2(878, 252)
+position = Vector2(950, 200.528)
 scale = Vector2(0.5, 0.426)
 texture = ExtResource("3_gk01t")
 
@@ -208,8 +148,100 @@ position = Vector2(-226, 4.6948395)
 scale = Vector2(3.1600018, 3.7089221)
 texture = ExtResource("9_gk01t")
 
+[node name="Logro60" type="Sprite2D" parent="Camera2D/background" unique_id=1300790064]
+position = Vector2(950, 327.528)
+scale = Vector2(0.5, 0.426)
+texture = ExtResource("3_gk01t")
+
+[node name="Label" type="Label" parent="Camera2D/background/Logro60" unique_id=417774079]
+anchors_preset = -1
+anchor_left = 0.5000001
+anchor_top = 0.5
+anchor_right = 0.5000001
+anchor_bottom = 0.5
+offset_left = -582.0001
+offset_top = -210.15962
+offset_right = 30.999908
+offset_bottom = -69.15962
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_naag5")
+theme_override_font_sizes/font_size = 60
+text = "Hacer 60 daño
+en un turno"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" type="Sprite2D" parent="Camera2D/background/Logro60" unique_id=361192607]
+position = Vector2(-226, 4.6948395)
+scale = Vector2(3.1600018, 3.7089221)
+texture = ExtResource("7_c3tvy")
+
+[node name="LogroArtef" type="Sprite2D" parent="Camera2D/background" unique_id=1518754656]
+position = Vector2(948, 443.528)
+scale = Vector2(0.5, 0.426)
+texture = ExtResource("3_gk01t")
+
+[node name="Label" type="Label" parent="Camera2D/background/LogroArtef" unique_id=1605737922]
+anchors_preset = -1
+anchor_left = 0.5000001
+anchor_top = 0.5
+anchor_right = 0.505
+anchor_bottom = 0.5
+offset_left = -562.0001
+offset_top = -198.42253
+offset_right = 47.600006
+offset_bottom = -48.42253
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_naag5")
+theme_override_font_sizes/font_size = 45
+text = "Descubrir todos las
+partes de artefactos
+en un combate"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" type="Sprite2D" parent="Camera2D/background/LogroArtef" unique_id=413762339]
+position = Vector2(-226, 4.6948395)
+scale = Vector2(3.1600018, 3.7089221)
+texture = ExtResource("9_bsg17")
+
+[node name="LogroGanar" type="Sprite2D" parent="Camera2D/background" unique_id=481659808]
+position = Vector2(578, 337.00003)
+scale = Vector2(0.5, 0.426)
+texture = ExtResource("3_gk01t")
+
+[node name="Label" type="Label" parent="Camera2D/background/LogroGanar" unique_id=961059975]
+anchors_preset = -1
+anchor_left = 0.5000001
+anchor_top = 0.5
+anchor_right = 0.505
+anchor_bottom = 0.5
+offset_left = -572.0001
+offset_top = -172.60101
+offset_right = 37.600006
+offset_bottom = -22.601013
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_naag5")
+theme_override_font_sizes/font_size = 45
+text = "Descubrir el secreto
+detras de este mundo"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" type="Sprite2D" parent="Camera2D/background/LogroGanar" unique_id=134510775]
+texture_filter = 1
+position = Vector2(-220.00002, -7.1525574e-05)
+scale = Vector2(16.875, 19.302603)
+texture = ExtResource("10_c3tvy")
+
 [node name="UiBoardSmallParchment3" type="Sprite2D" parent="Camera2D" unique_id=301348456]
-position = Vector2(33, -219)
+position = Vector2(8, -241)
 scale = Vector2(0.5283203, 0.5283203)
 texture = ExtResource("3_gk01t")
 
