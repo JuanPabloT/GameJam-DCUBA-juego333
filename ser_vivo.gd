@@ -25,6 +25,8 @@ var GD = GameData
 @export var heal_emitter : GPUParticles2D
 @export var slash_emitter : GPUParticles2D
 
+@export var audio : Node
+
 var myrealtexture : CompressedTexture2D
 var myrealscale : Vector2
 
@@ -68,9 +70,9 @@ func set_on_fire():
 	effect_status.add_flame_effect()
 	match randi_range(1,2):
 		1:
-			$Audio/efectos/fuego1.play()
+			audio.find_child("fuego1").play()
 		2:
-			$Audio/efectos/fuego2.play()
+			audio.find_child("fuego2").play()
 	await deal_fire_damage(5)
 	
 	
@@ -80,9 +82,9 @@ func apply_water():
 	water_emitter.emit()
 	match randi_range(1,2):
 		1:
-			$Audio/efectos/gotas1.play()
+			audio.find_child("gotas1").play()
 		2:
-			$Audio/efectos/gotas2.play()
+			audio.find_child("gotas2").play()
 	await get_tree().create_timer(1).timeout
 
 func apply_root():
@@ -96,9 +98,9 @@ func apply_lightning():
 	effect_status.add_shock_effect()
 	match randi_range(1,2):
 		1:
-			$Audio/efectos/relampago1.play()
+			audio.find_child("relampago1").play()
 		2:
-			$Audio/efectos/relampago2.play()
+			audio.find_child("relampago2").play()
 	display_status("Rayo!", GD.element_colors[GD.lightning])
 	deal_lightning_damage(10)
 	
@@ -113,16 +115,16 @@ func apply_poison(n:int):
 	poison_emitter.emit()
 	match randi_range(1,2):
 		1:
-			$Audio/efectos/gotas1.play()
+			audio.find_child("gotas1").play()
 		2:
-			$Audio/efectos/gotas2.play()
+			audio.find_child("gotas2").play()
 	await get_tree().create_timer(1).timeout
 
 func apply_beer():
 	display_status("Emborrachado", GD.element_colors[GD.beer])
 	effect_status.add_beer_effect()
 	beer_emitter.emit()
-	$Audio/efectos/beer1.play()
+	audio.find_child("beer1").play()
 	await get_tree().create_timer(1).timeout
 	
 	
@@ -132,9 +134,9 @@ func smoke():
 	await get_tree().create_timer(1).timeout
 	match randi_range(1,2):
 		1:
-			$Audio/efectos/smoke1.play()
+			audio.find_child("smoke1").play()
 		2:
-			$Audio/efectos/smoke2.play()
+			audio.find_child("smoke2").play()
 	smokeemitter.visible = false
 	
 	
@@ -143,9 +145,9 @@ func add_shield(n:int):
 	update_shield_visibility()
 	match randi_range(1,2):
 		1:
-			$Audio/efectos/barrier1.play()
+			audio.find_child("barrier1").play()
 		2:
-			$Audio/efectos/barrier2.play()
+			audio.find_child("barrier2").play()
 	display_status("+"+str(n)+" Escudo", "#AAA")
 	await get_tree().create_timer(1).timeout
 	
@@ -156,9 +158,9 @@ func apply_wind():
 	wind_emitter.emit()
 	match randi_range(1,2):
 		1:
-			$Audio/efectos/wind1.play()
+			audio.find_child("wind1").play()
 		2:
-			$Audio/efectos/wind2.play()
+			audio.find_child("wind2").play()
 	await get_tree().create_timer(1).timeout
 
 func emit_burning_particles():
