@@ -1,6 +1,16 @@
 extends Node
 
 
+var logro_max_hp  =false
+var todas_partes_artefactos  =false
+var matar_bruja_veneno  =false
+var matar_elemental_quemandolo  =false
+var danio_60_de_una  =false
+var reaccionar_5_turno  =false
+
+func notificar_logro(texto):
+	pass
+
 var water = "res://sprites/efectos/agua.png"
 var beer = "res://sprites/efectos/beer.png"
 var fire = "res://sprites/efectos/fuego.png"

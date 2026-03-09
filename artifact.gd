@@ -30,6 +30,13 @@ func use_on(target):
 	GameData.real_effect_seen[imagedown]=true
 	GameData.real_effect_seen[imageright]=true
 	
+	if not GameData.todas_partes_artefactos:
+		GameData.todas_partes_artefactos=true
+		for key in GameData.real_effect_seen:
+			GameData.todas_partes_artefactos &= GameData.real_effect_seen[key]
+		if GameData.todas_partes_artefactos:
+			GameData.notificar_logro("Desbloqueaste el logro de artefactos")
+	
 	get_parent().remove_child(self)
 	visible=true
 	var newparent : Control = CenterContainer.new()
