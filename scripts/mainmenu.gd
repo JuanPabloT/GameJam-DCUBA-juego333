@@ -30,7 +30,5 @@ func _on_logros_pressed() -> void:
 	print("logros")
 	pass
 
-
-func _on_testdeleteme_pressed() -> void:
-	get_tree().change_scene_to_file("res://escenas/noche_de_juegos.tscn")
-	pass # Replace with function body.
+func _on_cartas_usadas_pressed() -> void:
+	get_tree().change_scene_to_file("res://escenas/cartas_usadas.tscn")

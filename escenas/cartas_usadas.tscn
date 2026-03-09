@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://bvfr7366upivb"]
+
+[ext_resource type="Texture2D" uid="uid://vucj7yse7ek7" path="res://sprites/normal_ui_set_free/UI board Large  stone.png" id="1_2i2rj"]
+[ext_resource type="Script" uid="uid://tgvy6r70mv5i" path="res://escenas/cartas_usadas.gd" id="1_xa8np"]
+[ext_resource type="Texture2D" uid="uid://bsjxvsml013a3" path="res://sprites/normal_ui_set_free/UI board Small  parchment.png" id="2_0b8rx"]
+[ext_resource type="FontFile" uid="uid://cmejv2it2tskq" path="res://GraffitiPaintBrush.ttf" id="3_xmoge"]
+[ext_resource type="Texture2D" uid="uid://bbu7mlh58nlro" path="res://sprites/cartas/20mBgR.png" id="4_sipba"]
+[ext_resource type="Texture2D" uid="uid://ddy2wx6otlgjr" path="res://sprites/cartas/wj7joz.png" id="5_xa8np"]
+[ext_resource type="Texture2D" uid="uid://bxjaovx8k451t" path="res://sprites/cartas/H_Nu2Q.png" id="6_qlh7b"]
+[ext_resource type="PackedScene" uid="uid://dxtkbbjjkob5v" path="res://escenas/boton.tscn" id="7_2lqhp"]
+
+[node name="main" type="Node" unique_id=1320342064]
+script = ExtResource("1_xa8np")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=415023960]
+
+[node name="Main Menu" type="TextureRect" parent="Camera2D" unique_id=671454452]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2i2rj")
+metadata/_edit_use_anchors_ = true
+
+[node name="UiBoardSmallParchment" type="Sprite2D" parent="Camera2D/Main Menu" unique_id=1599200520]
+position = Vector2(572, 137)
+texture = ExtResource("2_0b8rx")
+
+[node name="Label" type="Label" parent="Camera2D/Main Menu/UiBoardSmallParchment" unique_id=708152163]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -600.0
+offset_top = -214.0
+offset_right = -72.0
+offset_bottom = -19.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_xmoge")
+theme_override_font_sizes/font_size = 70
+text = "Cartas Utilizadas
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Camera2D/Main Menu/UiBoardSmallParchment" unique_id=815918682]
+anchors_preset = -1
+anchor_left = 0.48600003
+anchor_top = 0.63600004
+anchor_right = 0.48600003
+anchor_bottom = 0.63600004
+offset_left = -588.48
+offset_top = -176.81601
+offset_right = 80.51999
+offset_bottom = -31.81601
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_xmoge")
+theme_override_font_sizes/font_size = 40
+text = "tematica:
+artefacto - olvidado"
+metadata/_edit_use_anchors_ = true
+
+[node name="binario" type="Sprite2D" parent="Camera2D/Main Menu" unique_id=1756846824]
+position = Vector2(375, 403.55)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_sipba")
+
+[node name="amargo_y_retruco" type="Sprite2D" parent="Camera2D/Main Menu" unique_id=569104298]
+position = Vector2(575, 403.55)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_xa8np")
+
+[node name="acapella" type="Sprite2D" parent="Camera2D/Main Menu" unique_id=1846287508]
+position = Vector2(175, 403.55002)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_qlh7b")
+
+[node name="Iniciar" parent="." unique_id=515566042 instance=ExtResource("7_2lqhp")]
+offset_left = -333.0
+offset_top = -151.0
+offset_right = -44.0
+offset_bottom = -33.0
+label_text = "Volver"
+
+[connection signal="pressed" from="Iniciar" to="." method="_on_iniciar_pressed"]
