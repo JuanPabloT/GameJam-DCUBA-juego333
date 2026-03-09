@@ -5,7 +5,7 @@ extends SerVivo
 func _ready() -> void:
 	$JugadorSprite.texture = load("res://sprites/cuerpos/pj_small.png")
 	$JugadorSprite.scale = Vector2(0.27, 0.27)
-	health = 100 #?
+	health = GameData.player_health
 	super._ready()
 
 func on_death() -> void:

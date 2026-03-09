@@ -172,7 +172,11 @@ enum ShieldStatus {
 func change_health(amount:int, color=null, alternative_text=null):
 	if is_dead():
 		return
-	health += amount
+	if health + amount < 110:
+		health += amount
+	else:
+		health = 110
+		display_status("Vida maxima!", "#5F5")
 	if health_status != null:
 		health_status.text = str(health)
 	display_status(str(amount) if alternative_text == null else alternative_text , color if color != null else "#FFF")

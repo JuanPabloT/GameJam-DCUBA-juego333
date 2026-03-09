@@ -104,16 +104,28 @@ func _clemen_tina_turn() -> void:
 	match clemen_tina_turn % 3:
 		0:
 			$EnemigoProvisionalSprite.texture = tina_combat_texture
+			match randi_range(0,2):
+				0:
+					$"../Audio/clemen_tina/tina1".play()
+				1:
+					$"../Audio/clemen_tina/tina2".play()
 			await self.add_shield(5)
 			await enemy.apply_water()
-			#await enemy.deal_ordinary_damage(randi_range(3, 6))
+			await enemy.deal_ordinary_damage(randi_range(3, 6))
 		1:
 			$EnemigoProvisionalSprite.texture = clemen_combat_texture
+			match randi_range(0,2):
+				0:
+					$"../Audio/clemen_tina/clemen1".play()
+				1:
+					$"../Audio/clemen_tina/clemen2".play()
 			await self.heal_by(7)
 			await enemy.apply_lightning()
-			#await enemy.deal_ordinary_damage(randi_range(3, 6))
+			await enemy.deal_ordinary_damage(randi_range(3, 6))
 		2:
 			$EnemigoProvisionalSprite.texture = clemen_tina_combat_texture
+			$"../Audio/clemen_tina/tina3".play()
+			$"../Audio/clemen_tina/clemen3".play()
 			await enemy.set_on_fire()
 			await enemy.apply_poison(2)
 			await enemy.deal_ordinary_damage(randi_range(4, 10))
@@ -121,6 +133,13 @@ func _clemen_tina_turn() -> void:
 
 func _elemental_turn() -> void:
 	$particlescale/FlameEmmitterBLue.visible=true
+	match randi_range(0, 2):
+		0:
+			$"../Audio/elemental/elemental1".play()
+		1:
+			$"../Audio/elemental/elemental2".play()
+		2:
+			$"../Audio/elemental/elemental3".play()
 	match randi_range(0,2):
 		0:
 			await enemy.set_on_fire()
@@ -152,6 +171,13 @@ func _liliana_turn() -> void:
 
 func _gaucho_turn() -> void:
 	$EnemigoProvisionalSprite.texture = gaucho_combat_texture
+	match randi_range(0, 2):
+		0:
+			$"../Audio/gaucho/gaucho1".play()
+		1:
+			$"../Audio/gaucho/gaucho2".play()
+		2:
+			$"../Audio/gaucho/gaucho3".play()
 	match randi_range(0,5):
 		0,1,2:
 			await self.apply_beer()
@@ -168,6 +194,13 @@ func _gaucho_turn() -> void:
 
 func _alien_turn() -> void:
 	$EnemigoProvisionalSprite.texture = alien_combat_texture
+	match randi_range(0, 2):
+		0:
+			$"../Audio/alien/alien1".play()
+		1:
+			$"../Audio/alien/alien2".play()
+		2:
+			$"../Audio/alien/alien3".play()
 	match randi_range(0,3):
 		0:
 			await enemy.apply_lightning()
@@ -182,6 +215,13 @@ func _alien_turn() -> void:
 
 func _bruja_turn() -> void:
 	$EnemigoProvisionalSprite.texture = bruja_combat_texture
+	match randi_range(0, 2):
+		0:
+			$"../Audio/witch/witch1".play()
+		1:
+			$"../Audio/witch/witch2".play()
+		2:
+			$"../Audio/witch/witch3".play()
 	match randi_range(0,2):
 		0:
 			await enemy.apply_poison(2)
@@ -197,6 +237,13 @@ func _bruja_turn() -> void:
 
 func _apple_turn() -> void:
 	$EnemigoProvisionalSprite.texture = apple_combat_texture
+	match randi_range(0, 2):
+		0:
+			$"../Audio/apple/apple1".play()
+		1:
+			$"../Audio/apple/apple2".play()
+		2:
+			$"../Audio/apple/apple3".play()
 	match randi_range(0,4):
 		0,1:
 			await enemy.apply_root()
