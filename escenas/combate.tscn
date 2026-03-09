@@ -53,6 +53,17 @@
 [ext_resource type="AudioStream" uid="uid://7ao8ljwsrtun" path="res://sounds/personajes/elemental3.wav" id="49_onkg2"]
 [ext_resource type="AudioStream" uid="uid://3lntk8fo0gg6" path="res://sounds/abucheo1.wav" id="52_8htfg"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8htfg"]
+frequency = 0.0325
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y7i30"]
+noise = SubResource("FastNoiseLite_8htfg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8htfg"]
+shader = ExtResource("21_6sf7d")
+shader_parameter/Noise = SubResource("NoiseTexture2D_y7i30")
+shader_parameter/DissolveValue = 1.0
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6sf7d"]
 frequency = 0.0325
 
@@ -87,7 +98,6 @@ offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="DEBUG" type="Control" parent="Camera2D/Buttons control" unique_id=1110440724]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -207,6 +217,7 @@ heal_emitter = NodePath("particlescale/HealEmitter")
 slash_emitter = NodePath("particlescale/SlasheEMitter")
 
 [node name="JugadorSprite" type="Sprite2D" parent="Jugador" unique_id=1629988179]
+material = SubResource("ShaderMaterial_8htfg")
 position = Vector2(-6.9999924, -13)
 scale = Vector2(0.583004, 0.556267)
 texture = ExtResource("4_vtyci")
