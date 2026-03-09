@@ -66,6 +66,11 @@ func has_beer():
 func set_on_fire():
 	display_status("Fuego!", "#F50")
 	effect_status.add_flame_effect()
+	match randi_range(1,2):
+		1:
+			$Audio/efectos/fuego1.play()
+		2:
+			$Audio/efectos/fuego2.play()
 	await deal_fire_damage(5)
 	
 	
@@ -73,6 +78,11 @@ func apply_water():
 	display_status("Lluvia", GD.element_colors[GD.water])
 	effect_status.add_water_effect()
 	water_emitter.emit()
+	match randi_range(1,2):
+		1:
+			$Audio/efectos/gotas1.play()
+		2:
+			$Audio/efectos/gotas2.play()
 	await get_tree().create_timer(1).timeout
 
 func apply_root():
@@ -84,6 +94,11 @@ func apply_root():
 func apply_lightning():
 	await emit_lightning()
 	effect_status.add_shock_effect()
+	match randi_range(1,2):
+		1:
+			$Audio/efectos/relampago1.play()
+		2:
+			$Audio/efectos/relampago2.play()
 	display_status("Rayo!", GD.element_colors[GD.lightning])
 	deal_lightning_damage(10)
 	
@@ -96,12 +111,18 @@ func apply_poison(n:int):
 	display_status("Envenenado", GD.element_colors[GD.poison])
 	effect_status.add_poison_effect(n)
 	poison_emitter.emit()
+	match randi_range(1,2):
+		1:
+			$Audio/efectos/gotas1.play()
+		2:
+			$Audio/efectos/gotas2.play()
 	await get_tree().create_timer(1).timeout
 
 func apply_beer():
 	display_status("Emborrachado", GD.element_colors[GD.beer])
 	effect_status.add_beer_effect()
 	beer_emitter.emit()
+	$Audio/efectos/beer1.play()
 	await get_tree().create_timer(1).timeout
 	
 	
@@ -115,6 +136,11 @@ func smoke():
 func add_shield(n:int):
 	shield += n
 	update_shield_visibility()
+	match randi_range(1,2):
+		1:
+			$Audio/efectos/barrier1.play()
+		2:
+			$Audio/efectos/barrier2.play()
 	display_status("+"+str(n)+" Escudo", "#AAA")
 	await get_tree().create_timer(1).timeout
 	
