@@ -32,10 +32,10 @@ anchor_left = 0.509
 anchor_top = 0.558
 anchor_right = 0.509
 anchor_bottom = 0.558
-offset_left = -639.18396
-offset_top = -225.59547
-offset_right = -40.18396
-offset_bottom = -30.595474
+offset_left = -642.6318
+offset_top = -215.25204
+offset_right = -43.631775
+offset_bottom = -20.252037
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 0.9372549, 1)
@@ -112,12 +112,11 @@ offset_bottom = -20.068405
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_t45w3")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 text = "Entre los efectos posibles existe la
 aplicación de condiciones de estado.
 Estas pueden reaccionar entre si
-generando efectos nuevos.
-Estos no varían cada torneo"
+generando efectos nuevos."
 metadata/_edit_use_anchors_ = true
 
 [node name="UiBoardSmallParchment5" type="Sprite2D" parent="background" unique_id=1836205221]
@@ -138,10 +137,11 @@ offset_bottom = -64.11464
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_t45w3")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 38
 text = "Los efectos de artefactos vistos
-anteriormente este torneo son visibles
-al pasar el cursor por encima"
+anteriormente este torneo son
+visibles al pasar el cursor
+por encima"
 metadata/_edit_use_anchors_ = true
 
 [node name="UiBoardSmallParchment6" type="Sprite2D" parent="background" unique_id=763571194]
