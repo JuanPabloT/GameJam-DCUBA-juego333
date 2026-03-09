@@ -109,7 +109,8 @@ func _on_consumir_pressed() -> void:
 	print("consumiendo artefacto")
 	_disable_buttons()
 	await artifact.use_on(player)
-	if player.is_dead():
+	if _player_lost():
+		_round_lost()
 		return
 	_rival_turn()
 
