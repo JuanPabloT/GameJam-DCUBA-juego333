@@ -37,6 +37,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_down() -> void:
+	$AudioStreamPlayerDown.play()
 	$Label.position.y+=size_down
 	is_button_down = true 
 	icon = down_texture
@@ -44,6 +45,7 @@ func _on_button_down() -> void:
 	
 
 func _on_button_up() -> void:
+	$AudioStreamPlayerUp.play()
 	$Label.position.y-=size_down
 	is_button_down = false
 	if is_mouse_inside:
