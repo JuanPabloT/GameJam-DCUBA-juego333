@@ -28,14 +28,14 @@ texture = ExtResource("3_8f3lp")
 
 [node name="Label" type="Label" parent="background/UiBoardSmallParchment" unique_id=2076725781]
 anchors_preset = -1
-anchor_left = -0.3318235
-anchor_top = -0.31054032
-anchor_right = -0.018588167
-anchor_bottom = -0.31054032
-offset_left = -72.5957
-offset_top = -93.09091
-offset_right = 313.40427
-offset_bottom = 101.90909
+anchor_left = 0.509
+anchor_top = 0.558
+anchor_right = 0.509
+anchor_bottom = 0.558
+offset_left = -639.18396
+offset_top = -225.59547
+offset_right = -40.18396
+offset_bottom = -30.595474
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("4_t45w3")
 theme_override_font_sizes/font_size = 30
@@ -51,17 +51,17 @@ texture = ExtResource("3_8f3lp")
 
 [node name="Label" type="Label" parent="background/UiBoardSmallParchment2" unique_id=712073254]
 anchors_preset = -1
-anchor_left = -0.3318235
-anchor_top = -0.4851611
-anchor_right = -0.018588167
-anchor_bottom = -0.4851611
-offset_left = -70.51688
-offset_top = -75.29412
-offset_right = 315.4831
-offset_bottom = 119.70588
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -646.63214
+offset_top = -173.42697
+offset_right = -33.63214
+offset_bottom = -57.966705
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("4_t45w3")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 36
 text = "Tu objetivo: ganar 3 combates seguidos
 del torneo de artificieros!"
 metadata/_edit_use_anchors_ = true
@@ -73,14 +73,14 @@ texture = ExtResource("3_8f3lp")
 
 [node name="Label" type="Label" parent="background/UiBoardSmallParchment3" unique_id=1625330334]
 anchors_preset = -1
-anchor_left = -2.4739215
-anchor_top = -0.6179736
-anchor_right = -2.4739215
-anchor_bottom = -0.6179736
-offset_left = -67.742645
-offset_top = 42.81124
-offset_right = 1947.2573
-offset_bottom = 237.81125
+anchor_left = 0.5
+anchor_top = 0.55600005
+anchor_right = 0.5
+anchor_bottom = 0.55600005
+offset_left = -623.9187
+offset_top = -225.6188
+offset_right = -54.188477
+offset_bottom = -30.618805
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("4_t45w3")
 theme_override_font_sizes/font_size = 30
@@ -97,14 +97,14 @@ texture = ExtResource("3_8f3lp")
 
 [node name="Label" type="Label" parent="background/UiBoardSmallParchment4" unique_id=637906518]
 anchors_preset = -1
-anchor_left = -2.4553528
-anchor_top = -0.4851611
-anchor_right = -2.4553528
-anchor_bottom = -0.4851611
-offset_left = -63.95706
-offset_top = 37.13286
-offset_right = 1874.043
-offset_bottom = 232.13286
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -606.88354
+offset_top = -215.0684
+offset_right = -71.22363
+offset_bottom = -20.068405
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("4_t45w3")
 theme_override_font_sizes/font_size = 30
@@ -122,20 +122,44 @@ texture = ExtResource("3_8f3lp")
 
 [node name="Label" type="Label" parent="background/UiBoardSmallParchment5" unique_id=315779716]
 anchors_preset = -1
-anchor_left = -0.88634425
-anchor_top = -0.58741057
-anchor_right = -0.88634425
-anchor_bottom = -0.58741057
-offset_left = -69.14789
-offset_top = 1.9225616
-offset_right = 857.8521
-offset_bottom = 196.92256
+anchor_left = 0.48900002
+anchor_top = 0.439
+anchor_right = 0.48900002
+anchor_bottom = 0.439
+offset_left = -629.0318
+offset_top = -191.68367
+offset_right = -51.523376
+offset_bottom = -64.11464
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("4_t45w3")
 theme_override_font_sizes/font_size = 30
 text = "Los efectos de artefactos vistos
 anteriormente este torneo son visibles
 al pasar el cursor por encima"
+metadata/_edit_use_anchors_ = true
+
+[node name="UiBoardSmallParchment6" type="Sprite2D" parent="background" unique_id=763571194]
+position = Vector2(913, 392.99997)
+scale = Vector2(0.5800781, 0.5800781)
+texture = ExtResource("3_8f3lp")
+
+[node name="Label" type="Label" parent="background/UiBoardSmallParchment6" unique_id=1559483501]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -634.7879
+offset_top = -205.57568
+offset_right = -81.414
+offset_bottom = -10.575668
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_t45w3")
+theme_override_font_sizes/font_size = 30
+text = "El orden con el que se aplican los
+efectos de los 3 fragmentos de los
+artefactos es arriba->derecha->abajo
+En este ejemplo es mate->moai->corona"
 metadata/_edit_use_anchors_ = true
 
 [node name="img1" type="TextureRect" parent="." unique_id=1591395631]
@@ -147,10 +171,10 @@ texture = ExtResource("5_q4til")
 expand_mode = 1
 
 [node name="img2" type="TextureRect" parent="." unique_id=973829294]
-offset_left = -69.0
-offset_top = -33.0
-offset_right = 158.0
-offset_bottom = 175.0
+offset_left = -114.0
+offset_top = -34.0
+offset_right = 113.0
+offset_bottom = 174.0
 texture = ExtResource("6_vvskx")
 expand_mode = 1
 

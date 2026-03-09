@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://ifbiwo2pxjho"]
+
+[ext_resource type="Script" uid="uid://dqgsscybki7cx" path="res://scripts/noche_de_juegos.gd" id="1_qvdmq"]
+[ext_resource type="Texture2D" uid="uid://chjr25n3l1qfk" path="res://sprites/noche_de_juegos.png" id="2_5ley2"]
+[ext_resource type="Texture2D" uid="uid://bsjxvsml013a3" path="res://sprites/normal_ui_set_free/UI board Small  parchment.png" id="3_xeqau"]
+[ext_resource type="Texture2D" uid="uid://bo2pxglr7ik7b" path="res://sprites/cuerpos/pj_small.png" id="3_ymu41"]
+[ext_resource type="Texture2D" uid="uid://nkng0vl3kih" path="res://sprites/cuerpos/gaucho.png" id="4_4awvm"]
+[ext_resource type="FontFile" uid="uid://cmejv2it2tskq" path="res://GraffitiPaintBrush.ttf" id="4_ymu41"]
+[ext_resource type="PackedScene" uid="uid://dxtkbbjjkob5v" path="res://escenas/boton.tscn" id="5_5ley2"]
+
+[node name="main" type="Node" unique_id=758185171]
+script = ExtResource("1_qvdmq")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1656157235]
+
+[node name="Main Menu" type="TextureRect" parent="Camera2D" unique_id=598497979]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5ley2")
+metadata/_edit_use_anchors_ = true
+
+[node name="pj" type="Sprite2D" parent="Camera2D/Main Menu" unique_id=201321776]
+position = Vector2(188.99997, 357)
+rotation = -0.6981317
+scale = Vector2(0.3621974, 0.3621974)
+texture = ExtResource("3_ymu41")
+
+[node name="gaucho" type="Sprite2D" parent="Camera2D/Main Menu" unique_id=558672511]
+position = Vector2(1498, 300.00003)
+scale = Vector2(0.5089686, 0.5089686)
+texture = ExtResource("4_4awvm")
+
+[node name="UiBoardSmallParchment" type="Sprite2D" parent="Camera2D/Main Menu" unique_id=2025733471]
+position = Vector2(574.50006, 511)
+scale = Vector2(1.689706, 1)
+texture = ExtResource("3_xeqau")
+
+[node name="Label" type="Label" parent="Camera2D/Main Menu/UiBoardSmallParchment" unique_id=816298683]
+anchors_preset = -1
+anchor_left = 0.337
+anchor_top = 0.564
+anchor_right = 0.337
+anchor_bottom = 0.564
+offset_left = -518.2636
+offset_top = -225.384
+offset_right = -161.26349
+offset_bottom = -30.384003
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_ymu41")
+theme_override_font_sizes/font_size = 30
+text = "Che, todavia seguis aca?"
+metadata/_edit_use_anchors_ = true
+
+[node name="Iniciar" parent="." unique_id=515566042 instance=ExtResource("5_5ley2")]
+offset_left = -362.0
+offset_top = -197.0
+offset_right = -73.0
+offset_bottom = -79.0
+label_text = "Siguiente"
+
+[connection signal="pressed" from="Iniciar" to="." method="_on_iniciar_pressed"]
