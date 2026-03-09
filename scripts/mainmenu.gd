@@ -29,3 +29,6 @@ func _on_tutorial_pressed() -> void:
 func _on_logros_pressed() -> void:
 	print("logros")
 	pass
+
+func _on_cartas_usadas_pressed() -> void:
+	get_tree().change_scene_to_file("res://escenas/cartas_usadas.tscn")

@@ -108,7 +108,17 @@ grow_vertical = 1
 label_text = "Salir"
 metadata/_edit_use_anchors_ = true
 
+[node name="cartas_usadas" parent="Camera2D/Main Menu/Buttons menu" unique_id=1144268895 instance=ExtResource("2_ebd4j")]
+layout_mode = 1
+offset_left = -486.5
+offset_top = -143.5
+offset_right = -197.5
+offset_bottom = -25.5
+label_text = "Cartas usadas"
+
 [connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/Iniciar" to="." method="_on_iniciar_pressed"]
 [connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/Logros2" to="." method="_on_logros_pressed"]
 [connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/cartas_usadas" to="." method="_on_testdeleteme_pressed"]
+[connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/cartas_usadas" to="." method="_on_cartas_usadas_pressed"]

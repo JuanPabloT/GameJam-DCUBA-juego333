@@ -121,7 +121,10 @@ func _on_surrender_pressed() -> void:
 
 
 func _on_next_round_pressed() -> void:
-	get_tree().change_scene_to_file("res://escenas/torneo.tscn")
+	if GameData.level == 4:
+		get_tree().change_scene_to_file("res://escenas/noche_de_juegos.tscn")
+	else:
+		get_tree().change_scene_to_file("res://escenas/torneo.tscn")
 
 func _round_lost():
 	await get_tree().create_timer(3).timeout
