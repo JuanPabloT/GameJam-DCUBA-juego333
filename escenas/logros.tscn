@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dprnoet8cli44"]
+[gd_scene format=3 uid="uid://bu5fnn83w2mkc"]
 
-[ext_resource type="Script" uid="uid://cbgkhcmcr0db2" path="res://escenas/logros.gd" id="1_wq72o"]
+[ext_resource type="Script" path="res://escenas/logros.gd" id="1_wq72o"]
 [ext_resource type="Texture2D" uid="uid://vucj7yse7ek7" path="res://sprites/normal_ui_set_free/UI board Large  stone.png" id="2_c3tvy"]
 [ext_resource type="Texture2D" uid="uid://bsjxvsml013a3" path="res://sprites/normal_ui_set_free/UI board Small  parchment.png" id="3_gk01t"]
 [ext_resource type="FontFile" uid="uid://cmejv2it2tskq" path="res://GraffitiPaintBrush.ttf" id="4_naag5"]
@@ -28,20 +28,21 @@ scale = Vector2(0.5, 0.426)
 texture = ExtResource("3_gk01t")
 
 [node name="Label" type="Label" parent="Camera2D/background/LogroBruja" unique_id=712073254]
-anchors_preset = -1
-anchor_left = 0.7076175
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -642.84656
-offset_top = -184.78374
-offset_right = -29.846588
-offset_bottom = -67.78374
+offset_left = -576.0
+offset_top = -186.68544
+offset_right = 37.0
+offset_bottom = -69.68544
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_naag5")
 theme_override_font_sizes/font_size = 60
-text = "Matar a la bruja con veneno"
+text = "Matar a la bruja
+ con veneno"
 horizontal_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
@@ -58,19 +59,21 @@ texture = ExtResource("3_gk01t")
 
 [node name="Label" type="Label" parent="Camera2D/background/LogroArtef" unique_id=1605737922]
 anchors_preset = -1
-anchor_left = 0.75124496
+anchor_left = 0.5000001
 anchor_top = 0.5
-anchor_right = 0.5000001
+anchor_right = 0.505
 anchor_bottom = 0.5
-offset_left = -642.84656
-offset_top = -184.78374
-offset_right = -29.846588
-offset_bottom = -67.78374
+offset_left = -562.0001
+offset_top = -198.42253
+offset_right = 47.600006
+offset_bottom = -48.42253
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_naag5")
-theme_override_font_sizes/font_size = 50
-text = "Descubrir todos las partes de artefactos en un combate"
+theme_override_font_sizes/font_size = 45
+text = "Descubrir todos las
+partes de artefactos
+en un combate"
 horizontal_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
@@ -87,19 +90,21 @@ texture = ExtResource("3_gk01t")
 
 [node name="Label" type="Label" parent="Camera2D/background/LogroReac" unique_id=1681601192]
 anchors_preset = -1
-anchor_left = 0.76300967
+anchor_left = 0.50000006
 anchor_top = 0.5
 anchor_right = 0.50000006
 anchor_bottom = 0.5
-offset_left = -642.84656
-offset_top = -184.78374
-offset_right = -29.846588
-offset_bottom = -67.78374
+offset_left = -566.0
+offset_top = -196.07512
+offset_right = 47.0
+offset_bottom = -46.07512
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_naag5")
-theme_override_font_sizes/font_size = 50
-text = "Conseguir 5 reacciones sobre vos o tu enemigo en un turno"
+theme_override_font_sizes/font_size = 45
+text = "Conseguir 5 reacciones
+sobre vos o tu
+enemigo en un turno"
 horizontal_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
@@ -116,19 +121,20 @@ texture = ExtResource("3_gk01t")
 
 [node name="Label" type="Label" parent="Camera2D/background/Logro60" unique_id=417774079]
 anchors_preset = -1
-anchor_left = 0.72771555
+anchor_left = 0.5000001
 anchor_top = 0.5
 anchor_right = 0.5000001
 anchor_bottom = 0.5
-offset_left = -642.84656
-offset_top = -184.78374
-offset_right = -29.846588
-offset_bottom = -67.78374
+offset_left = -582.0001
+offset_top = -210.15962
+offset_right = 30.999908
+offset_bottom = -69.15962
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_naag5")
 theme_override_font_sizes/font_size = 60
-text = "Hacer 60 daño en un turno"
+text = "Hacer 60 daño
+en un turno"
 horizontal_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
@@ -145,19 +151,21 @@ texture = ExtResource("3_gk01t")
 
 [node name="Label" type="Label" parent="Camera2D/background/LogroHP" unique_id=773012253]
 anchors_preset = -1
-anchor_left = 0.75124496
+anchor_left = 0.5000001
 anchor_top = 0.5
 anchor_right = 0.5000001
 anchor_bottom = 0.5
-offset_left = -642.84656
-offset_top = -184.78374
-offset_right = -29.846588
-offset_bottom = -67.78374
+offset_left = -586.0001
+offset_top = -217.20178
+offset_right = 26.999878
+offset_bottom = -16.20179
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_naag5")
-theme_override_font_sizes/font_size = 60
-text = "Ganar un combate con >99 HP"
+theme_override_font_sizes/font_size = 55
+text = "Ganar un
+combate con
+>99 HP"
 horizontal_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
@@ -174,19 +182,22 @@ texture = ExtResource("3_gk01t")
 
 [node name="Label" type="Label" parent="Camera2D/background/LogroElemental" unique_id=1822160447]
 anchors_preset = -1
-anchor_left = 0.73653907
-anchor_top = 0.1484375
-anchor_right = 0.5380097
-anchor_bottom = 0.8515625
-offset_left = -650.84656
-offset_top = -129.54929
-offset_right = -37.84659
-offset_bottom = -12.549286
+anchor_left = 0.61800003
+anchor_top = 0.559
+anchor_right = 0.61800003
+anchor_bottom = 0.559
+offset_left = -646.24
+offset_top = -229.95847
+offset_right = -33.24002
+offset_bottom = 67.041534
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_naag5")
-theme_override_font_sizes/font_size = 50
-text = "Matar al elemental de fuego quemandolo (no explosion)"
+theme_override_font_sizes/font_size = 45
+text = "Matar al elemental
+de fuego
+quemandolo
+(no explosion)"
 horizontal_alignment = 1
 autowrap_mode = 3
 metadata/_edit_use_anchors_ = true
