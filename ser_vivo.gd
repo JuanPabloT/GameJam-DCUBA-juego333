@@ -81,6 +81,7 @@ func apply_water():
 	match randi_range(1,2):
 		1:
 			$Audio/efectos/gotas1.play()
+			
 		2:
 			$Audio/efectos/gotas2.play()
 	await get_tree().create_timer(1).timeout

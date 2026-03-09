@@ -22,10 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://bfyf2pux1skp" path="res://escenas/particulkas/small_posion.tscn" id="13_uok4b"]
 [ext_resource type="PackedScene" uid="uid://cngiunen2juhk" path="res://escenas/particulkas/heal_emitter.tscn" id="16_4whe8"]
 [ext_resource type="PackedScene" uid="uid://fg1nfhfk3y8x" path="res://escenas/particulkas/wind_emitter.tscn" id="16_uok4b"]
-[ext_resource type="PackedScene" uid="uid://y65wnq8jwxte" path="res://escenas/particulkas/slashe_e_mitter_2.tscn" id="17_581gk"]
-[ext_resource type="PackedScene" uid="uid://bqeor3alxalug" path="res://escenas/particulkas/slash.tscn" id="20_j73ri"]
+[ext_resource type="PackedScene" path="res://escenas/particulkas/slashe_e_mitter_2.tscn" id="17_581gk"]
+[ext_resource type="PackedScene" path="res://escenas/particulkas/slash.tscn" id="20_j73ri"]
 [ext_resource type="Shader" uid="uid://b4wp5pmprnwdu" path="res://escenas/combate.tres" id="21_6sf7d"]
-[ext_resource type="PackedScene" uid="uid://c1ygtxxfqfagx" path="res://escenas/particulkas/flame_emmitter_blue.tscn" id="22_xqcbg"]
+[ext_resource type="PackedScene" uid="uid://q4c74gpo8n4b" path="res://escenas/particulkas/flame_emmitter_blue.tscn" id="22_xqcbg"]
 [ext_resource type="FontFile" uid="uid://cmejv2it2tskq" path="res://GraffitiPaintBrush.ttf" id="23_s8rds"]
 [ext_resource type="Script" uid="uid://dglvblui8p2h4" path="res://escenas/moving_text.gd" id="24_6tf1q"]
 [ext_resource type="Texture2D" uid="uid://0i35qdvurcfw" path="res://sprites/normal_ui_set_free/UI board Medium  parchment.png" id="27_f3hhc"]
@@ -98,7 +98,7 @@ shader = ExtResource("21_6sf7d")
 shader_parameter/Noise = SubResource("NoiseTexture2D_f3hhc")
 shader_parameter/DissolveValue = 1.0
 
-[node name="main" type="Node" unique_id=1840779075]
+[node name="main2" type="Node" unique_id=1840779075]
 script = ExtResource("1_tj7jl")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=735758191]
