@@ -26,6 +26,7 @@ var GD = GameData
 @export var slash_emitter : GPUParticles2D
 
 @export var audio : Node
+@export var main : Node
 
 var myrealtexture : CompressedTexture2D
 var myrealscale : Vector2
@@ -95,6 +96,7 @@ func apply_root():
 
 func apply_lightning():
 	await emit_lightning()
+	main.screen_shake()
 	effect_status.add_shock_effect()
 	match randi_range(1,2):
 		1:
@@ -131,6 +133,7 @@ func apply_beer():
 	
 func smoke():
 	smokeemitter.visible = true
+	main.screen_shake()
 	await get_tree().create_timer(1).timeout
 	match randi_range(1,2):
 		1:
@@ -156,6 +159,7 @@ func apply_wind():
 	effect_status.apply_wind()
 	display_status("Viento!", "#7BB")
 	wind_emitter.emit()
+	main.screen_shake()
 	match randi_range(1,2):
 		1:
 			audio.find_child("wind1").play()
@@ -247,6 +251,8 @@ func deal_poison_damage(n:int):
 	
 func deal_fire_damage(n):
 	explosion_emitter.restart()
+	main.screen_shake()
+	
 	change_health_shielded(-n, GD.element_colors[GD.fire])
 	await get_tree().create_timer(1).timeout
 	

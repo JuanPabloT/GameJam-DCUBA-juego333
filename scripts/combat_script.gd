@@ -7,6 +7,9 @@ var artifact : Artefacto
 var previous_enemy_health_for_achievemnt=100
 var artifact_scene: PackedScene = preload("res://artefacto.tscn")
 
+var cpos1 
+var cpos2 
+var cpos3 
 # no se si hay alguna mejor manera de hacer esto. se podrian crawlear los directorios?
 
 func _on_ready() -> void:
@@ -26,6 +29,8 @@ func _on_ready() -> void:
 	await $Enemy_Intro.dissappear()
 	player.change_health(0)
 	_player_turn()
+	
+
 
 	
 	
@@ -153,3 +158,18 @@ func _on_accept_loss_pressed() -> void:
 	# |  |  ||
 	#----------
 	# || |  |_
+	
+func screen_shake():
+	var time = 0.2
+	var tween1 = create_tween()
+	var tween2 = create_tween()
+	var tween3 = create_tween()
+
+	for i in range(10):
+		cpos1 = $TextureRect.global_position
+		cpos2 = $Jugador.global_position
+		cpos3 = $EnemigoProvisional.global_position
+		var offset = Vector2(randf_range(-5, 5), randf_range(-5, 5))
+		tween1.tween_property($TextureRect, "global_position", cpos1 + offset, time/10)
+		tween2.tween_property($Jugador, "global_position", cpos2 + offset, time/10)
+		tween1.tween_property($EnemigoProvisional, "global_position", cpos3 + offset, time/10)
