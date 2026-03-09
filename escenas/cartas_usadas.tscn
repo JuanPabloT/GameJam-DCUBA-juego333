@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bxjaovx8k451t" path="res://sprites/cartas/H_Nu2Q.png" id="6_qlh7b"]
 [ext_resource type="PackedScene" uid="uid://dxtkbbjjkob5v" path="res://escenas/boton.tscn" id="7_2lqhp"]
 
+[sub_resource type="Theme" id="Theme_xa8np"]
+default_font_size = 50
+
 [node name="main" type="Node" unique_id=1320342064]
 script = ExtResource("1_xa8np")
 
@@ -72,15 +75,85 @@ position = Vector2(375, 403.55)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_sipba")
 
+[node name="areabinbario" type="Area2D" parent="Camera2D/Main Menu/binario" unique_id=1213770979]
+position = Vector2(-16, -10.199951)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera2D/Main Menu/binario/areabinbario" unique_id=287014699]
+polygon = PackedVector2Array(-20, -20, -224, -420, -252, -380, -256, 396, -220, 444, 252, 444, 292, 400, 292, -372, 256, -420, -224, -424)
+
+[node name="Tooltip" type="PanelContainer" parent="Camera2D/Main Menu/binario" unique_id=1011063354]
+visible = false
+z_index = 5
+offset_left = -698.0
+offset_top = 124.0
+offset_right = -209.0
+offset_bottom = 335.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Camera2D/Main Menu/binario/Tooltip" unique_id=788481054]
+layout_mode = 2
+theme = SubResource("Theme_xa8np")
+theme_override_font_sizes/font_size = 100
+text = "El juego consta de tomar una entre dos decisiones opuestas, 
+utilizar un artefacto sobre uno mismo  o sobre el rival!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="amargo_y_retruco" type="Sprite2D" parent="Camera2D/Main Menu" unique_id=569104298]
 position = Vector2(575, 403.55)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_xa8np")
 
+[node name="areaamargo_y_retruco" type="Area2D" parent="Camera2D/Main Menu/amargo_y_retruco" unique_id=1794856949]
+position = Vector2(-16, -10.199951)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera2D/Main Menu/amargo_y_retruco/areaamargo_y_retruco" unique_id=1911313604]
+polygon = PackedVector2Array(-20, -20, -224, -420, -252, -380, -256, 396, -220, 444, 252, 444, 292, 400, 292, -372, 256, -420, -224, -424)
+
+[node name="Tooltip" type="PanelContainer" parent="Camera2D/Main Menu/amargo_y_retruco" unique_id=1003994622]
+visible = false
+z_index = 5
+offset_left = -698.0
+offset_top = 124.0
+offset_right = -209.0
+offset_bottom = 335.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Camera2D/Main Menu/amargo_y_retruco/Tooltip" unique_id=1772165110]
+layout_mode = 2
+theme = SubResource("Theme_xa8np")
+theme_override_font_sizes/font_size = 100
+text = "Es posible enfrentarse a personajes Argentinos y del DC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="acapella" type="Sprite2D" parent="Camera2D/Main Menu" unique_id=1846287508]
 position = Vector2(175, 403.55002)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("6_qlh7b")
+
+[node name="areaacapella" type="Area2D" parent="Camera2D/Main Menu/acapella" unique_id=1711321546]
+position = Vector2(-16, -10.199951)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Camera2D/Main Menu/acapella/areaacapella" unique_id=1060563603]
+polygon = PackedVector2Array(-20, -20, -224, -420, -252, -380, -256, 396, -220, 444, 252, 444, 292, 400, 292, -372, 256, -420, -224, -424)
+
+[node name="Tooltip" type="PanelContainer" parent="Camera2D/Main Menu/acapella" unique_id=1402770530]
+visible = false
+z_index = 5
+offset_left = -698.0
+offset_top = 124.0
+offset_right = -209.0
+offset_bottom = 335.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Camera2D/Main Menu/acapella/Tooltip" unique_id=391717268]
+layout_mode = 2
+theme = SubResource("Theme_xa8np")
+theme_override_font_sizes/font_size = 100
+text = "Todos los sonidos del juego fueron hechos con la voz y modificados"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Iniciar" parent="." unique_id=515566042 instance=ExtResource("7_2lqhp")]
 offset_left = -333.0
@@ -89,4 +162,11 @@ offset_right = -44.0
 offset_bottom = -33.0
 label_text = "Volver"
 
+[connection signal="mouse_entered" from="Camera2D/Main Menu/binario/areabinbario" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_entered" from="Camera2D/Main Menu/binario/areabinbario" to="." method="_on_areabinbario_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/Main Menu/binario/areabinbario" to="." method="_on_areabinbario_mouse_exited"]
+[connection signal="mouse_entered" from="Camera2D/Main Menu/amargo_y_retruco/areaamargo_y_retruco" to="." method="_on_areaamargo_y_retruco_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/Main Menu/amargo_y_retruco/areaamargo_y_retruco" to="." method="_on_areaamargo_y_retruco_mouse_exited"]
+[connection signal="mouse_entered" from="Camera2D/Main Menu/acapella/areaacapella" to="." method="_on_areaacapella_mouse_entered"]
+[connection signal="mouse_exited" from="Camera2D/Main Menu/acapella/areaacapella" to="." method="_on_areaacapella_mouse_exited"]
 [connection signal="pressed" from="Iniciar" to="." method="_on_iniciar_pressed"]
