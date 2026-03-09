@@ -78,3 +78,4 @@ func assign_effect_to_artifact_parts():
 var level : int
 var enemies_remaining : Array
 var stage : Array
+var player_health : int

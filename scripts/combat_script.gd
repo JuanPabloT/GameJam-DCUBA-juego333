@@ -24,6 +24,7 @@ func _on_ready() -> void:
 	await get_tree().create_timer(1).timeout
 	$Enemy_Intro_Subtitle.dissappear()
 	$Enemy_Intro.dissappear()
+	player.change_health(0)
 	_player_turn()
 
 	
@@ -110,6 +111,7 @@ func _on_utilizar_pressed() -> void:
 
 func _round_won() -> void:
 	await get_tree().create_timer(3).timeout
+	GameData.player_health = $Jugador.health
 	$"VictoriaScreen/Next round".disabled = false
 	$VictoriaScreen.animate_down()
 

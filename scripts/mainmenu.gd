@@ -5,6 +5,7 @@ func _ready() -> void:
 	GameData.enemies_remaining = [0,1,2,3,4,5,6]
 	GameData.enemies_remaining.shuffle()
 	GameData.stage = [0,0,0,0,0,0]
+	GameData.player_health = 100
 
 		
 

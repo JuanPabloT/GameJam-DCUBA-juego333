@@ -28,6 +28,27 @@
 [ext_resource type="Script" uid="uid://dglvblui8p2h4" path="res://escenas/moving_text.gd" id="24_6tf1q"]
 [ext_resource type="Texture2D" uid="uid://0i35qdvurcfw" path="res://sprites/normal_ui_set_free/UI board Medium  parchment.png" id="27_f3hhc"]
 [ext_resource type="Script" uid="uid://dik76b7nr3fol" path="res://escenas/victoria_screen.gd" id="28_o7b3l"]
+[ext_resource type="AudioStream" uid="uid://bgcs8gak16ass" path="res://sounds/personajes/tina1.wav" id="29_n6loh"]
+[ext_resource type="AudioStream" uid="uid://bqnwr6iapippv" path="res://sounds/personajes/tina2.wav" id="30_ynge3"]
+[ext_resource type="AudioStream" uid="uid://cfqaba057msik" path="res://sounds/personajes/tina3.wav" id="31_35tfh"]
+[ext_resource type="AudioStream" uid="uid://bnt26wslm1gbl" path="res://sounds/personajes/clemen1.wav" id="32_vja13"]
+[ext_resource type="AudioStream" uid="uid://d2hwbfjf1clqw" path="res://sounds/personajes/clemen2.wav" id="33_8htfg"]
+[ext_resource type="AudioStream" uid="uid://b5s862181qbco" path="res://sounds/personajes/clemen3.wav" id="34_y7i30"]
+[ext_resource type="AudioStream" uid="uid://b5c3yuohwfl5q" path="res://sounds/personajes/gaucho1.wav" id="35_xwu2s"]
+[ext_resource type="AudioStream" uid="uid://cxq3s6vn58jak" path="res://sounds/personajes/gaucho2.wav" id="36_j0bsd"]
+[ext_resource type="AudioStream" uid="uid://mbe7o5ho3aw3" path="res://sounds/personajes/gaucho3.wav" id="37_7gj5h"]
+[ext_resource type="AudioStream" uid="uid://lh2y4gm3x8lh" path="res://sounds/personajes/alien1.wav" id="38_wbwic"]
+[ext_resource type="AudioStream" uid="uid://b6k46nvf0i3he" path="res://sounds/personajes/alien2.wav" id="39_qnxw4"]
+[ext_resource type="AudioStream" uid="uid://d4mdenqisob43" path="res://sounds/personajes/alien3.wav" id="40_u66cw"]
+[ext_resource type="AudioStream" uid="uid://b02vniw355h7m" path="res://sounds/personajes/apple1.wav" id="41_2453l"]
+[ext_resource type="AudioStream" uid="uid://cs1c8kmw54vxo" path="res://sounds/personajes/apple2.wav" id="42_bwcci"]
+[ext_resource type="AudioStream" uid="uid://c8asl1b7vld4s" path="res://sounds/personajes/apple3.wav" id="43_7s32m"]
+[ext_resource type="AudioStream" uid="uid://coxx8fko0gv02" path="res://sounds/personajes/witch1.wav" id="44_f7r4t"]
+[ext_resource type="AudioStream" uid="uid://j66i73026qlw" path="res://sounds/personajes/witch2.wav" id="45_2eplk"]
+[ext_resource type="AudioStream" uid="uid://dhukc74faa0cu" path="res://sounds/personajes/witch3.wav" id="46_j46uq"]
+[ext_resource type="AudioStream" uid="uid://bvclqsixtls08" path="res://sounds/personajes/elemental1.wav" id="47_kd4lr"]
+[ext_resource type="AudioStream" uid="uid://6f286r1rmkhm" path="res://sounds/personajes/elemental2.wav" id="48_jmkuv"]
+[ext_resource type="AudioStream" uid="uid://7ao8ljwsrtun" path="res://sounds/personajes/elemental3.wav" id="49_onkg2"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6sf7d"]
 frequency = 0.0325
@@ -534,6 +555,91 @@ offset_right = -212.0
 offset_bottom = -114.49997
 disabled = true
 label_text = "Siguiente Ronda"
+
+[node name="Audio" type="Node" parent="." unique_id=613984224]
+
+[node name="clemen_tina" type="Node" parent="Audio" unique_id=2051828292]
+
+[node name="tina1" type="AudioStreamPlayer" parent="Audio/clemen_tina" unique_id=534954205]
+stream = ExtResource("29_n6loh")
+
+[node name="tina2" type="AudioStreamPlayer" parent="Audio/clemen_tina" unique_id=725975625]
+stream = ExtResource("30_ynge3")
+
+[node name="tina3" type="AudioStreamPlayer" parent="Audio/clemen_tina" unique_id=2071587256]
+stream = ExtResource("31_35tfh")
+
+[node name="clemen1" type="AudioStreamPlayer" parent="Audio/clemen_tina" unique_id=1246146435]
+stream = ExtResource("32_vja13")
+
+[node name="clemen2" type="AudioStreamPlayer" parent="Audio/clemen_tina" unique_id=1032587727]
+stream = ExtResource("33_8htfg")
+
+[node name="clemen3" type="AudioStreamPlayer" parent="Audio/clemen_tina" unique_id=1472005514]
+stream = ExtResource("34_y7i30")
+
+[node name="gaucho" type="Node" parent="Audio" unique_id=407696560]
+
+[node name="gaucho1" type="AudioStreamPlayer" parent="Audio/gaucho" unique_id=778200004]
+stream = ExtResource("35_xwu2s")
+
+[node name="gaucho2" type="AudioStreamPlayer" parent="Audio/gaucho" unique_id=1629434544]
+stream = ExtResource("36_j0bsd")
+
+[node name="gaucho3" type="AudioStreamPlayer" parent="Audio/gaucho" unique_id=1553879559]
+stream = ExtResource("37_7gj5h")
+
+[node name="liliana" type="Node" parent="Audio" unique_id=835033148]
+
+[node name="liliana1" type="AudioStreamPlayer" parent="Audio/liliana" unique_id=2102056137]
+
+[node name="liliana2" type="AudioStreamPlayer" parent="Audio/liliana" unique_id=1882225531]
+
+[node name="liliana3" type="AudioStreamPlayer" parent="Audio/liliana" unique_id=1850632685]
+
+[node name="alien" type="Node" parent="Audio" unique_id=1122235600]
+
+[node name="alien1" type="AudioStreamPlayer" parent="Audio/alien" unique_id=1638615542]
+stream = ExtResource("38_wbwic")
+
+[node name="alien2" type="AudioStreamPlayer" parent="Audio/alien" unique_id=1908024139]
+stream = ExtResource("39_qnxw4")
+
+[node name="alien3" type="AudioStreamPlayer" parent="Audio/alien" unique_id=847381858]
+stream = ExtResource("40_u66cw")
+
+[node name="apple" type="Node" parent="Audio" unique_id=1047619506]
+
+[node name="apple1" type="AudioStreamPlayer" parent="Audio/apple" unique_id=1826622652]
+stream = ExtResource("41_2453l")
+
+[node name="apple2" type="AudioStreamPlayer" parent="Audio/apple" unique_id=1352691066]
+stream = ExtResource("42_bwcci")
+
+[node name="apple3" type="AudioStreamPlayer" parent="Audio/apple" unique_id=830062869]
+stream = ExtResource("43_7s32m")
+
+[node name="witch" type="Node" parent="Audio" unique_id=746141485]
+
+[node name="witch1" type="AudioStreamPlayer" parent="Audio/witch" unique_id=605881215]
+stream = ExtResource("44_f7r4t")
+
+[node name="witch2" type="AudioStreamPlayer" parent="Audio/witch" unique_id=38031177]
+stream = ExtResource("45_2eplk")
+
+[node name="witch3" type="AudioStreamPlayer" parent="Audio/witch" unique_id=1060678154]
+stream = ExtResource("46_j46uq")
+
+[node name="elemental" type="Node" parent="Audio" unique_id=922273051]
+
+[node name="elemental1" type="AudioStreamPlayer" parent="Audio/elemental" unique_id=2145215817]
+stream = ExtResource("47_kd4lr")
+
+[node name="elemental2" type="AudioStreamPlayer" parent="Audio/elemental" unique_id=686840496]
+stream = ExtResource("48_jmkuv")
+
+[node name="elemental3" type="AudioStreamPlayer" parent="Audio/elemental" unique_id=1370619814]
+stream = ExtResource("49_onkg2")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="Camera2D/Buttons control/DEBUG/veneno" to="Jugador" method="_on_veneno_pressed"]
