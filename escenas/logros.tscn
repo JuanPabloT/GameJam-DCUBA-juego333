@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cesiue51yt2yv" path="res://sprites/efectos/agua.png" id="8_dpqyg"]
 [ext_resource type="Texture2D" uid="uid://c8s3oxxqtl44t" path="res://sprites/efectos/rayo.png" id="9_bsg17"]
 [ext_resource type="Texture2D" uid="uid://cetdvsiy58rf2" path="res://sprites/efectos/fuego.png" id="9_gk01t"]
+[ext_resource type="PackedScene" uid="uid://dxtkbbjjkob5v" path="res://escenas/boton.tscn" id="10_k8o7d"]
 
 [node name="main" type="Node" unique_id=2048265753]
 script = ExtResource("1_wq72o")
@@ -217,3 +218,13 @@ theme_override_fonts/font = ExtResource("4_naag5")
 theme_override_font_sizes/font_size = 120
 text = "Logros"
 metadata/_edit_use_anchors_ = true
+
+[node name="Iniciar" parent="." unique_id=515566042 instance=ExtResource("10_k8o7d")]
+offset_left = -691.0
+offset_top = -121.0
+offset_right = -401.99997
+offset_bottom = -3.0
+scale = Vector2(0.8, 0.8)
+label_text = "Volver"
+
+[connection signal="pressed" from="Iniciar" to="." method="_on_iniciar_pressed"]

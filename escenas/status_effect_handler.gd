@@ -122,6 +122,8 @@ func add_effect(sprite, duration = 0, potency = 0):
 	neweffect.duration = duration
 	neweffect.potency = potency
 	add_child(neweffect)
+	
+	
 	var tooltip = PanelContainer.new()
 	neweffect.add_child(tooltip)
 	tooltip.visible=false
