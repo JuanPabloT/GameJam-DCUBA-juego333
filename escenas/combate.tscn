@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxi51xketdx5u" path="res://scripts/combat_script.gd" id="1_tj7jl"]
 [ext_resource type="PackedScene" uid="uid://dxtkbbjjkob5v" path="res://escenas/boton.tscn" id="2_4whe8"]
-[ext_resource type="Texture2D" uid="uid://bt1vjx6kwhlb1" path="res://sprites/tmp_fondo.jpg" id="2_6tf1q"]
+[ext_resource type="Texture2D" uid="uid://dia87w26u42bs" path="res://sprites/tmp_fondo.png" id="2_6tf1q"]
 [ext_resource type="Texture2D" uid="uid://s5qn7amar80b" path="res://sprites/temp/a1.png" id="3_rgmsd"]
 [ext_resource type="Script" uid="uid://bjxo02uboe17n" path="res://escenas/jugador.gd" id="3_vtyci"]
 [ext_resource type="Script" uid="uid://d28npmttrir4k" path="res://escenas/status_effect_handler.gd" id="4_8d3xh"]
@@ -22,9 +22,23 @@
 [ext_resource type="PackedScene" uid="uid://fg1nfhfk3y8x" path="res://escenas/particulkas/wind_emitter.tscn" id="16_uok4b"]
 [ext_resource type="PackedScene" uid="uid://y65wnq8jwxte" path="res://escenas/particulkas/slashe_e_mitter_2.tscn" id="17_581gk"]
 [ext_resource type="PackedScene" uid="uid://bqeor3alxalug" path="res://escenas/particulkas/slash.tscn" id="20_j73ri"]
+[ext_resource type="Shader" uid="uid://b4wp5pmprnwdu" path="res://escenas/combate.tres" id="21_6sf7d"]
 [ext_resource type="PackedScene" uid="uid://c1ygtxxfqfagx" path="res://escenas/particulkas/flame_emmitter_blue.tscn" id="22_xqcbg"]
 [ext_resource type="FontFile" uid="uid://cmejv2it2tskq" path="res://GraffitiPaintBrush.ttf" id="23_s8rds"]
 [ext_resource type="Script" uid="uid://dglvblui8p2h4" path="res://escenas/moving_text.gd" id="24_6tf1q"]
+[ext_resource type="Texture2D" uid="uid://0i35qdvurcfw" path="res://sprites/normal_ui_set_free/UI board Medium  parchment.png" id="27_f3hhc"]
+[ext_resource type="Script" uid="uid://dik76b7nr3fol" path="res://escenas/victoria_screen.gd" id="28_o7b3l"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6sf7d"]
+frequency = 0.0325
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f3hhc"]
+noise = SubResource("FastNoiseLite_6sf7d")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f3hhc"]
+shader = ExtResource("21_6sf7d")
+shader_parameter/Noise = SubResource("NoiseTexture2D_f3hhc")
+shader_parameter/DissolveValue = 1.0
 
 [node name="main" type="Node" unique_id=1840779075]
 script = ExtResource("1_tj7jl")
@@ -32,11 +46,11 @@ script = ExtResource("1_tj7jl")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=735758191]
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D" unique_id=129507968]
-offset_left = -680.0
-offset_top = -605.0
-offset_right = 964.28564
-offset_bottom = 696.0
-scale = Vector2(0.7, 0.7)
+offset_left = -672.0
+offset_top = -516.0
+offset_right = 8506.0
+offset_bottom = 6066.0
+scale = Vector2(0.14, 0.14)
 mouse_filter = 2
 texture = ExtResource("2_6tf1q")
 
@@ -114,40 +128,21 @@ text = "DEBUG feugo"
 
 [node name="Consumir" parent="Camera2D/Buttons control" unique_id=515566042 instance=ExtResource("2_4whe8")]
 layout_mode = 1
-offset_left = -548.0
-offset_top = 80.0
-offset_right = -259.0
-offset_bottom = 198.0
+offset_left = -405.0
+offset_top = 163.0
+offset_right = -116.0
+offset_bottom = 281.0
 scale = Vector2(1.1, 1.1)
 label_text = "Consumir Artefacto"
 
 [node name="Utilizar" parent="Camera2D/Buttons control" unique_id=2123190864 instance=ExtResource("2_4whe8")]
 layout_mode = 1
-offset_left = -4.0
-offset_top = 80.0
-offset_right = 285.0
-offset_bottom = 198.0
+offset_left = -10.0
+offset_top = 168.0
+offset_right = 279.0
+offset_bottom = 286.0
 scale = Vector2(1.1, 1.1)
 label_text = "Utilizar Artefacto"
-
-[node name="Next round" parent="Camera2D/Buttons control" unique_id=538339735 instance=ExtResource("2_4whe8")]
-layout_mode = 1
-offset_left = 320.0
-offset_top = 208.0
-offset_right = 609.0
-offset_bottom = 326.0
-scale = Vector2(0.8, 0.8)
-disabled = true
-label_text = "Siguiente Ronda"
-
-[node name="Surrender" parent="Camera2D/Buttons control" unique_id=65440621 instance=ExtResource("2_4whe8")]
-layout_mode = 1
-offset_left = -597.0
-offset_top = 229.0
-offset_right = -308.0
-offset_bottom = 347.0
-scale = Vector2(0.6, 0.6)
-label_text = "Abandonar"
 
 [node name="Game Status" type="Control" parent="Camera2D" unique_id=1203945084]
 layout_mode = 3
@@ -156,8 +151,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
+[node name="Surrender" parent="Camera2D" unique_id=587110106 instance=ExtResource("2_4whe8")]
+offset_left = -577.0
+offset_top = 234.0
+offset_right = -288.0
+offset_bottom = 352.0
+scale = Vector2(0.6, 0.6)
+label_text = "Abandonar"
+
 [node name="Jugador" type="Node2D" parent="." unique_id=659219716 node_paths=PackedStringArray("health_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter", "slash_emitter")]
-position = Vector2(-374, -16)
+position = Vector2(-323, 70)
 script = ExtResource("3_vtyci")
 health_status = NodePath("Player health")
 effect_status = NodePath("player_status")
@@ -182,10 +185,11 @@ scale = Vector2(0.583004, 0.556267)
 texture = ExtResource("4_vtyci")
 
 [node name="Player health" type="Label" parent="Jugador" unique_id=2082465971]
-offset_left = -36.0
-offset_top = -303.0
-offset_right = 67.0
-offset_bottom = -220.0
+offset_left = -39.0
+offset_top = -323.0
+offset_right = 64.0
+offset_bottom = -240.0
+theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 60
 text = "100"
 metadata/_edit_use_anchors_ = true
@@ -263,7 +267,7 @@ scale = Vector2(0.5, 0.5)
 [node name="HealEmitter" parent="Jugador/particlescale" unique_id=1277962600 instance=ExtResource("16_4whe8")]
 
 [node name="EnemigoProvisional" type="Node2D" parent="." unique_id=655215699 node_paths=PackedStringArray("health_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter", "slash_emitter")]
-position = Vector2(179, -26)
+position = Vector2(141, 34)
 script = ExtResource("5_vtyci")
 health_status = NodePath("Rival health")
 effect_status = NodePath("enemy_status")
@@ -283,6 +287,7 @@ heal_emitter = NodePath("particlescale/HealEmitter")
 slash_emitter = NodePath("particlescale/SlashEMitter")
 
 [node name="EnemigoProvisionalSprite" type="Sprite2D" parent="EnemigoProvisional" unique_id=1238460282]
+material = SubResource("ShaderMaterial_f3hhc")
 position = Vector2(4.0000153, -1)
 texture = ExtResource("3_rgmsd")
 
@@ -291,6 +296,7 @@ offset_left = -54.0
 offset_top = -291.0
 offset_right = 49.0
 offset_bottom = -208.0
+theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 60
 text = "100"
 metadata/_edit_use_anchors_ = true
@@ -372,10 +378,10 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(-16.5, 0.5)
 
 [node name="ArtefactoHolderBackground" type="PanelContainer" parent="." unique_id=421372997]
-offset_left = 379.0
-offset_top = -229.0
-offset_right = 546.0
-offset_bottom = 115.0
+offset_left = 375.0
+offset_top = -153.0
+offset_right = 542.0
+offset_bottom = 191.0
 mouse_filter = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ArtefactoHolderBackground" unique_id=1003450933]
@@ -404,6 +410,7 @@ text = "Turno del Enemigo"
 script = ExtResource("24_6tf1q")
 
 [node name="Enemy_Intro" type="Label" parent="." unique_id=1753019347]
+visible = false
 z_index = 190
 offset_left = -393.0
 offset_top = -223.0
@@ -417,6 +424,7 @@ text = "Clemen-Tina"
 script = ExtResource("24_6tf1q")
 
 [node name="Enemy_Intro_Subtitle" type="Label" parent="." unique_id=386064486]
+visible = false
 z_index = 190
 offset_left = -337.0
 offset_top = -160.0
@@ -444,6 +452,51 @@ theme_override_font_sizes/font_size = 70
 text = "Turno del Jugador"
 script = ExtResource("24_6tf1q")
 
+[node name="DerrotaScreen" type="Sprite2D" parent="." unique_id=1365777625]
+visible = false
+self_modulate = Color(1, 1, 1, 0.8980392)
+position = Vector2(-38, -1460)
+texture = ExtResource("27_f3hhc")
+script = ExtResource("28_o7b3l")
+
+[node name="Label" type="Label" parent="DerrotaScreen" unique_id=1705578498]
+offset_left = -142.0
+offset_top = -142.0
+offset_right = 136.0
+offset_bottom = -46.0
+theme_override_font_sizes/font_size = 70
+text = "Alpiste!"
+
+[node name="Surrender" parent="DerrotaScreen" unique_id=65440621 instance=ExtResource("2_4whe8")]
+offset_left = -501.0
+offset_top = -236.5
+offset_right = -212.0
+offset_bottom = -118.5
+label_text = "Volver al menu"
+
+[node name="VictoriaScreen" type="Sprite2D" parent="." unique_id=719816221]
+visible = false
+self_modulate = Color(1, 1, 1, 0.8980392)
+position = Vector2(-36, -730)
+texture = ExtResource("27_f3hhc")
+script = ExtResource("28_o7b3l")
+
+[node name="Label" type="Label" parent="VictoriaScreen" unique_id=343858962]
+offset_left = -142.0
+offset_top = -142.0
+offset_right = 136.0
+offset_bottom = -46.0
+theme_override_font_sizes/font_size = 70
+text = "Victoria!"
+
+[node name="Next round" parent="VictoriaScreen" unique_id=538339735 instance=ExtResource("2_4whe8")]
+offset_left = -501.0
+offset_top = -232.49997
+offset_right = -212.0
+offset_bottom = -114.49997
+disabled = true
+label_text = "Siguiente Ronda"
+
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="Camera2D/Buttons control/DEBUG/veneno" to="Jugador" method="_on_veneno_pressed"]
 [connection signal="pressed" from="Camera2D/Buttons control/DEBUG/viento" to="Jugador" method="_on_viento_pressed"]
@@ -455,5 +508,5 @@ script = ExtResource("24_6tf1q")
 [connection signal="pressed" from="Camera2D/Buttons control/DEBUG/feugo" to="Jugador" method="_on_feugo_pressed"]
 [connection signal="pressed" from="Camera2D/Buttons control/Consumir" to="." method="_on_consumir_pressed"]
 [connection signal="pressed" from="Camera2D/Buttons control/Utilizar" to="." method="_on_utilizar_pressed"]
-[connection signal="pressed" from="Camera2D/Buttons control/Next round" to="." method="_on_next_round_pressed"]
-[connection signal="pressed" from="Camera2D/Buttons control/Surrender" to="." method="_on_surrender_pressed"]
+[connection signal="pressed" from="DerrotaScreen/Surrender" to="." method="_on_surrender_pressed"]
+[connection signal="pressed" from="VictoriaScreen/Next round" to="." method="_on_next_round_pressed"]

@@ -46,10 +46,6 @@ func on_turn_end():
 		await get_tree().create_timer(0.3).timeout
 	await effect_status.run_effects()
 	
-	pass
-	#if turns_on_fire > 0:
-	#		turns_on_fire -= 1
-	#	change_health(-5, "#F50")
 
 @abstract func on_death()
 
@@ -170,12 +166,16 @@ enum ShieldStatus {
 
 
 func change_health(amount:int, color=null, alternative_text=null):
+	if is_dead():
+		return
 	health += amount
 	if health_status != null:
 		health_status.text = str(health)
 	display_status(str(amount) if alternative_text == null else alternative_text , color if color != null else "#FFF")
 		
 	if is_dead():
+		health = 0
+		health_status.text = str(health)
 		on_death()
 		
 func change_health_shielded(n, color, alternative_text="")->ShieldStatus:
@@ -205,8 +205,15 @@ func deal_fire_damage(n):
 	await get_tree().create_timer(1).timeout
 	
 func deal_lightning_damage(n):
+	var prev_shield = shield
 	shock()
-	change_health_shielded(-n, GD.element_colors[GD.lightning])
+	match change_health_shielded(-n, GD.element_colors[GD.lightning]):
+		ShieldStatus.inexistent:
+			pass
+		ShieldStatus.alive:
+			display_status(str(-prev_shield+shield)+" Bloqueado!", "#AAC")
+		ShieldStatus.broken:
+			display_status("Escudo roto!", "#AAC")
 	await get_tree().create_timer(1).timeout
 	
 func deal_burning_damage(n:int):

@@ -70,15 +70,25 @@ func _rival_turn() -> void:
 
 	print("terminando turno jugador")
 	await player.on_turn_end()
-	await get_tree().create_timer(0.3).timeout
-	$Enemy_Turn.animate()
-	print("turno rival:")
 	if _rival_lost():
 		_round_won()
 		return
+	elif  _player_lost():
+		_round_lost()
+		return
+	await get_tree().create_timer(0.3).timeout
+	$Enemy_Turn.animate()
+	print("turno rival:")
+	
 	await rival.on_turn()
 	print("terminando turno rival")
 	await rival.on_turn_end()
+	if _rival_lost():
+		_round_won()
+		return
+	elif  _player_lost():
+		_round_lost()
+		return
 	_player_turn()
 
 
@@ -95,14 +105,13 @@ func _on_utilizar_pressed() -> void:
 	print("utilizando artefacto")
 	_disable_buttons()
 	await artifact.use_on(rival)
-	if _rival_lost():
-		_round_won()
-		return
+	
 	_rival_turn()
 
 func _round_won() -> void:
-	$"Camera2D/Buttons control/Next round".disabled = false
-	pass
+	await get_tree().create_timer(3).timeout
+	$"VictoriaScreen/Next round".disabled = false
+	$VictoriaScreen.animate_down()
 
 
 func _on_surrender_pressed() -> void:
@@ -112,3 +121,7 @@ func _on_surrender_pressed() -> void:
 
 func _on_next_round_pressed() -> void:
 	get_tree().change_scene_to_file("res://escenas/torneo.tscn")
+
+func _round_lost():
+	await get_tree().create_timer(3).timeout
+	$DerrotaScreen.animate_down()

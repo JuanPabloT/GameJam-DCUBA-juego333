@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bt1vjx6kwhlb1"
-path="res://.godot/imported/tmp_fondo.jpg-0cc82b4a42cbb450e2690e45b44f68e9.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://sprites/tmp_fondo.jpg"
-dest_files=["res://.godot/imported/tmp_fondo.jpg-0cc82b4a42cbb450e2690e45b44f68e9.ctex"]
 
 [params]
 

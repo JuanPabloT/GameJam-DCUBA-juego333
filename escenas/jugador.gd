@@ -9,7 +9,8 @@ func _ready() -> void:
 	super._ready()
 
 func on_death() -> void:
-	pass
+	var tween = create_tween()
+	tween.tween_property($JugadorSprite.material, "shader_parameter/DissolveValue", 0, 3)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -66,7 +66,10 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func on_death():
-	pass
+	var tween = create_tween()
+	tween.tween_property($EnemigoProvisionalSprite.material, "shader_parameter/DissolveValue", 0, 3)
+
+	 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -164,7 +167,7 @@ func _gaucho_turn() -> void:
 
 
 func _alien_turn() -> void:
-	$EnemigoProvisionalSprite.texture = gaucho_combat_texture
+	$EnemigoProvisionalSprite.texture = alien_combat_texture
 	match randi_range(0,3):
 		0:
 			await enemy.apply_lightning()
