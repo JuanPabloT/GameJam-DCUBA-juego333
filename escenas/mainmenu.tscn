@@ -54,35 +54,36 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Tutorial" parent="Camera2D/Main Menu/Buttons menu" unique_id=515566042 instance=ExtResource("2_ebd4j")]
 layout_mode = 1
-offset_left = -488.5
-offset_top = 5.5
-offset_right = -199.5
-offset_bottom = 123.5
+offset_left = -526.5
+offset_top = -3.5
+offset_right = -237.5
+offset_bottom = 114.5
 label_text = "Tutorial"
 
 [node name="Iniciar" parent="Camera2D/Main Menu/Buttons menu" unique_id=585510229 instance=ExtResource("2_ebd4j")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0069384216
-anchor_top = 0.0
-anchor_right = -0.0069384216
-anchor_bottom = 0.0
+anchor_left = -0.046834346
+anchor_top = 0.20189276
+anchor_right = -0.046834346
+anchor_bottom = 0.20189275
 offset_left = 440.0
 offset_top = 14.0
 offset_right = 729.0
 offset_bottom = 132.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(1.3, 1.3)
 label_text = "Empezar"
 metadata/_edit_use_anchors_ = true
 
 [node name="Logros2" parent="Camera2D/Main Menu/Buttons menu" unique_id=1839739466 instance=ExtResource("2_ebd4j")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.00954033
-anchor_top = 0.0
-anchor_right = 0.00954033
-anchor_bottom = 0.0
+anchor_left = 0.33824804
+anchor_top = -0.50473183
+anchor_right = 0.33824804
+anchor_bottom = -0.50473183
 offset_left = 421.0
 offset_top = 160.0
 offset_right = 710.0
@@ -95,10 +96,10 @@ metadata/_edit_use_anchors_ = true
 [node name="salir" parent="Camera2D/Main Menu/Buttons menu" unique_id=1472938865 instance=ExtResource("2_ebd4j")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0060711186
-anchor_top = -0.025236594
-anchor_right = -0.0060711186
-anchor_bottom = -0.025236594
+anchor_left = 0.046834346
+anchor_top = -0.04416404
+anchor_right = 0.046834346
+anchor_bottom = -0.04416404
 offset_left = 759.0
 offset_top = 168.0
 offset_right = 1048.0
@@ -110,10 +111,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="cartas_usadas" parent="Camera2D/Main Menu/Buttons menu" unique_id=1144268895 instance=ExtResource("2_ebd4j")]
 layout_mode = 1
-offset_left = -486.5
-offset_top = -143.5
-offset_right = -197.5
-offset_bottom = -25.5
+offset_left = -526.5
+offset_top = -152.5
+offset_right = -237.5
+offset_bottom = -34.5
 label_text = "Cartas usadas"
 
 [connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/Tutorial" to="." method="_on_tutorial_pressed"]

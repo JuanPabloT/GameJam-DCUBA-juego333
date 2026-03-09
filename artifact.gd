@@ -33,7 +33,7 @@ func use_on(target):
 	if not GameData.todas_partes_artefactos:
 		GameData.todas_partes_artefactos=true
 		for key in GameData.real_effect_seen:
-			GameData.todas_partes_artefactos &= GameData.real_effect_seen[key]
+			GameData.todas_partes_artefactos = GameData.todas_partes_artefactos and GameData.real_effect_seen[key]
 		if GameData.todas_partes_artefactos:
 			GameData.notificar_logro("Desbloqueaste el logro de artefactos")
 	
