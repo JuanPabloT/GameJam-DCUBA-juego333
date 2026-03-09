@@ -64,7 +64,7 @@ label_text = "Tutorial"
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.046834346
-anchor_top = 0.20189276
+anchor_top = 0.20189275
 anchor_right = -0.046834346
 anchor_bottom = 0.20189275
 offset_left = 440.0
@@ -116,6 +116,29 @@ offset_top = -152.5
 offset_right = -237.5
 offset_bottom = -34.5
 label_text = "Cartas usadas"
+
+[node name="UiBoardSmallParchment2" type="Sprite2D" parent="Camera2D/Main Menu" unique_id=911841293]
+position = Vector2(577, 333)
+scale = Vector2(0.44140625, 0.44140625)
+texture = ExtResource("2_73ae3")
+
+[node name="Label" type="Label" parent="Camera2D/Main Menu/UiBoardSmallParchment2" unique_id=2022094465]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -589.20355
+offset_top = -211.823
+offset_right = -26.203552
+offset_bottom = -7.8230057
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_tqlsh")
+theme_override_font_sizes/font_size = 60
+text = "Hecho por:
+Leandro Horane
+Juan Pablo Tarela"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Camera2D/Main Menu/Buttons menu/Iniciar" to="." method="_on_iniciar_pressed"]
