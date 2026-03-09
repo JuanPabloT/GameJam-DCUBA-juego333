@@ -22,7 +22,7 @@ var characters_skin_names = {
 }
 
 var characters_skin_descriptions = {
-	"res://sprites/cuerpos/clemen_tina.png": "Recién salidos del dpto Biodiversidad y Biología Experimental de exactas",
+	"res://sprites/cuerpos/clemen_tina.png": "Recién salidos del dpto de Biología Experimental de exactas",
 	"res://sprites/cuerpos/fire_elemental.png": "Elemental de fuego deshonrado",
 	"res://sprites/cuerpos/liliana.png": "En su segundo de nueve meses de vacaciones de invierno",
 	"res://sprites/cuerpos/gaucho.png": "Alcohólico en \"recuperación\"",

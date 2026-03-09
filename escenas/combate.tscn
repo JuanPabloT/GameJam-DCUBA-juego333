@@ -253,9 +253,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1.0
+offset_left = -38.0
 offset_top = -202.0
-offset_right = 39.0
+offset_right = 2.0
 offset_bottom = -162.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -280,6 +280,7 @@ position = Vector2(-7, -13)
 scale = Vector2(0.583004, 0.556267)
 
 [node name="SHield" parent="Jugador/particlescale" unique_id=760426545 instance=ExtResource("7_s6kml")]
+position = Vector2(-15, 0)
 amount_ratio = 0.0
 
 [node name="explosion" parent="Jugador/particlescale" unique_id=609426053 instance=ExtResource("8_0ctl2")]
@@ -416,7 +417,7 @@ position = Vector2(-7, -13)
 scale = Vector2(0.583004, 0.556267)
 
 [node name="SHield2" parent="EnemigoProvisional/particlescale" unique_id=1733288997 instance=ExtResource("7_s6kml")]
-position = Vector2(-11.5, 9.5)
+position = Vector2(-3.5, 9.5)
 amount_ratio = 0.0
 
 [node name="explosion" parent="EnemigoProvisional/particlescale" unique_id=583424454 instance=ExtResource("8_0ctl2")]
@@ -674,5 +675,6 @@ stream = ExtResource("49_onkg2")
 [connection signal="pressed" from="Camera2D/Buttons control/DEBUG/feugo" to="Jugador" method="_on_feugo_pressed"]
 [connection signal="pressed" from="Camera2D/Buttons control/Consumir" to="." method="_on_consumir_pressed"]
 [connection signal="pressed" from="Camera2D/Buttons control/Utilizar" to="." method="_on_utilizar_pressed"]
+[connection signal="pressed" from="Camera2D/Surrender" to="." method="_on_surrender_pressed"]
 [connection signal="pressed" from="DerrotaScreen/Surrender" to="." method="_on_surrender_pressed"]
 [connection signal="pressed" from="VictoriaScreen/Next round" to="." method="_on_next_round_pressed"]

@@ -8,6 +8,15 @@ var root = "res://sprites/efectos/raices.png"
 var lightning = "res://sprites/efectos/rayo.png"
 var poison = "res://sprites/efectos/veneno.png"
 
+var effect_passive_effects =  {
+	water: "Cura 3 HP",
+	beer: "Duplica daño físico dado",	
+	poison: "Hace el daño indicado",	
+	fire: "Hace 8 daño por la cantidad de turnos indicados",	
+	root: "Sin efectos pasivos",	
+	lightning: "Sin efectos pasivos",	
+}
+
 var element_colors =  {
 	water:"#55F",
 	beer:"#F72",
