@@ -126,6 +126,7 @@ func _round_won() -> void:
 	#if GameData.level == 3:
 	#	$VictoriaScreen/Label.text = "Siguiente"
 	$VictoriaScreen.animate_down()
+	$Audio/festejo.play()
 
 
 func _on_surrender_pressed() -> void:
