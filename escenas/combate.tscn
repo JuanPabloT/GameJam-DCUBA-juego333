@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dk28jhxvoqufn" path="res://sprites/temp/pc.png" id="4_vtyci"]
 [ext_resource type="PackedScene" uid="uid://dm8ie6k376r2l" path="res://escenas/particulkas/flame_emmitter.tscn" id="5_s6kml"]
 [ext_resource type="Script" uid="uid://b3cbey53rg14p" path="res://escenas/enemigo_provisional.gd" id="5_vtyci"]
+[ext_resource type="Texture2D" uid="uid://bdkhguc8820v3" path="res://sprites/shield_1f6e1.png" id="6_lyylo"]
+[ext_resource type="Texture2D" uid="uid://dmrp4phnu0m5j" path="res://sprites/heavy-black-heart_2764.png" id="7_25wwa"]
 [ext_resource type="PackedScene" uid="uid://cgrbrwrbgicb8" path="res://escenas/particulkas/sheild.tscn" id="7_s6kml"]
 [ext_resource type="PackedScene" uid="uid://duli6sd2sq8ls" path="res://escenas/particulkas/explosion_emitter.tscn" id="8_0ctl2"]
 [ext_resource type="PackedScene" uid="uid://sk3r5xhqfof0" path="res://escenas/particulkas/water_drop_emitter.tscn" id="9_in6vr"]
@@ -20,10 +22,10 @@
 [ext_resource type="PackedScene" uid="uid://bfyf2pux1skp" path="res://escenas/particulkas/small_posion.tscn" id="13_uok4b"]
 [ext_resource type="PackedScene" uid="uid://cngiunen2juhk" path="res://escenas/particulkas/heal_emitter.tscn" id="16_4whe8"]
 [ext_resource type="PackedScene" uid="uid://fg1nfhfk3y8x" path="res://escenas/particulkas/wind_emitter.tscn" id="16_uok4b"]
-[ext_resource type="PackedScene" uid="uid://y65wnq8jwxte" path="res://escenas/particulkas/slashe_e_mitter_2.tscn" id="17_581gk"]
-[ext_resource type="PackedScene" uid="uid://bqeor3alxalug" path="res://escenas/particulkas/slash.tscn" id="20_j73ri"]
+[ext_resource type="PackedScene" path="res://escenas/particulkas/slashe_e_mitter_2.tscn" id="17_581gk"]
+[ext_resource type="PackedScene" path="res://escenas/particulkas/slash.tscn" id="20_j73ri"]
 [ext_resource type="Shader" uid="uid://b4wp5pmprnwdu" path="res://escenas/combate.tres" id="21_6sf7d"]
-[ext_resource type="PackedScene" uid="uid://c1ygtxxfqfagx" path="res://escenas/particulkas/flame_emmitter_blue.tscn" id="22_xqcbg"]
+[ext_resource type="PackedScene" path="res://escenas/particulkas/flame_emmitter_blue.tscn" id="22_xqcbg"]
 [ext_resource type="FontFile" uid="uid://cmejv2it2tskq" path="res://GraffitiPaintBrush.ttf" id="23_s8rds"]
 [ext_resource type="Script" uid="uid://dglvblui8p2h4" path="res://escenas/moving_text.gd" id="24_6tf1q"]
 [ext_resource type="Texture2D" uid="uid://0i35qdvurcfw" path="res://sprites/normal_ui_set_free/UI board Medium  parchment.png" id="27_f3hhc"]
@@ -67,6 +69,7 @@ script = ExtResource("1_tj7jl")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=735758191]
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D" unique_id=129507968]
+z_index = -1000
 offset_left = -672.0
 offset_top = -516.0
 offset_right = 8506.0
@@ -220,9 +223,9 @@ metadata/_edit_use_anchors_ = true
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -2.737864
+anchor_left = -2.4757283
 anchor_top = 2.9277108
-anchor_right = -2.737864
+anchor_right = -2.4757283
 anchor_bottom = 2.9277108
 offset_left = 398.0
 offset_top = -223.0
@@ -233,6 +236,16 @@ theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 40
 text = "0"
 metadata/_edit_use_anchors_ = true
+
+[node name="Shield1f6e1" type="Sprite2D" parent="Jugador/Player health/Player shield" unique_id=705804706]
+position = Vector2(-19.249992, 27.250004)
+scale = Vector2(0.057617217, 0.06347655)
+texture = ExtResource("6_lyylo")
+
+[node name="HeavyBlackHeart2764" type="Sprite2D" parent="Jugador/Player health" unique_id=396649338]
+position = Vector2(-26, 43)
+scale = Vector2(0.08789062, 0.08789062)
+texture = ExtResource("7_25wwa")
 
 [node name="player_status" type="HBoxContainer" parent="Jugador" unique_id=56000625 node_paths=PackedStringArray("target")]
 anchors_preset = 8
@@ -346,10 +359,10 @@ metadata/_edit_use_anchors_ = true
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.6019417
-anchor_top = 3.759036
-anchor_right = 1.6019417
-anchor_bottom = 3.759036
+anchor_left = 1.8834951
+anchor_top = 3.7349398
+anchor_right = 1.8834951
+anchor_bottom = 3.7349398
 offset_left = -54.0
 offset_top = -291.0
 offset_right = 49.0
@@ -359,6 +372,16 @@ theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 40
 text = "0"
 metadata/_edit_use_anchors_ = true
+
+[node name="Shield1f6e1" type="Sprite2D" parent="EnemigoProvisional/Rival health/Rival shield" unique_id=830076503]
+position = Vector2(-18, 29)
+scale = Vector2(0.058, 0.06638336)
+texture = ExtResource("6_lyylo")
+
+[node name="HeavyBlackHeart2764" type="Sprite2D" parent="EnemigoProvisional/Rival health" unique_id=2031138269]
+position = Vector2(-25.00003, 43.000004)
+scale = Vector2(0.088, 0.088)
+texture = ExtResource("7_25wwa")
 
 [node name="enemy_status" type="HBoxContainer" parent="EnemigoProvisional" unique_id=1140518327 node_paths=PackedStringArray("target")]
 anchors_preset = 8
