@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c0hwjjr1tsyuf"]
 
 [ext_resource type="Texture2D" uid="uid://vucj7yse7ek7" path="res://sprites/normal_ui_set_free/UI board Large  stone.png" id="1_1twwc"]
-[ext_resource type="Script" uid="uid://c7dlmrtkumo4q" path="res://scripts/victoria_torneo.gd" id="1_4tyh3"]
+[ext_resource type="Script" path="res://scripts/victoria_torneo.gd" id="1_4tyh3"]
 [ext_resource type="Texture2D" uid="uid://bsjxvsml013a3" path="res://sprites/normal_ui_set_free/UI board Small  parchment.png" id="2_hf0oi"]
 [ext_resource type="FontFile" uid="uid://cmejv2it2tskq" path="res://GraffitiPaintBrush.ttf" id="3_4tyh3"]
 [ext_resource type="PackedScene" uid="uid://dxtkbbjjkob5v" path="res://escenas/boton.tscn" id="4_hf0oi"]

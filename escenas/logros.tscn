@@ -1,0 +1,219 @@
+[gd_scene format=3 uid="uid://dprnoet8cli44"]
+
+[ext_resource type="Script" uid="uid://cbgkhcmcr0db2" path="res://escenas/logros.gd" id="1_wq72o"]
+[ext_resource type="Texture2D" uid="uid://vucj7yse7ek7" path="res://sprites/normal_ui_set_free/UI board Large  stone.png" id="2_c3tvy"]
+[ext_resource type="Texture2D" uid="uid://bsjxvsml013a3" path="res://sprites/normal_ui_set_free/UI board Small  parchment.png" id="3_gk01t"]
+[ext_resource type="FontFile" uid="uid://cmejv2it2tskq" path="res://GraffitiPaintBrush.ttf" id="4_naag5"]
+[ext_resource type="Texture2D" uid="uid://di2gq4eu055ma" path="res://sprites/efectos/veneno.png" id="5_00s0d"]
+[ext_resource type="Texture2D" uid="uid://dlcuuqn765k27" path="res://sprites/efectos/beer.png" id="7_c3tvy"]
+[ext_resource type="Texture2D" uid="uid://cesiue51yt2yv" path="res://sprites/efectos/agua.png" id="8_dpqyg"]
+[ext_resource type="Texture2D" uid="uid://c8s3oxxqtl44t" path="res://sprites/efectos/rayo.png" id="9_bsg17"]
+[ext_resource type="Texture2D" uid="uid://cetdvsiy58rf2" path="res://sprites/efectos/fuego.png" id="9_gk01t"]
+
+[node name="main" type="Node" unique_id=2048265753]
+script = ExtResource("1_wq72o")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1959004108]
+
+[node name="background" type="TextureRect" parent="Camera2D" unique_id=1799324770]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+texture = ExtResource("2_c3tvy")
+
+[node name="LogroBruja" type="Sprite2D" parent="Camera2D/background" unique_id=1764113296]
+position = Vector2(276, 255)
+scale = Vector2(0.5, 0.426)
+texture = ExtResource("3_gk01t")
+
+[node name="Label" type="Label" parent="Camera2D/background/LogroBruja" unique_id=712073254]
+anchors_preset = -1
+anchor_left = 0.7076175
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -642.84656
+offset_top = -184.78374
+offset_right = -29.846588
+offset_bottom = -67.78374
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_naag5")
+theme_override_font_sizes/font_size = 60
+text = "Matar a la bruja con veneno"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" type="Sprite2D" parent="Camera2D/background/LogroBruja" unique_id=21282951]
+position = Vector2(-226, 4.6948395)
+scale = Vector2(3.1600018, 3.7089221)
+texture = ExtResource("5_00s0d")
+
+[node name="LogroArtef" type="Sprite2D" parent="Camera2D/background" unique_id=1518754656]
+position = Vector2(876, 495)
+scale = Vector2(0.5, 0.426)
+texture = ExtResource("3_gk01t")
+
+[node name="Label" type="Label" parent="Camera2D/background/LogroArtef" unique_id=1605737922]
+anchors_preset = -1
+anchor_left = 0.75124496
+anchor_top = 0.5
+anchor_right = 0.5000001
+anchor_bottom = 0.5
+offset_left = -642.84656
+offset_top = -184.78374
+offset_right = -29.846588
+offset_bottom = -67.78374
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_naag5")
+theme_override_font_sizes/font_size = 50
+text = "Descubrir todos las partes de artefactos en un combate"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" type="Sprite2D" parent="Camera2D/background/LogroArtef" unique_id=413762339]
+position = Vector2(-226, 4.6948395)
+scale = Vector2(3.1600018, 3.7089221)
+texture = ExtResource("9_bsg17")
+
+[node name="LogroReac" type="Sprite2D" parent="Camera2D/background" unique_id=1765938857]
+position = Vector2(274, 376)
+scale = Vector2(0.5, 0.426)
+texture = ExtResource("3_gk01t")
+
+[node name="Label" type="Label" parent="Camera2D/background/LogroReac" unique_id=1681601192]
+anchors_preset = -1
+anchor_left = 0.76300967
+anchor_top = 0.5
+anchor_right = 0.50000006
+anchor_bottom = 0.5
+offset_left = -642.84656
+offset_top = -184.78374
+offset_right = -29.846588
+offset_bottom = -67.78374
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_naag5")
+theme_override_font_sizes/font_size = 50
+text = "Conseguir 5 reacciones sobre vos o tu enemigo en un turno"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" type="Sprite2D" parent="Camera2D/background/LogroReac" unique_id=1671516999]
+position = Vector2(-226, 4.6948395)
+scale = Vector2(3.1600018, 3.7089221)
+texture = ExtResource("9_bsg17")
+
+[node name="Logro60" type="Sprite2D" parent="Camera2D/background" unique_id=1300790064]
+position = Vector2(878, 379)
+scale = Vector2(0.5, 0.426)
+texture = ExtResource("3_gk01t")
+
+[node name="Label" type="Label" parent="Camera2D/background/Logro60" unique_id=417774079]
+anchors_preset = -1
+anchor_left = 0.72771555
+anchor_top = 0.5
+anchor_right = 0.5000001
+anchor_bottom = 0.5
+offset_left = -642.84656
+offset_top = -184.78374
+offset_right = -29.846588
+offset_bottom = -67.78374
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_naag5")
+theme_override_font_sizes/font_size = 60
+text = "Hacer 60 daño en un turno"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" type="Sprite2D" parent="Camera2D/background/Logro60" unique_id=361192607]
+position = Vector2(-226, 4.6948395)
+scale = Vector2(3.1600018, 3.7089221)
+texture = ExtResource("7_c3tvy")
+
+[node name="LogroHP" type="Sprite2D" parent="Camera2D/background" unique_id=433228216]
+position = Vector2(267, 493.99997)
+scale = Vector2(0.5, 0.426)
+texture = ExtResource("3_gk01t")
+
+[node name="Label" type="Label" parent="Camera2D/background/LogroHP" unique_id=773012253]
+anchors_preset = -1
+anchor_left = 0.75124496
+anchor_top = 0.5
+anchor_right = 0.5000001
+anchor_bottom = 0.5
+offset_left = -642.84656
+offset_top = -184.78374
+offset_right = -29.846588
+offset_bottom = -67.78374
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_naag5")
+theme_override_font_sizes/font_size = 60
+text = "Ganar un combate con >99 HP"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" type="Sprite2D" parent="Camera2D/background/LogroHP" unique_id=1611019976]
+position = Vector2(-226, 4.6948395)
+scale = Vector2(3.1600018, 3.7089221)
+texture = ExtResource("8_dpqyg")
+
+[node name="LogroElemental" type="Sprite2D" parent="Camera2D/background" unique_id=801111918]
+position = Vector2(878, 252)
+scale = Vector2(0.5, 0.426)
+texture = ExtResource("3_gk01t")
+
+[node name="Label" type="Label" parent="Camera2D/background/LogroElemental" unique_id=1822160447]
+anchors_preset = -1
+anchor_left = 0.73653907
+anchor_top = 0.1484375
+anchor_right = 0.5380097
+anchor_bottom = 0.8515625
+offset_left = -650.84656
+offset_top = -129.54929
+offset_right = -37.84659
+offset_bottom = -12.549286
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_naag5")
+theme_override_font_sizes/font_size = 50
+text = "Matar al elemental de fuego quemandolo (no explosion)"
+horizontal_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" type="Sprite2D" parent="Camera2D/background/LogroElemental" unique_id=937186481]
+position = Vector2(-226, 4.6948395)
+scale = Vector2(3.1600018, 3.7089221)
+texture = ExtResource("9_gk01t")
+
+[node name="UiBoardSmallParchment3" type="Sprite2D" parent="Camera2D" unique_id=301348456]
+position = Vector2(33, -219)
+scale = Vector2(0.5283203, 0.5283203)
+texture = ExtResource("3_gk01t")
+
+[node name="Label" type="Label" parent="Camera2D/UiBoardSmallParchment3" unique_id=1510494870]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.09985
+offset_top = -180.99817
+offset_right = 62.900177
+offset_bottom = -65.537895
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_naag5")
+theme_override_font_sizes/font_size = 120
+text = "Logros"
+metadata/_edit_use_anchors_ = true

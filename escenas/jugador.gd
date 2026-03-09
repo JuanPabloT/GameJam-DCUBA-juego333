@@ -30,7 +30,7 @@ func _on_feugo_pressed() -> void:
 
 
 func _on_lightning_pressed() -> void:
-	self.apply_lightning()
+	enemy.apply_lightning()
 
 
 func _on_beer_pressed() -> void:

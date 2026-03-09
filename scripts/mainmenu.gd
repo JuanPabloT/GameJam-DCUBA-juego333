@@ -12,23 +12,20 @@ func _ready() -> void:
 func _on_salir_pressed() -> void:
 	#salir
 	get_tree().quit()
-	pass
 
 func _on_iniciar_pressed() -> void:
 	print("iniciando")
 	get_tree().change_scene_to_file("res://escenas/render.tscn")
-	pass # Replace with function body.
 
 
 func _on_tutorial_pressed() -> void:
 	print("accediendo a tutorial")
 	get_tree().change_scene_to_file("res://escenas/Tutorial.tscn")
-	pass # Replace with function body.
 
 
 func _on_logros_pressed() -> void:
 	print("logros")
-	pass
+	get_tree().change_scene_to_file("res://escenas/logros.tscn")
 
 func _on_cartas_usadas_pressed() -> void:
 	get_tree().change_scene_to_file("res://escenas/cartas_usadas.tscn")

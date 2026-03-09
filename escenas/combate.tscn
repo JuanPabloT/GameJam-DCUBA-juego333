@@ -784,5 +784,5 @@ stream = ExtResource("75_h8q0g")
 [connection signal="pressed" from="Camera2D/Buttons control/Consumir" to="." method="_on_consumir_pressed"]
 [connection signal="pressed" from="Camera2D/Buttons control/Utilizar" to="." method="_on_utilizar_pressed"]
 [connection signal="pressed" from="Camera2D/Surrender" to="." method="_on_surrender_pressed"]
-[connection signal="pressed" from="DerrotaScreen/Surrender" to="." method="_on_surrender_pressed"]
+[connection signal="pressed" from="DerrotaScreen/Surrender" to="." method="_on_accept_loss_pressed"]
 [connection signal="pressed" from="VictoriaScreen/Next round" to="." method="_on_next_round_pressed"]

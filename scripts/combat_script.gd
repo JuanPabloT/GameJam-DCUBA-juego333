@@ -4,7 +4,7 @@ extends Node
 var player : Jugador
 var rival : Enemigo
 var artifact : Artefacto
-
+var previous_enemy_health_for_achievemnt=100
 var artifact_scene: PackedScene = preload("res://artefacto.tscn")
 
 # no se si hay alguna mejor manera de hacer esto. se podrian crawlear los directorios?
@@ -53,6 +53,7 @@ func _player_turn() -> void:
 		return
 	#generamos un artefacto
 	artifact = spawn_artifact() #randi_range(-20, 10)
+	previous_enemy_health_for_achievemnt = rival.health
 	_enable_buttons()
 	
 func spawn_artifact()->Node:
@@ -72,6 +73,10 @@ func _rival_turn() -> void:
 
 	print("terminando turno jugador")
 	await player.on_turn_end()
+	if previous_enemy_health_for_achievemnt - rival.health  >= 60 and not GameData.danio_60_de_una:
+		GameData.danio_60_de_una = true
+		GameData.notificar_logro("Desbloqueaste el logro de daño")
+		
 	if _rival_lost():
 		_round_won()
 		return
@@ -113,8 +118,13 @@ func _on_utilizar_pressed() -> void:
 
 func _round_won() -> void:
 	await get_tree().create_timer(3).timeout
+	if player.health >= 100 and not GameData.logro_max_hp:
+		GameData.notificar_logro("Desbloqueaste el logro de HP")
+		GameData.logro_max_hp=true
 	GameData.player_health = $Jugador.health
 	$"VictoriaScreen/Next round".disabled = false
+	#if GameData.level == 3:
+	#	$VictoriaScreen/Label.text = "Siguiente"
 	$VictoriaScreen.animate_down()
 	$Audio/festejo.play()
 
@@ -133,6 +143,13 @@ func _on_next_round_pressed() -> void:
 		get_tree().change_scene_to_file("res://escenas/torneo.tscn")
 
 func _round_lost():
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(2).timeout
 	$DerrotaScreen.animate_down()
 	$Audio/abucheo.play()
+
+
+func _on_accept_loss_pressed() -> void:
+	get_tree().change_scene_to_file("res://escenas/mainmenu.tscn")
+	# |  |  ||
+	#----------
+	# || |  |_

@@ -45,7 +45,7 @@ var reaction_data = {
 		GD.fire:[P.both, func(_e1,_e2):pass ], 
 		GD.water:[P.second, func(_e1,_e2):target.deal_lightning_damage(15); target.display_status("Descarga!", GD.element_colors[GD.lightning]);target.shock()  ],
 		GD.root:[P.both, func(_e1,_e2):pass ], 
-		GD.lightning:[P.first, func(_e1,_e2):  target.emit_lightning(); await target.enemy.emit_lightning();target.display_status("Corto-circuito!", GD.element_colors[GD.lightning]);target.enemy.deal_lightning_damage(15) ], 
+		GD.lightning:[P.first, func(_e1,_e2): target.lightning_emitter.rotation=PI;target.lightning_emitter.position.y+=150; target.emit_lightning(); await target.enemy.emit_lightning();target.display_status("Corto-circuito!", GD.element_colors[GD.lightning]);target.enemy.deal_lightning_damage(15);target.lightning_emitter.rotation=0;target.lightning_emitter.position.y-=150 ], 
 		GD.poison:[P.neither, func(_e1,_e2):target.display_status("Antidoto!", GD.element_colors[GD.poison]);target.emit_small_poison() ], 
 		GD.beer:[P.first, func(_e1,_e2): target.deal_lightning_damage(10);target.display_status("Icáreo!", GD.element_colors[GD.lightning]) ],
 	},
@@ -152,6 +152,7 @@ func change_effect(e1, sprite):
 		
 
 func trigger_effect_collisions():
+	var total_collisions=0
 	print("  triggering effect collisions for ", target.name)
 	var efectos = await _get_effect_list()
 	var i = 0
@@ -175,6 +176,7 @@ func trigger_effect_collisions():
 						$"../../Audio/combinacion/vibracion6".play()
 				efectos[i+1].animate_merge(0.5)
 				await efectos[i].animate_merge(0.5)
+				total_collisions+=1
 			P.both:
 				pass
 		await next_reaction_effect.call(efectos[i], efectos[i+1])
@@ -196,6 +198,9 @@ func trigger_effect_collisions():
 				i += 1
 		if i < 0:
 			i = 0
+	if total_collisions>=5 and not GameData.reaccionar_5_turno:
+		GameData.reaccionar_5_turno = true
+		GameData.notificar_logro("Desbloqueaste el logro de reacciones")
 			
 	
 

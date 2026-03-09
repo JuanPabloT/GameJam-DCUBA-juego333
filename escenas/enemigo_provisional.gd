@@ -31,6 +31,24 @@ var characters_skin_descriptions = {
 	"res://sprites/cuerpos/apple.png": "Heraldo Apoliónico"
 }
 
+func deal_poison_damage(n:int):
+	if health == 0:
+		super.deal_poison_damage(n)
+	else:
+		super.deal_poison_damage(n)
+		if id == 5 and health <= 0 and not GameData.matar_bruja_veneno:
+			GameData.notificar_logro("Desbloqueaste el logro de la bruja")
+			GameData.matar_bruja_veneno=true
+		
+func deal_burning_damage(n:int):
+	if health == 0:
+		super.deal_burning_damage(n)
+	else:
+		super.deal_burning_damage(n)
+		if id == 1 and health <= 0 and not GameData.matar_elemental_quemandolo:
+			GameData.notificar_logro("Desbloqueaste el logro del elemental")
+			GameData.matar_elemental_quemandolo=true
+
 
 var alien_combat_texture = load("res://sprites/cuerpos/alien_cast.png")
 var apple_combat_texture = load("res://sprites/cuerpos/apple_cast.png")
@@ -81,6 +99,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func on_death():
+	
 	var tween = create_tween()
 	tween.tween_property($EnemigoProvisionalSprite.material, "shader_parameter/DissolveValue", 0, 3)
 
