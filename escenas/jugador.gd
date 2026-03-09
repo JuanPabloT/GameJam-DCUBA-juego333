@@ -12,6 +12,9 @@ func on_death() -> void:
 	var tween = create_tween()
 	tween.tween_property($JugadorSprite.material, "shader_parameter/DissolveValue", 0, 3)
 
+func is_my_turn():
+	return GameData.is_players_turn
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -7,6 +7,9 @@ var fire = "res://sprites/efectos/fuego.png"
 var root = "res://sprites/efectos/raices.png"
 var lightning = "res://sprites/efectos/rayo.png"
 var poison = "res://sprites/efectos/veneno.png"
+var warning_scene: PackedScene = preload("res://warning_exit.tscn")
+
+var is_players_turn=false
 
 var effect_passive_effects =  {
 	water: "Cura 3 HP",
@@ -61,7 +64,7 @@ var possible_effects = [
 	[func(target:SerVivo): await target.apply_lightning(),"Replampago"],
 	[func(target:SerVivo): await target.apply_poison(4),"Envenenar"],
 	[func(target:SerVivo): await target.apply_beer(),"Tirar cerveza"],
-	[func(target:SerVivo): await target.add_shield(30),"Aplicar escudo"],
+	[func(target:SerVivo): await target.add_shield(15),"Aplicar escudo"],
 	[func(target:SerVivo): await target.apply_wind(),"Soplar viento"],
 ]
 

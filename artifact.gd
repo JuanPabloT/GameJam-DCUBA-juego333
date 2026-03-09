@@ -51,7 +51,7 @@ func use_on(target):
 func _ready() -> void: 
 	scale = Vector2(0.3,0.3)
 	position.y = 150
-	position.x = -120
+	position.x = -100
 	setup()
 	$Up.texture = load(imageup)
 	$Down.texture = load(imagedown)

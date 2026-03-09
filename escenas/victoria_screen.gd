@@ -20,3 +20,11 @@ func animate_down():
 	#tween.tween_property(self, "modulate:a", 0.8, 0.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUINT)
 	tween.tween_property(self, "position:y", 0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
 	#tween.tween_property(self, "modulate:a", 0, 0.5).set_ease(Tween.EASE_IN_OUT).set_delay(0.6)
+
+
+func _on_x_pressed() -> void:
+	queue_free()
+
+
+func _on_surrender_pressed() -> void:
+	get_tree().change_scene_to_file("res://escenas/mainmenu.tscn")

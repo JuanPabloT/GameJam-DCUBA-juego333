@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b3vllo1xahvmw"]
+
+[ext_resource type="Texture2D" uid="uid://0i35qdvurcfw" path="res://sprites/normal_ui_set_free/UI board Medium  parchment.png" id="1_4r28b"]
+[ext_resource type="Script" uid="uid://dik76b7nr3fol" path="res://escenas/victoria_screen.gd" id="2_akle1"]
+[ext_resource type="PackedScene" uid="uid://dxtkbbjjkob5v" path="res://escenas/boton.tscn" id="3_tesk0"]
+[ext_resource type="Texture2D" uid="uid://blkhqgbn63gj6" path="res://sprites/normal_ui_set_free/Close Button.png" id="4_sbamv"]
+
+[node name="Warning Exit" type="Sprite2D" unique_id=806613486]
+self_modulate = Color(1, 1, 1, 0.8980392)
+z_index = 4096
+texture = ExtResource("1_4r28b")
+script = ExtResource("2_akle1")
+
+[node name="Label" type="Label" parent="." unique_id=1354277926]
+offset_left = -326.0
+offset_top = -110.0
+offset_right = 322.0
+offset_bottom = 283.0
+theme_override_font_sizes/font_size = 40
+text = "Estas seguro? Todo el progreso actual será perdido"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="X" parent="." unique_id=515566042 instance=ExtResource("3_tesk0")]
+offset_left = -132.0
+offset_top = -460.5
+offset_right = -30.0
+offset_bottom = -342.5
+icon = ExtResource("4_sbamv")
+down_texture = ExtResource("4_sbamv")
+hover_texture = ExtResource("4_sbamv")
+
+[node name="Surrender" parent="." unique_id=1008745855 instance=ExtResource("3_tesk0")]
+offset_left = -507.0
+offset_top = -216.5
+offset_right = -218.0
+offset_bottom = -98.5
+label_text = "Volver al menu principal"
+
+[connection signal="pressed" from="X" to="." method="_on_x_pressed"]
+[connection signal="pressed" from="Surrender" to="." method="_on_surrender_pressed"]
