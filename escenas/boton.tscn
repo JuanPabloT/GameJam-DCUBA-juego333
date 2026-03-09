@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://dguhv36obb1q5" path="res://escenas/boton.gd" id="2_r5pp6"]
 [ext_resource type="Texture2D" uid="uid://5a1viifk10x" path="res://sprites/normal_ui_set_free/TextBTN_Medium_Pressed.png" id="3_1f18k"]
 [ext_resource type="Texture2D" uid="uid://rforhfsdufm" path="res://sprites/normal_ui_set_free/TextBTN_Medium_Hover.png" id="4_ijb5f"]
+[ext_resource type="AudioStream" uid="uid://br8yxbqrmsmr0" path="res://sounds/efectos/button_press.wav" id="5_1f18k"]
+[ext_resource type="AudioStream" uid="uid://chfgdhwd6oymu" path="res://sounds/efectos/button_release.wav" id="6_ijb5f"]
 
 [node name="Iniciar" type="Button" unique_id=515566042]
 custom_minimum_size = Vector2(100, 100)
@@ -33,10 +35,15 @@ offset_top = 11.5
 offset_right = 267.5
 offset_bottom = 80.5
 theme_override_font_sizes/font_size = 50
-text = "Empezar"
 horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
+
+[node name="AudioStreamPlayerDown" type="AudioStreamPlayer" parent="." unique_id=928171605]
+stream = ExtResource("5_1f18k")
+
+[node name="AudioStreamPlayerUp" type="AudioStreamPlayer" parent="." unique_id=1567504995]
+stream = ExtResource("6_ijb5f")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]

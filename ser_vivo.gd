@@ -7,6 +7,7 @@ var shield:int = 0
 var GD = GameData
 
 @export var health_status : Label
+@export var shield_status : Label
 @export var effect_status : StatusEffectHandler
 @export var enemy : SerVivo
 
@@ -155,7 +156,10 @@ func shock():
 	
 
 func update_shield_visibility():
-	shieldemitter.amount_ratio = clampf(shield/30.0,0,1)
+	shieldemitter.amount_ratio = clampf(shield/60.0,0,1)
+	shield_status.text = str(shield)
+	shield_status.visible = shield>0
+		
 	
 ########### DAÑO ###########
 enum ShieldStatus {

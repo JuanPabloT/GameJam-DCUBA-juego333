@@ -159,10 +159,11 @@ offset_bottom = 352.0
 scale = Vector2(0.6, 0.6)
 label_text = "Abandonar"
 
-[node name="Jugador" type="Node2D" parent="." unique_id=659219716 node_paths=PackedStringArray("health_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter", "slash_emitter")]
+[node name="Jugador" type="Node2D" parent="." unique_id=659219716 node_paths=PackedStringArray("health_status", "shield_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter", "slash_emitter")]
 position = Vector2(-323, 70)
 script = ExtResource("3_vtyci")
 health_status = NodePath("Player health")
+shield_status = NodePath("Player health/Player shield")
 effect_status = NodePath("player_status")
 enemy = NodePath("../EnemigoProvisional")
 smokeemitter = NodePath("particlescale/SmokeEmmiter")
@@ -192,6 +193,24 @@ offset_bottom = -240.0
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 60
 text = "100"
+metadata/_edit_use_anchors_ = true
+
+[node name="Player shield" type="Label" parent="Jugador/Player health" unique_id=1679009409]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.737864
+anchor_top = 2.9277108
+anchor_right = -2.737864
+anchor_bottom = 2.9277108
+offset_left = 398.0
+offset_top = -223.0
+offset_right = 501.0
+offset_bottom = -140.0
+theme_override_colors/font_color = Color(0.5656511, 0.93210334, 1, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 40
+text = "0"
 metadata/_edit_use_anchors_ = true
 
 [node name="player_status" type="HBoxContainer" parent="Jugador" unique_id=56000625 node_paths=PackedStringArray("target")]
@@ -266,10 +285,11 @@ scale = Vector2(0.5, 0.5)
 
 [node name="HealEmitter" parent="Jugador/particlescale" unique_id=1277962600 instance=ExtResource("16_4whe8")]
 
-[node name="EnemigoProvisional" type="Node2D" parent="." unique_id=655215699 node_paths=PackedStringArray("health_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter", "slash_emitter")]
+[node name="EnemigoProvisional" type="Node2D" parent="." unique_id=655215699 node_paths=PackedStringArray("health_status", "shield_status", "effect_status", "enemy", "smokeemitter", "flameemmitter", "shieldemitter", "explosion_emitter", "water_emitter", "root_emitter", "lightning_emitter", "poison_emitter", "small_poison_emitter", "beer_emitter", "wind_emitter", "heal_emitter", "slash_emitter")]
 position = Vector2(141, 34)
 script = ExtResource("5_vtyci")
 health_status = NodePath("Rival health")
+shield_status = NodePath("Rival health/Rival shield")
 effect_status = NodePath("enemy_status")
 enemy = NodePath("../Jugador")
 smokeemitter = NodePath("particlescale/SmokeEmmiter")
@@ -299,6 +319,24 @@ offset_bottom = -208.0
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/font_size = 60
 text = "100"
+metadata/_edit_use_anchors_ = true
+
+[node name="Rival shield" type="Label" parent="EnemigoProvisional/Rival health" unique_id=906502799]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.6019417
+anchor_top = 3.759036
+anchor_right = 1.6019417
+anchor_bottom = 3.759036
+offset_left = -54.0
+offset_top = -291.0
+offset_right = 49.0
+offset_bottom = -208.0
+theme_override_colors/font_color = Color(0.5656511, 0.93210334, 1, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 40
+text = "0"
 metadata/_edit_use_anchors_ = true
 
 [node name="enemy_status" type="HBoxContainer" parent="EnemigoProvisional" unique_id=1140518327 node_paths=PackedStringArray("target")]
