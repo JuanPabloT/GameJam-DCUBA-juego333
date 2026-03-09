@@ -9,7 +9,26 @@ var danio_60_de_una  =false
 var reaccionar_5_turno  =false
 
 func notificar_logro(texto):
-	pass
+	var tooltip = PanelContainer.new()
+	get_tree().get_root().add_child(tooltip)
+	tooltip.visible=true
+	tooltip.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	tooltip.custom_minimum_size = Vector2(200, 50)
+	tooltip.z_index=10
+	tooltip.position = Vector2(-100,-50)
+	var label = Label.new()
+	tooltip.add_child(label)
+	var stylebox = StyleBoxFlat.new()
+	stylebox.bg_color = Color(0,0,0,0.4)
+	tooltip.add_theme_stylebox_override("panel",stylebox)
+	label.text=texto
+	label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	label.autowrap_mode=TextServer.AUTOWRAP_WORD
+	tooltip.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
+	await get_tree().create_timer(5).timeout
+	tooltip.queue_free()
+
+	
 
 var water = "res://sprites/efectos/agua.png"
 var beer = "res://sprites/efectos/beer.png"
