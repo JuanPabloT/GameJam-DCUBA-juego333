@@ -91,7 +91,7 @@ func run_effects():
 				await efecto.animate_trigger(0.3)
 			GD.fire:
 				if efecto.duration > 0:
-					target.deal_burning_damage(5)
+					target.deal_burning_damage(8)
 					await efecto.animate_trigger(0.3)
 					efecto.update_duration()
 	
@@ -122,6 +122,25 @@ func add_effect(sprite, duration = 0, potency = 0):
 	neweffect.duration = duration
 	neweffect.potency = potency
 	add_child(neweffect)
+	var tooltip = PanelContainer.new()
+	neweffect.add_child(tooltip)
+	tooltip.visible=false
+	tooltip.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	tooltip.custom_minimum_size = Vector2(200, 50)
+	tooltip.z_index=10
+	tooltip.position = Vector2(-60,50)
+	var label = Label.new()
+	tooltip.add_child(label)
+	var stylebox = StyleBoxFlat.new()
+	stylebox.bg_color = Color(0,0,0,0.4)
+	tooltip.add_theme_stylebox_override("panel",stylebox)
+	label.text=GameData.effect_passive_effects[sprite]
+	label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	label.autowrap_mode=TextServer.AUTOWRAP_WORD
+	neweffect.connect("mouse_entered", func():tooltip.visible=true)
+	neweffect.connect("mouse_exited", func():tooltip.visible=false)
+	
+	
 
 func change_effect(e1, sprite):
 	e1.texture = load(sprite)
@@ -202,5 +221,5 @@ func apply_wind():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(_wwwwwwwwwwwwwwwwwwwwwwwwdelta: float) -> void:
 	pass
