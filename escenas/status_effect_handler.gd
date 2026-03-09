@@ -19,51 +19,51 @@ var effect_collisions_mutex = Mutex.new()
 var reaction_data = {
 	GD.fire: {
 		GD.fire:[P.first, func(e1,e2): target.deal_fire_damage(10); e1.set_duration(max(e1.duration, e2.duration)) ],
-		GD.water:[P.second, func(e1,e2):target.smoke(); target.display_status("Extinguido!", "#AAA")],
-		GD.root:[P.first, func(e1,e2):e1.add_duration(3); target.display_status("Combustible!", GD.element_colors[GD.fire]); target.emit_burning_particles() ],
-		GD.lightning:[P.both, func(e1,e2):pass ], 
-		GD.poison:[P.first, func(e1,e2):target.display_status("Pasteurizar!", GD.element_colors[GD.poison]);target.smoke() ], 
-		GD.beer:[P.first, func(e1,e2):e1.add_duration(3); target.display_status("Moletov!", GD.element_colors[GD.beer]);target.explosion_emitter.restart() ], 
+		GD.water:[P.neither, func(_e1,_e2):target.smoke(); target.display_status("Extinguido!", "#AAA")],
+		GD.root:[P.first, func(e1,_e2):e1.add_duration(3); target.display_status("Combustible!", GD.element_colors[GD.fire]); target.emit_burning_particles() ],
+		GD.lightning:[P.both, func(_e1,_e2):pass ], 
+		GD.poison:[P.first, func(_e1,_e2):target.display_status("Pasteurizar!", GD.element_colors[GD.poison]);target.smoke() ], 
+		GD.beer:[P.first, func(e1,_e2):e1.add_duration(3); target.display_status("Moletov!", GD.element_colors[GD.beer]);target.explosion_emitter.restart() ], 
 	},
 	GD.water: {
-		GD.fire:[P.first, func(e1,e2):target.smoke();target.display_status("Extinguido!", "#AAA")],
-		GD.water:[P.first, func(e1,e2):target.heal_by(10); target.display_status("Elixir!", GD.element_colors[GD.water])],
-		GD.root:[P.second, func(e1,e2):target.add_shield(15);  target.display_status("Atrincherar!", GD.element_colors[GD.root])], 
-		GD.lightning:[P.first, func(e1,e2):target.deal_lightning_damage(15); target.display_status("Descarga!", GD.element_colors[GD.lightning]) ], 
-		GD.poison:[P.second, func(e1,e2):e2.dilute();target.display_status("Diluir!", GD.element_colors[GD.water]);target.emit_small_poison() ],
-		GD.beer:[P.both, func(e1,e2):pass ], 
+		GD.fire:[P.neither, func(_e1,_e2):target.smoke();target.display_status("Extinguido!", "#AAA")],
+		GD.water:[P.first, func(_e1,_e2):target.heal_by(10); target.display_status("Elixir!", GD.element_colors[GD.water])],
+		GD.root:[P.second, func(_e1,_e2):target.add_shield(15);  target.display_status("Atrincherar!", GD.element_colors[GD.root])], 
+		GD.lightning:[P.first, func(_e1,_e2):target.deal_lightning_damage(15); target.display_status("Descarga!", GD.element_colors[GD.lightning]) ], 
+		GD.poison:[P.second, func(_e1,e2):e2.dilute();target.display_status("Diluir!", GD.element_colors[GD.water]);target.emit_small_poison() ],
+		GD.beer:[P.both, func(_e1,_e2):pass ], 
 	},
 	GD.root: {
-		GD.fire:[P.second, func(e1,e2):e2.add_duration(3); target.display_status("Combustible!", GD.element_colors[GD.fire]); target.emit_burning_particles() ],
-		GD.water:[P.first, func(e1,e2):target.add_shield(15); target.display_status("Atrincherar!", GD.element_colors[GD.root]) ], 
-		GD.root:[P.first, func(e1,e2):change_effect(e1, GD.beer); target.display_status("Fermentación!", GD.element_colors[GD.beer]); target.emit_small_poison() ],
-		GD.lightning:[P.both, func(e1,e2):pass ], 
-		GD.poison:[P.both, func(e1,e2):pass ],
-		GD.beer:[P.neither, func(e1,e2):target.display_status("Estropeado!", GD.element_colors[GD.beer]);target.emit_small_poison() ], 
+		GD.fire:[P.second, func(_e1,e2):e2.add_duration(3); target.display_status("Combustible!", GD.element_colors[GD.fire]); target.emit_burning_particles() ],
+		GD.water:[P.first, func(_e1,_e2):target.add_shield(15); target.display_status("Atrincherar!", GD.element_colors[GD.root]) ], 
+		GD.root:[P.first, func(e1,_e2):change_effect(e1, GD.beer); target.display_status("Fermentación!", GD.element_colors[GD.beer]); target.emit_small_poison() ],
+		GD.lightning:[P.both, func(_e1,_e2):pass ], 
+		GD.poison:[P.both, func(_e1,_e2):pass ],
+		GD.beer:[P.neither, func(_e1,_e2):target.display_status("Estropeado!", GD.element_colors[GD.beer]);target.emit_small_poison() ], 
 	},
 	GD.lightning: {
-		GD.fire:[P.both, func(e1,e2):pass ], 
-		GD.water:[P.second, func(e1,e2):target.deal_lightning_damage(15); target.display_status("Descarga!", GD.element_colors[GD.lightning]);target.shock()  ],
-		GD.root:[P.both, func(e1,e2):pass ], 
-		GD.lightning:[P.first, func(e1,e2):  target.emit_lightning(); await target.enemy.emit_lightning();target.display_status("Corto-circuito!", GD.element_colors[GD.lightning]);target.enemy.deal_lightning_damage(15) ], 
-		GD.poison:[P.neither, func(e1,e2):target.display_status("Antidoto!", GD.element_colors[GD.poison]);target.emit_small_poison() ], 
-		GD.beer:[P.first, func(e1,e2): target.deal_lightning_damage(10);target.display_status("Icáreo!", GD.element_colors[GD.lightning]) ],
+		GD.fire:[P.both, func(_e1,_e2):pass ], 
+		GD.water:[P.second, func(_e1,_e2):target.deal_lightning_damage(15); target.display_status("Descarga!", GD.element_colors[GD.lightning]);target.shock()  ],
+		GD.root:[P.both, func(_e1,_e2):pass ], 
+		GD.lightning:[P.first, func(_e1,_e2):  target.emit_lightning(); await target.enemy.emit_lightning();target.display_status("Corto-circuito!", GD.element_colors[GD.lightning]);target.enemy.deal_lightning_damage(15) ], 
+		GD.poison:[P.neither, func(_e1,_e2):target.display_status("Antidoto!", GD.element_colors[GD.poison]);target.emit_small_poison() ], 
+		GD.beer:[P.first, func(_e1,_e2): target.deal_lightning_damage(10);target.display_status("Icáreo!", GD.element_colors[GD.lightning]) ],
 	},
 	GD.poison: {
-		GD.fire:[P.second, func(e1,e2):target.display_status("Pasteurizar!", GD.element_colors[GD.poison]);target.smoke() ], 
-		GD.water:[P.first, func(e1,e2):e1.dilute();target.display_status("Diluir!", GD.element_colors[GD.water]);target.emit_small_poison()  ],
-		GD.root:[P.both, func(e1,e2):pass ],
-		GD.lightning:[P.neither, func(e1,e2):target.display_status("Antidoto!", GD.element_colors[GD.poison]);target.emit_small_poison() ], 
+		GD.fire:[P.second, func(_e1,_e2):target.display_status("Pasteurizar!", GD.element_colors[GD.poison]);target.smoke() ], 
+		GD.water:[P.first, func(e1,_e2):e1.dilute();target.display_status("Diluir!", GD.element_colors[GD.water]);target.emit_small_poison()  ],
+		GD.root:[P.both, func(_e1,_e2):pass ],
+		GD.lightning:[P.neither, func(_e1,_e2):target.display_status("Antidoto!", GD.element_colors[GD.poison]);target.emit_small_poison() ], 
 		GD.poison:[P.first, func(e1,e2):e1.concentrate(e2.potency);target.emit_small_poison() ], 
-		GD.beer:[P.both, func(e1,e2):pass ],
+		GD.beer:[P.both, func(_e1,_e2):pass ],
 	},
 	GD.beer: {
-		GD.fire:[P.second, func(e1,e2):e2.add_duration(3); target.display_status("Moletov!", GD.element_colors[GD.beer]); target.explosion_emitter.restart() ],
-		GD.water:[P.both, func(e1,e2):pass ], 
-		GD.root:[P.neither, func(e1,e2):target.display_status("Estropeado!", GD.element_colors[GD.beer]);target.emit_small_poison() ], 
-		GD.lightning:[P.second, func(e1,e2): target.change_health(-10, GD.element_colors[GD.lightning]);target.display_status("Icáreo!", GD.element_colors[GD.lightning]) ], 
-		GD.poison:[P.both, func(e1,e2):pass ],
-		GD.beer:[P.first, func(e1,e2):change_effect(e1, GD.poison);e1.potency = 4;target.display_status("Entoxicación!", GD.element_colors[GD.poison]);target.emit_small_poison() ], 
+		GD.fire:[P.second, func(_e1,e2):e2.add_duration(3); target.display_status("Moletov!", GD.element_colors[GD.beer]); target.explosion_emitter.restart() ],
+		GD.water:[P.both, func(_e1,_e2):pass ], 
+		GD.root:[P.neither, func(_e1,_e2):target.display_status("Estropeado!", GD.element_colors[GD.beer]);target.emit_small_poison() ], 
+		GD.lightning:[P.second, func(_e1,_e2): target.change_health(-10, GD.element_colors[GD.lightning]);target.display_status("Icáreo!", GD.element_colors[GD.lightning]) ], 
+		GD.poison:[P.both, func(_e1,_e2):pass ],
+		GD.beer:[P.first, func(e1,_e2):change_effect(e1, GD.poison);e1.potency = 4;target.display_status("Entoxicación!", GD.element_colors[GD.poison]);target.emit_small_poison() ], 
 	}, 
 }
 
@@ -190,6 +190,7 @@ func apply_wind():
 			efecto.global_position=efpos
 			var tween = create_tween()
 			tween.set_parallel()
+			print("tweening_wind")
 			tween.tween_property(efecto, "global_position:x", target.enemy.effect_status.global_position.x, 0.5).set_ease(Tween.EASE_IN_OUT)
 			tween.tween_property(efecto, "global_position:y", target.enemy.effect_status.global_position.y-50, 0.25).set_ease(Tween.EASE_IN_OUT)
 			tween.tween_property(efecto, "global_position:y", target.enemy.effect_status.global_position.y, 0.25).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC).set_delay(0.25)
@@ -201,5 +202,5 @@ func apply_wind():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
