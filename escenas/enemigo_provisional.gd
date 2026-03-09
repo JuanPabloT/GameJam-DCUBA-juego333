@@ -22,13 +22,13 @@ var characters_skin_names = {
 }
 
 var characters_skin_descriptions = {
-	"res://sprites/cuerpos/clemen_tina.png": "Recién salidos del dpto de Biología Experimental de exactas",
+	"res://sprites/cuerpos/clemen_tina.png": "Recien salidos del dpto de Biologia Experimental de exactas",
 	"res://sprites/cuerpos/fire_elemental.png": "Elemental de fuego deshonrado",
 	"res://sprites/cuerpos/liliana.png": "En su segundo de nueve meses de vacaciones de invierno",
-	"res://sprites/cuerpos/gaucho.png": "Alcohólico en \"recuperación\"",
+	"res://sprites/cuerpos/gaucho.png": "Alcoholico en \"recuperacion\"",
 	"res://sprites/cuerpos/alien.png": "Estrenando la nave",
 	"res://sprites/cuerpos/bruja.png": "Buscando los buhos perdidos",
-	"res://sprites/cuerpos/apple.png": "Heraldo Apoliónico"
+	"res://sprites/cuerpos/apple.png": "Heraldo Apolionico"
 }
 
 func deal_poison_damage(n:int):
