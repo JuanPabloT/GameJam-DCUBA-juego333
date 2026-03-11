@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://k1e3tbyxu6sw"]
+
+[ext_resource type="Script" uid="uid://dbs7awrkq6etn" path="res://scripts/tutorial.gd" id="1_guv3g"]
+[ext_resource type="Texture2D" uid="uid://vucj7yse7ek7" path="res://sprites/normal_ui_set_free/UI board Large  stone.png" id="1_yc5df"]
+[ext_resource type="Texture2D" uid="uid://bsjxvsml013a3" path="res://sprites/normal_ui_set_free/UI board Small  parchment.png" id="2_sb4nd"]
+[ext_resource type="FontFile" uid="uid://cmejv2it2tskq" path="res://GraffitiPaintBrush.ttf" id="3_05vjy"]
+[ext_resource type="PackedScene" uid="uid://dxtkbbjjkob5v" path="res://escenas/boton.tscn" id="4_i0ueb"]
+[ext_resource type="Texture2D" uid="uid://cesiue51yt2yv" path="res://sprites/efectos/agua.png" id="5_guv3g"]
+[ext_resource type="Texture2D" uid="uid://cetdvsiy58rf2" path="res://sprites/efectos/fuego.png" id="6_vbsgd"]
+[ext_resource type="Texture2D" uid="uid://cx7th6atgid4i" path="res://sprites/efectos/raices.png" id="7_vx60c"]
+[ext_resource type="Texture2D" uid="uid://di2gq4eu055ma" path="res://sprites/efectos/veneno.png" id="8_0shnr"]
+[ext_resource type="Texture2D" uid="uid://dlcuuqn765k27" path="res://sprites/efectos/beer.png" id="9_o4lys"]
+[ext_resource type="Texture2D" uid="uid://c8s3oxxqtl44t" path="res://sprites/efectos/rayo.png" id="10_hiu0w"]
+
+[node name="main" type="Node" unique_id=537823927]
+script = ExtResource("1_guv3g")
+
+[node name="background" type="TextureRect" parent="." unique_id=156903546]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+texture = ExtResource("1_yc5df")
+
+[node name="UiBoardSmallParchment2" type="Sprite2D" parent="background" unique_id=1084397346]
+position = Vector2(417, 160)
+scale = Vector2(1.1625977, 1.1625977)
+texture = ExtResource("2_sb4nd")
+
+[node name="Label" type="Label" parent="background/UiBoardSmallParchment2" unique_id=2120523650]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.45898438
+anchor_right = 0.5
+anchor_bottom = 0.45898438
+offset_left = -648.79126
+offset_top = -209.53528
+offset_right = -21.79129
+offset_bottom = -2.5352783
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_05vjy")
+theme_override_font_sizes/font_size = 18
+text = "Los artefactos tienen una variedad de efectos y puede aplicar distintos
+elementos: agua, fuego, veneno, planta, cerveza y rayo.
+La mayoria de elementos tienen reacciones entre si:
+el fuego y veneno se apilan entre ellos mismos.
+agua/fuego, veneno/rayo y raiz/cerveza se cancelan.
+El agua disminuye el veneno, genera escudo con la raiz y descargas con rayo.
+Rayo con rayo genera una descarga al oponente.
+Cerveza con cerveza genera veneno.
+fuego con raiz o cerveza generan una combustion, recibiendo daño y fuego.
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="volver a menu" parent="background" unique_id=515566042 instance=ExtResource("4_i0ueb")]
+layout_mode = 1
+offset_left = 303.0
+offset_top = 193.00006
+offset_right = 592.0
+offset_bottom = 311.00006
+scale = Vector2(0.8, 0.8)
+label_text = "Volver"
+
+[node name="pagina anterior" parent="background" unique_id=1575029677 instance=ExtResource("4_i0ueb")]
+layout_mode = 1
+offset_left = 301.0
+offset_top = 85.0
+offset_right = 590.0
+offset_bottom = 203.0
+scale = Vector2(0.8, 0.8)
+label_text = "Anterior"
+
+[node name="UiBoardSmallParchment7" type="Sprite2D" parent="background" unique_id=369536924]
+position = Vector2(415, 447.00006)
+scale = Vector2(1.1625977, 1.1625977)
+texture = ExtResource("2_sb4nd")
+
+[node name="Label" type="Label" parent="background/UiBoardSmallParchment7" unique_id=268457647]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -647.6826
+offset_top = -213.1355
+offset_right = -20.682617
+offset_bottom = -27.13549
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_05vjy")
+theme_override_font_sizes/font_size = 18
+text = "-Aplicarle viento a un personaje le transfiere ciertos elementos al otro.
+-La cerveza duplica el daño fisico que recibe el oponente.
+-podes ver las propiedades de los elementos y artefactos con el cursor.
+-los escudos no evitan daño contra veneno.
+-El historial de combate permite saber los efectos de artefactos vistos y
+los ataques del oponente.
+-los efectos de los artefactos son desconocidos al principio del combate.
+-la vida maxima es 110 y recuperas 25 entre rondas!"
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=444516986]
+
+[node name="agua" type="Sprite2D" parent="." unique_id=91926194]
+position = Vector2(292, -246)
+scale = Vector2(2, 2)
+texture = ExtResource("5_guv3g")
+
+[node name="fuego" type="Sprite2D" parent="." unique_id=457717226]
+position = Vector2(396, -246)
+scale = Vector2(2, 2)
+texture = ExtResource("6_vbsgd")
+
+[node name="root" type="Sprite2D" parent="." unique_id=258095794]
+position = Vector2(293, -140)
+scale = Vector2(2, 2)
+texture = ExtResource("7_vx60c")
+
+[node name="veneno" type="Sprite2D" parent="." unique_id=567865528]
+position = Vector2(499, -247)
+scale = Vector2(2, 2)
+texture = ExtResource("8_0shnr")
+
+[node name="birra" type="Sprite2D" parent="." unique_id=1382603416]
+position = Vector2(397, -140)
+scale = Vector2(2, 2)
+texture = ExtResource("9_o4lys")
+
+[node name="rayo" type="Sprite2D" parent="." unique_id=791390171]
+position = Vector2(500, -142)
+scale = Vector2(2, 2)
+texture = ExtResource("10_hiu0w")
+
+[connection signal="pressed" from="background/volver a menu" to="." method="_on_volver_a_menu_pressed"]
+[connection signal="pressed" from="background/pagina anterior" to="." method="_on_pagina_anterior_pressed"]

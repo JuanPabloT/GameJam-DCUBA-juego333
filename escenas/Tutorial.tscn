@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://bxtqmen4c2ok6"]
 
 [ext_resource type="Script" uid="uid://dbs7awrkq6etn" path="res://scripts/tutorial.gd" id="1_jl26d"]
-[ext_resource type="Texture2D" uid="uid://bbu7mlh58nlro" path="res://sprites/cartas/20mBgR.png" id="2_exxca"]
 [ext_resource type="Texture2D" uid="uid://vucj7yse7ek7" path="res://sprites/normal_ui_set_free/UI board Large  stone.png" id="2_oa6hx"]
 [ext_resource type="Texture2D" uid="uid://bsjxvsml013a3" path="res://sprites/normal_ui_set_free/UI board Small  parchment.png" id="3_8f3lp"]
-[ext_resource type="Texture2D" uid="uid://cesiue51yt2yv" path="res://sprites/efectos/agua.png" id="3_g61xo"]
 [ext_resource type="FontFile" uid="uid://cmejv2it2tskq" path="res://GraffitiPaintBrush.ttf" id="4_t45w3"]
 [ext_resource type="Texture2D" uid="uid://bn84gg7kx5554" path="res://sprites/img1.jpeg" id="5_q4til"]
 [ext_resource type="Texture2D" uid="uid://bu2df5u2yhagx" path="res://sprites/img2.jpeg" id="6_vvskx"]
-[ext_resource type="Texture2D" uid="uid://c8s3oxxqtl44t" path="res://sprites/efectos/rayo.png" id="8_vvskx"]
 [ext_resource type="PackedScene" uid="uid://dxtkbbjjkob5v" path="res://escenas/boton.tscn" id="10_v2ggy"]
 
 [node name="main" type="Node" unique_id=2048265753]
@@ -22,130 +19,139 @@ offset_bottom = 324.0
 texture = ExtResource("2_oa6hx")
 
 [node name="UiBoardSmallParchment" type="Sprite2D" parent="background" unique_id=1983928509]
-position = Vector2(228, 209)
-scale = Vector2(0.5800781, 0.5800781)
+position = Vector2(697, 95.00001)
+scale = Vector2(0.63769525, 0.6376953)
 texture = ExtResource("3_8f3lp")
 
 [node name="Label" type="Label" parent="background/UiBoardSmallParchment" unique_id=2076725781]
 anchors_preset = -1
-anchor_left = 0.509
-anchor_top = 0.558
-anchor_right = 0.509
-anchor_bottom = 0.558
-offset_left = -642.6318
-offset_top = -215.25204
-offset_right = -43.631775
-offset_bottom = -20.252037
+anchor_left = 0.50600004
+anchor_top = 0.5
+anchor_right = 0.50600004
+anchor_bottom = 0.5
+offset_left = -645.16425
+offset_top = -203.27112
+offset_right = -35.164215
+offset_bottom = -46.271103
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 0.9372549, 1)
 theme_override_fonts/font = ExtResource("4_t45w3")
 theme_override_font_sizes/font_size = 30
-text = "Cada turno de combate, tenes la oportunidad
-de utilizar un artefacto olvidado generado
-al azar sobre vos mísmo o sobre el enemigo"
+text = "Los artefactos siempre se componen de 3
+partes: una superior, una derecha y una inferior.
+cada parte se distingue por una imagen
+diferente y un efecto asignado a esa imagen
+de forma aleatoria."
 metadata/_edit_use_anchors_ = true
 
 [node name="UiBoardSmallParchment2" type="Sprite2D" parent="background" unique_id=1764113296]
-position = Vector2(214, 79)
-scale = Vector2(0.5283203, 0.5283203)
+position = Vector2(257, 101)
+scale = Vector2(0.6352539, 0.6352539)
 texture = ExtResource("3_8f3lp")
 
 [node name="Label" type="Label" parent="background/UiBoardSmallParchment2" unique_id=712073254]
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -646.63214
-offset_top = -173.42697
-offset_right = -33.63214
-offset_bottom = -57.966705
+anchor_top = 0.4344927
+anchor_right = 0.50000006
+anchor_bottom = 0.73659885
+offset_left = -639.0609
+offset_top = -196.4057
+offset_right = -26.060974
+offset_bottom = -80.94544
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_t45w3")
 theme_override_font_sizes/font_size = 36
-text = "Tu objetivo: ganar 3 combates seguidos
-del torneo de artificieros!"
+text = "Bienvenido al torneo del artificiero!
+En este juego te vas a enfrentar a
+distintos enemigos y vas a utilizar un
+artefacto con efectos seleccionados
+aleatoriamente para ganar."
 metadata/_edit_use_anchors_ = true
 
 [node name="UiBoardSmallParchment3" type="Sprite2D" parent="background" unique_id=1681561946]
-position = Vector2(225, 569)
-scale = Vector2(0.5283203, 0.5283203)
+position = Vector2(260, 276.00003)
+scale = Vector2(0.6763908, 0.68829346)
 texture = ExtResource("3_8f3lp")
 
 [node name="Label" type="Label" parent="background/UiBoardSmallParchment3" unique_id=1625330334]
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.55600005
-anchor_right = 0.5
-anchor_bottom = 0.55600005
-offset_left = -623.9187
-offset_top = -225.6188
-offset_right = -54.188477
-offset_bottom = -30.618805
+anchor_left = 0.35901892
+anchor_top = 0.48597637
+anchor_right = 0.35901892
+anchor_bottom = 0.48597637
+offset_left = -542.3627
+offset_top = -194.30756
+offset_right = 63.63733
+offset_bottom = -53.307556
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_t45w3")
-theme_override_font_sizes/font_size = 30
-text = "Los efectos que tiene cada parte del 
-artefacto varían en cada enfrentamiento.
-Estos efectos consisten en aplicación
- de daño, escudos, etc. "
+theme_override_font_sizes/font_size = 34
+text = "Los efectos asignados a cada imagen  son 
+aleatorios y se mantienen durante
+este combate pero son modificados
+el siguiente."
 metadata/_edit_use_anchors_ = true
 
 [node name="UiBoardSmallParchment4" type="Sprite2D" parent="background" unique_id=108963978]
-position = Vector2(609, 78)
-scale = Vector2(0.5283203, 0.5283203)
+position = Vector2(249, 418.00003)
+scale = Vector2(0.5095847, 0.5246582)
 texture = ExtResource("3_8f3lp")
 
 [node name="Label" type="Label" parent="background/UiBoardSmallParchment4" unique_id=637906518]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -606.88354
-offset_top = -215.0684
-offset_right = -71.22363
-offset_bottom = -20.068405
+anchors_preset = -1
+anchor_left = 0.50100005
+anchor_top = 0.49400002
+anchor_right = 0.50100005
+anchor_bottom = 0.49400002
+offset_left = -648.8043
+offset_top = -202.468
+offset_right = -31.804321
+offset_bottom = -53.46801
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_t45w3")
-theme_override_font_sizes/font_size = 35
-text = "Entre los efectos posibles existe la
-aplicación de condiciones de estado.
-Estas pueden reaccionar entre si
-generando efectos nuevos."
+theme_override_font_sizes/font_size = 37
+text = "En cada combate siempre vas a poder
+elegir entre aplicar los efectos del
+artefacto sobre vos al consumirlo o
+utilizarlo sobre el oponente"
 metadata/_edit_use_anchors_ = true
 
 [node name="UiBoardSmallParchment5" type="Sprite2D" parent="background" unique_id=1836205221]
-position = Vector2(624, 208)
-scale = Vector2(0.5800781, 0.5800781)
+position = Vector2(711.52734, 275.625)
+scale = Vector2(0.6845703, 0.6845703)
 texture = ExtResource("3_8f3lp")
 
 [node name="Label" type="Label" parent="background/UiBoardSmallParchment5" unique_id=315779716]
 anchors_preset = -1
-anchor_left = 0.48900002
+anchor_left = 0.4809118
 anchor_top = 0.439
-anchor_right = 0.48900002
-anchor_bottom = 0.439
-offset_left = -629.0318
-offset_top = -191.68367
-offset_right = -51.523376
-offset_bottom = -64.11464
+anchor_right = 0.4970883
+anchor_bottom = 0.69959927
+offset_left = -634.209
+offset_top = -198.02167
+offset_right = -30.209015
+offset_bottom = -70.45264
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_t45w3")
-theme_override_font_sizes/font_size = 38
-text = "Los efectos de artefactos vistos
-anteriormente este torneo son
-visibles al pasar el cursor
-por encima"
+theme_override_font_sizes/font_size = 29
+text = "Por ejemplo, en un combate una llama puede
+aplicar mojado y en el siguiente crear un escudo.
+siempre podes ver el efecto de cada fragmento
+en un historial a la derecha en combate o
+con el cursor sobre cada parte del nuevo
+artefacto una vez veas que hacen cada una."
 metadata/_edit_use_anchors_ = true
 
 [node name="UiBoardSmallParchment6" type="Sprite2D" parent="background" unique_id=763571194]
-position = Vector2(913, 392.99997)
+position = Vector2(249, 549.99994)
 scale = Vector2(0.5800781, 0.5800781)
 texture = ExtResource("3_8f3lp")
 
@@ -155,59 +161,54 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -634.7879
-offset_top = -205.57568
-offset_right = -81.414
-offset_bottom = -10.575668
+offset_left = -634.78784
+offset_top = -207.29956
+offset_right = -58.787872
+offset_bottom = -12.299545
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_t45w3")
 theme_override_font_sizes/font_size = 30
 text = "El orden con el que se aplican los
 efectos de los 3 fragmentos de los
 artefactos es arriba->derecha->abajo
-En este ejemplo es mate->moai->corona"
+En este ejemplo es lampara->moai->corona"
 metadata/_edit_use_anchors_ = true
 
 [node name="img1" type="TextureRect" parent="." unique_id=1591395631]
-offset_left = -526.0
-offset_top = -42.0
-offset_right = -176.23938
-offset_bottom = 179.0
+offset_left = -106.98306
+offset_top = 41.0
+offset_right = 280.76062
+offset_bottom = 286.0
 texture = ExtResource("5_q4til")
 expand_mode = 1
 
 [node name="img2" type="TextureRect" parent="." unique_id=973829294]
-offset_left = -114.0
-offset_top = -34.0
-offset_right = 113.0
-offset_bottom = 174.0
+offset_left = 365.0
+offset_top = -293.0
+offset_right = 537.4327
+offset_bottom = -135.0
 texture = ExtResource("6_vvskx")
 expand_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1658754267]
 
-[node name="20mBgR" type="Sprite2D" parent="." unique_id=679956844]
-position = Vector2(353.00006, -91.000015)
-scale = Vector2(0.15636362, 0.15636362)
-texture = ExtResource("2_exxca")
-
-[node name="Agua" type="Sprite2D" parent="." unique_id=1529135205]
-position = Vector2(263.00003, -237)
-scale = Vector2(1.5100002, 1.3949999)
-texture = ExtResource("3_g61xo")
-
-[node name="Agua" type="Sprite2D" parent="Agua" unique_id=2037616642]
-position = Vector2(58.27814, -0.71684957)
-scale = Vector2(1.0066305, 1.001395)
-texture = ExtResource("8_vvskx")
-
 [node name="Iniciar" parent="." unique_id=515566042 instance=ExtResource("10_v2ggy")]
-offset_left = -285.0
-offset_top = -125.0
-offset_right = 4.0
-offset_bottom = -7.0
+offset_left = -272.99994
+offset_top = -130.99998
+offset_right = 16.000061
+offset_bottom = -13.0
 scale = Vector2(0.8, 0.8)
 label_text = "Volver"
 
+[node name="Iniciar2" parent="." unique_id=845416104 instance=ExtResource("10_v2ggy")]
+offset_left = -275.0
+offset_top = -239.0
+offset_right = 14.0
+offset_bottom = -121.0
+scale = Vector2(0.8, 0.8)
+label_text = "Siguiente"
+
 [connection signal="pressed" from="Iniciar" to="." method="_on_retorno_pressed"]
+[connection signal="pressed" from="Iniciar2" to="." method="_on_iniciar_2_pressed"]
