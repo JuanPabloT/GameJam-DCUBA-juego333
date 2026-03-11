@@ -143,11 +143,12 @@ func _clemen_tina_turn() -> void:
 					$"../Audio/clemen_tina/tina1".play()
 				1:
 					$"../Audio/clemen_tina/tina2".play()
-			await self.add_shield(8)
-			notificar("se aplicó 8 escudo")
-			await enemy.apply_water()
-			notificar("te aplicó agua")
-			var damage = randi_range(3, 7)
+			await self.add_shield(5)
+			notificar("se aplicó 5 escudo")
+			if randi_range(0, 2) == 0:
+				enemy.apply_root()
+				notificar("te aplicó raíces")
+			var damage = randi_range(2, 4)
 			await enemy.deal_ordinary_damage(damage)
 			notificar("hizo "+str(damage)+" daño físico")
 		1:
@@ -157,11 +158,11 @@ func _clemen_tina_turn() -> void:
 					$"../Audio/clemen_tina/clemen1".play()
 				1:
 					$"../Audio/clemen_tina/clemen2".play()
-			await self.heal_by(7)
-			notificar("se curó por 7")
+			await self.heal_by(5)
+			notificar("se curó por 5")
 			await enemy.apply_lightning()
 			notificar("te aplicó relámpago")
-			var damage = randi_range(2, 6)
+			var damage = randi_range(0, 3)
 			await enemy.deal_ordinary_damage(damage)
 			notificar("hizo "+str(damage)+" daño físico")
 		2:
@@ -170,9 +171,7 @@ func _clemen_tina_turn() -> void:
 			$"../Audio/clemen_tina/clemen3".play()
 			await enemy.set_on_fire()
 			notificar("te prendió fuego")
-			await enemy.apply_poison(2)
-			notificar("te aplicó 2 veneno")
-			var damage = randi_range(4, 8)
+			var damage = randi_range(2, 5)
 			await enemy.deal_ordinary_damage(damage)
 			notificar("hizo "+str(damage)+" daño físico")
 	clemen_tina_turn+=1
@@ -190,20 +189,21 @@ func _elemental_turn() -> void:
 		0:
 			await enemy.set_on_fire()
 			notificar("te prendió fuego")
-			var damage = randi_range(3, 7)
+			var damage = randi_range(1, 5)
 			await enemy.deal_ordinary_damage(damage)
 			notificar("hizo "+str(damage)+" daño físico")
 
 		1:
 			await enemy.set_on_fire()
 			notificar("te prendió fuego")
-			await enemy.set_on_fire()
-			notificar("te prendió fuego")
+			if randi_range(0, 1) == 1:
+				await enemy.set_on_fire()
+				notificar("te prendió fuego")
 		2:
 			await self.set_on_fire()
 			notificar("se prendió fuego")
-			await self.heal_by(12)
-			notificar("se curó por 12")
+			await self.heal_by(10)
+			notificar("se curó por 10")
 			var damage = randi_range(2, 5)
 			await enemy.deal_ordinary_damage(damage)
 			notificar("hizo "+str(damage)+" daño físico")
@@ -227,8 +227,9 @@ func _liliana_turn() -> void:
 			await enemy.deal_ordinary_damage(damage)
 			notificar("hizo "+str(damage)+" daño físico")
 		3,4:
-			await enemy.apply_wind()
-			notificar("te sopló viento")
+			if randi_range(0, 2) == 0:
+				await enemy.apply_wind()
+				notificar("te sopló viento")
 			await self.apply_wind()
 			notificar("se sopló viento")
 		5,6:
@@ -236,8 +237,8 @@ func _liliana_turn() -> void:
 			notificar("se prendió fuego")
 			await self.apply_wind()
 			notificar("se sopló viento")
-			await enemy.deal_ordinary_damage(6)
-			notificar("hizo 6 daño físico")
+			await enemy.deal_ordinary_damage(3)
+			notificar("hizo 3 daño físico")
 			
 
 func _gaucho_turn() -> void:
@@ -253,26 +254,24 @@ func _gaucho_turn() -> void:
 		0,1,2:
 			await self.apply_beer()
 			notificar("bebió cerveza")
-			var damage = randi_range(3, 6)
+			var damage = randi_range(2, 4)
 			await enemy.deal_ordinary_damage(damage)
 			notificar("hizo "+str(damage)+" daño físico")
 		3,4:
-			await self.apply_beer()
-			notificar("bebió cerveza")
 			
-			await self.apply_beer()
-			notificar("bebió cerveza")
-			
-			var damage = randi_range(3, 5)
+			var damage = randi_range(2, 4)
 			await enemy.deal_ordinary_damage(damage)
 			notificar("hizo "+str(damage)+" daño físico")
+			
+			await enemy.apply_root()
+			notificar("te aplicó raíces")
 		5:
 			await enemy.apply_beer()
 			notificar("te aplicó cerveza")
 			
 			await self.apply_water()
 			notificar("se aplicó agua")
-			var damage = randi_range(4, 10)
+			var damage = randi_range(3, 6)
 			await enemy.deal_ordinary_damage(damage)
 			notificar("hizo "+str(damage)+" daño físico")
 
@@ -290,8 +289,8 @@ func _alien_turn() -> void:
 		0:
 			await enemy.apply_lightning()
 			notificar("te aplicó relámpago")
-			await self.add_shield(10)
-			notificar("se aplicó 10 escudo")
+			await self.add_shield(7)
+			notificar("se aplicó 7 escudo")
 			
 		1,2:
 			await self.add_shield(5)
@@ -302,7 +301,7 @@ func _alien_turn() -> void:
 		3:
 			await self.apply_wind()
 			notificar("se sopló viento")
-			var damage = randi_range(4, 10)
+			var damage = randi_range(4, 9)
 			await enemy.deal_ordinary_damage(damage)
 			notificar("hizo "+str(damage)+" daño físico")
 
@@ -327,16 +326,16 @@ func _bruja_turn() -> void:
 		1:
 			await self.apply_water()
 			notificar("se aplicó agua")
-			await self.heal_by(8)
-			notificar("se curó por 8")
-			var damage = randi_range(3, 6)
+			await self.heal_by(5)
+			notificar("se curó por 5")
+			var damage = randi_range(3, 5)
 			await enemy.deal_ordinary_damage(damage)
 			notificar("hizo "+str(damage)+" daño físico")
 		2:
 			await enemy.apply_poison(2)
 			notificar("te aplicó 2 veneno")
 			
-			var damage = randi_range(5, 8)
+			var damage = randi_range(5, 7)
 			await enemy.deal_ordinary_damage(damage)
 			notificar("hizo "+str(damage)+" daño físico")
 
@@ -366,7 +365,7 @@ func _apple_turn() -> void:
 			await enemy.deal_ordinary_damage(damage)
 			notificar("hizo "+str(damage)+" daño físico")
 		4:
-			var damage = randi_range(9, 14)
+			var damage = randi_range(9, 12)
 			await enemy.deal_ordinary_damage(damage)
 			notificar("hizo "+str(damage)+" daño físico")
 
